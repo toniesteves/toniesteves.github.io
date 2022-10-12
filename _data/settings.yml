@@ -10,7 +10,7 @@ description: I'm a deep learning researcher and data scientist focused on comput
 # Author Global Settings
 author:
   author__name: Toni Esteves
-  author__bio: Hi there! I’m a deep learning researcher and data scientist focused on computer vision and pattern recognition. I’m really passionate about data, work with topics like pattern recognition, inferential and descriptive statistics, probability, deep learning.
+  author__bio: Hi there! I'm a deep learning researcher and data scientist focused on computer vision and pattern recognition. I'm really passionate about data, work with topics like pattern recognition, inferential and descriptive statistics, probability, deep learning.
   
   author__avatar: /images/toni.jpg
 
@@ -29,8 +29,16 @@ menu__settings:
         title: 'Authors'
       - url: '/elements/'
         title: 'Elements'
-      - url: '/travel/'
-        title: 'Travel'
+      - url: '/education/'
+        title: 'Education'
+      - url: '/projects/'
+        title: 'Projects'
+      - url: '/publications/'
+        title: 'Publications'
+      - url: '/skills/'
+        title: 'Skills'
+      - url: '/work/'
+        title: 'Work'
     - title: 'Contact'
       url: '/contact/'
 
@@ -47,7 +55,7 @@ hero:
 # Blog Settings
 blog:
   blog__title: Blog & Resources
-  blog__description: Find out how to set up a successful blog or how to make yours even better!
+  blog__description: Find out how relevant topics about Machine Learning and Data Science!
 
 
 #-------------------------------
@@ -82,19 +90,22 @@ footer__menu__settings:
       url: '/about/'
     - title: 'Contact'
       url: '/contact/'
-    - title: 'Authors'
-      url: '/authors/'
-    - title: 'Elements'
-      url: '/elements/'
-
+    - url: '/education/'
+      title: 'Education'
+    - url: '/projects/'
+      title: 'Projects'
+    - url: '/publications/'
+      title: 'Publications'
+    - url: '/skills/'
+      title: 'Skills'
+    - url: '/work/'
+      title: 'Work'
 
 # Social Links
 social:
-- {icon: "ion-logo-twitter", color: "#55acee", name: Twitter, link: "https://twitter.com"}
-- {icon: "ion-logo-facebook", color: "#3b5999", name: Facebook, link: "https://facebook.com"}
-- {icon: "ion-logo-pinterest", color: "#bd081c", name: Pinterest, link: "https://pinterest.com"}
-- {icon: "ion-logo-dribbble", color: "#ea4c89", name: Dribbble, link: "https://dribbble.com"}
-- {icon: "ion-logo-instagram", color: "#e4405f", name: Instagram, link: "https://instagram.com"}
+- {icon: "ion-logo-twitter", color: "#55acee", name: Twitter, link: "https://twitter.com/estevestoni"}
+- {icon: "ion-logo-linkedin", color: "#0073B1", name: Linkedin, link: "https://www.linkedin.com/in/toniesteves/"}
+- {icon: "ion-logo-github", color: "#171516", name: Github, link: "https://github.com/toniesteves"}
 
 # Example of adding a new link to the footer - {icon: "ion-logo-youtube", color: "#ff0000", name: Youtube, link: "https://youtube.com"}
 # Other icons can be found at https://ionicons.com/v4/
