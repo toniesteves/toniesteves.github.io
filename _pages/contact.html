@@ -1,15 +1,16 @@
 ---
 layout: page
 title: Contact
-description: 'Dann comes with a built-in contact form, that you can use with Formspree service to handle up to 50
-submissions per month for free. You could also easily switch to another contact form service if you want.'
+description: 'Please feel free to get in touch!'
 permalink: /contact/
 image: '/images/111.jpg'
 image_caption: 'Photo by [Brad Neathery](https://unsplash.com/photos/XrSzacdYbtQ) on [Unsplash](https://unsplash.com/)'
 ---
 
 <div class="form-box">
-  <form class="form" action="{% if site.data.settings.contact.email %}https://formspree.io/f/{{site.data.settings.contact.email}}{% else %}#{% endif %}" method="POST">
+  <form class="form"
+    action="{% if site.data.settings.contact.email %}https://formspree.io/f/{{site.data.settings.contact.email}}{% else %}#{% endif %}"
+    method="POST">
     <div class="form__group">
       <label class="form__label screen-reader-text" for="form-name">Your Name</label>
       <input class="form__input" id="form-name" type="text" name="name" placeholder="Name" required>
