@@ -4,7 +4,7 @@ title: 10 coisas que aprendi na transição de Desenvolvedor para Cientista de D
 description: Há algum tempo (mais especificamente 4 anos) iniciei minha jornada na carreira de dados. Meu background sempre foi de tecnologia, logo não tive tanta dificuldade em lidar com bibliotecas e linguagens de programação. No entanto, precisei efetuar uma virada de chave em certos aspectos que me fizessem evoluir na área de dados e perceber certas situações a partir de outras perspectivas. Assim, partindo da minha pouca experiencia ainda na área de dados, resolvi elencar alguns pontos que achei determinantes na minha carreira para essa virada de chave. 
 date: 2022-09-05 15:01:35 +0300
 author: toni
-image: '/images/20220905/cover.jpeg'
+image: '/images/posts/20220905/cover.jpeg'
 image_caption: 'Photo by [Oliver Sjöström](https://unsplash.com/photos/m-qps7eYZl4) on [Unsplash](https://unsplash.com/)'
 tags: [Carreira, Ciencia de Dados, Dev]
 featured: true

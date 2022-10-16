@@ -27,10 +27,12 @@ menu__settings:
       submenu:
       - url: '/books/'
         title: 'Books'
-      - url: '/elements/'
-        title: 'Elements'
       - url: '/education/'
         title: 'Education'
+      - url: '/elements/'
+        title: 'Elements'
+      - url: '/experience/'
+        title: 'Experience'
       - url: '/projects/'
         title: 'Projects'
       - url: '/publications/'
@@ -39,8 +41,6 @@ menu__settings:
         title: 'Skills'
       - url: '/wiki/'
         title: 'Wiki'
-      - url: '/work/'
-        title: 'Work'
     - title: 'Contact'
       url: '/contact/'
 

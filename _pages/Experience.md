@@ -11,15 +11,23 @@ permalink: /work/
     Jul 2020 - Oct 2021<br/> 
     Belo Horizonte, Minas Gerais, Brazil
 
+    I have actively work with financial team, this time in a more strategical way. Besides, get involved with data scientist operational tasks, I actively work with financial products' idealization anti-fraud prevention strategies
+
     * Actively working with financial services data scientists squad.
+    * Devising new approaches to risk analysis or finding ways of automating the risk management process (risk management).
+    * Designing and building high-performance identity verification applications that can withstand aggressive fraud attacks (fraud detection).
     * Support Risks and Compliance team with data insights to fraud detection.
     * Support financial services with data insights.
     * Plan and build goals and OKR's for the team growth.
     * Building valuable ML products since their conception, through development and productization.
+
+
 <br/> <br/> 
 * **Data Scientist** - 
     Jul 2020 - Oct 2021<br/> 
     Belo Horizonte, Minas Gerais, Brazil
+
+     I provide support and advice to relevant teams within the organization, including investment teams, and develop tools and dashboards to improve the investment process.
 
     * Build and validate valuable machine learning models to prevent fraud.
     * Support Risks and Compliance team with data insights to fraud detection.
@@ -27,6 +35,8 @@ permalink: /work/
     * Collect data to provide easy access to information by answering business questions.
     * Conduct data studies as also validate the business hypotheses.
     * Development and maintenance of KPIs, reports, and dashboards.
+    * Devising and coding novel algorithms from scratch, to help manage the data analytics and machine learning processes.
+    * Conducting quantitative analysis to obtain insights, developing these into workable solutions, and then following these through to successful delivery (while measuring outcomes).
 
 ***
 
