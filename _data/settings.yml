@@ -93,6 +93,8 @@ footer__menu__settings:
       url: '/contact/'
     - url: '/education/'
       title: 'Education'
+    - url: '/experience/'
+      title: 'Experience'
     - url: '/projects/'
       title: 'Projects'
     - url: '/publications/'
@@ -101,8 +103,6 @@ footer__menu__settings:
       title: 'Skills'
     - url: '/wiki/'
       title: 'Wiki'
-    - url: '/work/'
-      title: 'Work'
 
 # Social Links
 social:

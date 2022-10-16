@@ -2,7 +2,7 @@
 layout: page
 title: Experience
 # description: Notes about algorithmics and concepts related to ML/DS/DL
-permalink: /work/
+permalink: /experience/
 # image: '/images/17.jpg'
 ---
 
