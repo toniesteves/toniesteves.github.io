@@ -76,7 +76,7 @@ mailchimp:
   mailchimp__description: Subscribe to our newsletter and we’ll send you the emails of latest posts.
   mailchimp__input__text: Your Email Address...
   mailchimp__button__text: Subscribe
-  mailchimp__background__image: "/images/110.jpg"
+  mailchimp__background__image: "/images/commom/mailchimp_background_image.jpg"
 
 
 #-------------------------------
