@@ -40,7 +40,7 @@ permalink: /experience/
 
 ***
 
-#### Universidade Federal de Campina Grande
+#### Laboratório de Percepção Computacional - UFCG
 * **Deep Learning Researcher** - 
     Mar 2019 - Feb 2022<br/>
     Campina Grande, Brazil
