@@ -65,8 +65,7 @@ blog:
 tag:
   enable: true
   tag__title: Recommended
-  tag__name: Motivation
-
+  tag__name: data-science
 
 #-------------------------------
 # Newsletter Settings
@@ -118,7 +117,7 @@ social:
 #-------------------------------
 # Contact Settings
 contact:
-  email: your@email.com # Add your email for contant form
+  email: toni.esteves@gmail.com # Add your email for contant form
 
 # NOTE
 # Dann theme comes with a contact form built-in. You can use this form with Formspree (https://formspree.io/) service and get up to 50 submissions for free. Also, you can easily switch to another service if you want.

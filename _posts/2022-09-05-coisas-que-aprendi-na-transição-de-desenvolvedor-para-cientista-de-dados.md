@@ -6,7 +6,7 @@ date: 2022-09-05 15:01:35 +0300
 author: toni
 image: '/images/posts/20220905/cover.jpeg'
 image_caption: 'Photo by [Oliver Sjöström](https://unsplash.com/photos/m-qps7eYZl4) on [Unsplash](https://unsplash.com/)'
-tags: [Carreira, Ciencia de Dados, Dev]
+tags: [carrer, data-science, dev]
 featured: true
 ---
 

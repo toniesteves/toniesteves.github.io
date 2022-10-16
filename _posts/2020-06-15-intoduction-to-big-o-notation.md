@@ -6,7 +6,7 @@ date: 2020-06-15 15:01:35 +0300
 author: toni
 image: '/images/posts/20200615/cover.jpg'
 image_caption: 'Photo by [Dan Cristian Pădureț](https://unsplash.com/photos/xJLN32FO7AY) on [Unsplash](https://unsplash.com/)'
-tags: [Complexity, Algorithms, Data Structures, Big O Notation, Python]
+tags: [complexity, algorithms, data structures, big o notation, python]
 featured: true
 ---
 
