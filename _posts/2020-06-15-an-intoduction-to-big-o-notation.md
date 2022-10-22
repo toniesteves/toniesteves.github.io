@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introduction to Big O notation.
+title: An introduction to Big O notation.
 description: Big O notation is an important topic and its universal importance derives from the fact that it describes the efficiency of code written in any programming language.
 date: 2020-06-15 15:01:35 +0300
 author: toni
