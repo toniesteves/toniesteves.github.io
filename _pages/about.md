@@ -7,9 +7,9 @@ image: '/images/toni.jpg'
 # image_caption: 'Photo by [Roman Shilin](https://unsplash.com/photos/Eg8_37ws7F0) on [Unsplash](https://unsplash.com/)'
 ---
 
-Hi! I’m Working in the tech industry since 2010 and I’ve been a developer for 7 years, during which time I have worked with several languages, such as Java, Ruby, and Python.
+Hi! I’m Working in the tech industry since 2010 and I’ve been a developer for 10 years, during which time I have worked with several languages, such as Java, Ruby, and Python.
 
-I've got a master's degree in Deep Learning, Graduate Studies in Database Management and Agile Software Development with a Bachelor's Degree in Information Systems. With a focus on computer vision and data science, I am passionate about science and machine learning, working as a researcher primarily on the following topics: pattern recognition, inferential and descriptive statistics, probability, deep learning, operational research and quantitative finance.
+I’m Ph.D student in mathematical optimizaation and I've got a master's degree in Deep Learning, Graduate Studies in Database Management and Agile Software Development with a Bachelor's Degree in Information Systems. With a focus on computer vision and data science, I am passionate about science and machine learning, working as a researcher primarily on the following topics: pattern recognition, inferential and descriptive statistics, probability, deep learning, operational research and quantitative finance.
 
 I have solved problems in fields such as Clustering, Anomaly Detections, and classification models by using machine learning and Deep Learning. I love work with financial area too, solving problems with fraud detection and and financial forecasts, building valuable ML products since their conception, through development and productization.
 
