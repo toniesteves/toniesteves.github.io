@@ -65,7 +65,7 @@ blog:
 tag:
   enable: true
   tag__title: Recommended
-  tag__name: data-science
+  tag__name: optimization
 
 #-------------------------------
 # Newsletter Settings

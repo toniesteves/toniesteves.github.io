@@ -6,7 +6,7 @@ date: 2021-07-13 15:01:35 +0300
 author: toni
 image: '/images/posts/20210713/cover.png'
 image_caption: 'Photo by [Oliver Sjöström](https://unsplash.com/photos/m-qps7eYZl4) on [Unsplash](https://unsplash.com/)'
-tags: [machine-learning, data-science]
+tags: [machine learning, data science]
 featured: false
 ---
 
@@ -114,15 +114,15 @@ This method is ideal when you want to move quickly (and break things) because yo
 
 ### What "Shadow Mode" definitely is not.
 
-* An A/B test. As previously mentioned in an A/B test, traffic is split between the two models, while in shadow mode both models operate on the same events.
+* **An A/B test.** As previously mentioned in an A/B test, traffic is split between the two models, while in shadow mode both models operate on the same events.
 
-* A complementary model. The results returned by the model in shadow mode should not be combined with the results of the model currently in production. If the idea is to build an ensemble, this ensemble will compose a new model by itself, which in turn will be the model present in shadow mode.
+* **A complementary model.** The results returned by the model in shadow mode should not be combined with the results of the model currently in production. If the idea is to build an ensemble, this ensemble will compose a new model by itself, which in turn will be the model present in shadow mode.
 
-* A model that makes business decisions directly. The shadow mode model will not present results to the business area, nor will it expose customers to a new version of its service. Your results will be recorded and evaluated by the responsible team, but with the aim of optimizing and providing insights into the model that is currently in production.
+* **A model that makes business decisions directly.** The shadow mode model will not present results to the business area, nor will it expose customers to a new version of its service. Your results will be recorded and evaluated by the responsible team, but with the aim of optimizing and providing insights into the model that is currently in production.
 
 ### Conclusion
 
-Deploying a model in shadow mode is an easy way to test your model on live data. It is flexible and allows you to empower the right team to control the experiment. Also, the sooner you put your model into production to evaluate real-world data, the better feedback you get on that model's behavior.
+Deploy models in shadow mode is an easy way to test your model on live data. It is flexible and allows you to empower the right team to control the experiment. Also, the sooner you put your model into production to evaluate real-world data, the better feedback you get on that model's behavior.
 
 Finally, I hope this material has been useful and makes sense to you, especially for beginners. In addition, in the references section you can find very useful material used to prepare this article that can help you expand your knowledge on the subject.
 

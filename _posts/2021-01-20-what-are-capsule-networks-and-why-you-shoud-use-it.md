@@ -6,7 +6,7 @@ date: 2021-01-20 15:01:35 +0300
 author: toni
 image: '/images/posts/20210120/cover.png'
 image_caption: 'Photo by [Oliver Sjöström](https://unsplash.com/photos/m-qps7eYZl4) on [Unsplash](https://unsplash.com/)'
-tags: [cnn, deep-learning, neural-networks]
+tags: [CNN, deep learning, neural-networks]
 featured: true
 ---
 
@@ -181,9 +181,9 @@ I have got some repositories on Github that address the practical implementation
 In addition, Geoffrey Hinton's own presentation on Capsule Networks is available on youtube.
 
 
-  [![Geoffrey Hinton – Capsule Networks](https://img.youtube.com/vi/x5Vxk9twXlE/0.jpg)](https://www.youtube.com/watch?v=x5Vxk9twXlE)
+  <!-- [![Geoffrey Hinton – Capsule Networks](https://img.youtube.com/vi/x5Vxk9twXlE/0.jpg)](https://www.youtube.com/watch?v=x5Vxk9twXlE) -->
 
-
+<p><iframe src="https://www.youtube.com/embed/x5Vxk9twXlE" loading="lazy" frameborder="0" allowfullscreen></iframe></p>
 
 
 Finally, I hope this material has been useful and makes sense to you, especially for beginners. In addition, in the references section you can find a very useful material used to prepare this article that can help you expand your knowledge on the subject.

@@ -1,43 +1,41 @@
 ---
 layout: post
-title: The 10 insighs I learned in the transition from Developer to Data Scientist.
-description: Some time ago (more precisely 4 years ago) I started my data career journey. My background has always been in technology, so I didn't have so much trouble dealing with libraries and programming languages. However, I made a key turning point in certain aspects that made me evolve in the data area and perceive certain situations from other perspectives. So, based on my little experience in the data area, I decided to list some points that I was decisive in my career for this turning point. 
+title: 10 coisas que aprendi na transição de Desenvolvedor para Cientista de Dados.
+description: Há algum tempo (mais especificamente 4 anos) iniciei minha jornada na carreira de dados. Meu background sempre foi de tecnologia, logo não tive tanta dificuldade em lidar com bibliotecas e linguagens de programação. No entanto, precisei efetuar uma virada de chave em certos aspectos que me fizessem evoluir na área de dados e perceber certas situações a partir de outras perspectivas. Assim, partindo da minha pouca experiencia ainda na área de dados, resolvi elencar alguns pontos que achei determinantes na minha carreira para essa virada de chave.
 date: 2022-09-05 15:01:35 +0300
 author: toni
 image: '/images/posts/20220905/cover.jpeg'
 image_caption: 'Photo by [Oliver Sjöström](https://unsplash.com/photos/m-qps7eYZl4) on [Unsplash](https://unsplash.com/)'
-tags: [career, data-science, dev]
+tags: [career, data science, dev]
 featured: true
 ---
 
-> *The insights listed here are based on my own experience over the last 4 years. It is NOT the absolute truth, under any circumstances, because as I highlight below, people have different backgrounds, leading to different insights, under different aspects. The topics below are a mere summary of my personal experience.*
+> *Os tópicos aqui elencados são um relato da minha experiência pessoal nesses últimos 4 anos. NÃO se trata em hipótese alguma da verdade absoluta, até porque, como destaco abaixo, pessoas tem backgrounds diferentes, levando a insights diferentes, sob aspectos diferentes. Os tópicos abaixo são um mero resumo da minha experiência pessoal.*
 
 
-So, let's go to the points that I can highlight in my little journey through the world of data.
+Assim, vamos aos pontos que eu consigo destacar nessa minha pequena trajetória pelo mundo de dados.
 
+- **Entender que ambiente de pesquisa difere de ambiente de produção.** Por mais robusto que seja um produto, seja no ambiente de pesquisa, às vezes ele pode ser inviável para o ambiente de produção — Podemos usar como exemplo um modelo em batch de detecção de fraudes que utiliza o histórico de acessos de Ips de 1 ano contabilizando 16M de linhas.
 
-- **Understand that the research environment differs from the production environment.** As robust as a product is, whether in the research environment, sometimes it can be unfeasible for the production environment - We can use a batch model as an example fraud detection system that uses 1-year IP access history, accounting for 16M lines.
+- **Será que os dados que temos realmente respondem à pergunta que queremos responder?** Muitas vezes acreditamos ter “todos os dados necessários” e de fato até temos, porém, talvez esses dados não respondam às perguntas que estamos tentando responder.
+- **Cronograma. “Já temos a data de entrega?”** Considerando o conceito de MVP, sim. Porém, do ponto de vista do produto completo, é muito complexo estimar uma data de entrega de forma absoluta. Projetos de IA/ML não lidam tão bem com calendário.
 
-- **Does the data we have really answer the question we want to answer?** We often believe we have "all the necessary data" and in fact we do, however, this data may not answer the questions we are trying to answer.
+- **“Vamos conseguir atingir o objetivo?”** A garantia de se atingir o objetivo de forma absoluta e satisfatória para TODOS os stakeholders é por vezes complexa de se estimar, transformando esse grau de incerteza inerente a projetos de inteligência artificial. Ou seja, projetos de IA/DS/ML diferem totalmente de projetos de software, onde sabemos de onde saímos e temos certeza que conseguiremos chegar no produto acordado, enquanto em um projeto de IA estamos sempre reavaliando dados, algoritmos, perguntas para alcançar uma métrica aceitável para o negócio (Enquanto seu cliente espera 100% de exatidão).
 
-- **Timeline. "Do we already have a delivery date?"** Considering the MVP concept, yes. However, from the point of view of the complete product, it is very complex to estimate a delivery date in an absolute way. AI/ML projects don't handle calendar so well.
+- **Ciências humanas e exatas estão intimamente relacionadas.** É absurdamente comum em uma reunião de alinhamento um especialista da área de marketing jogar para você contextos, situações, diálogos e indicadores para estes serem transformados em números, estatísticas, matrizes e equações de álgebra linear, algo que realmente não somos ensinados e nem acostumados — Nenhuma empresa de DS contrata você para simplesmente “encontrar o valor de x”.
 
-- **"Will we be able to achieve the objective?"** The guarantee of achieving the objective in an absolute and satisfactory way for ALL stakeholders is sometimes complex to estimate, transforming this degree of uncertainty inherent to artificial intelligence projects. That is, AI/DS/ML projects totally differ from software projects, where we know where we came from and we are sure that we will be able to reach the agreed product, while in an AI project we are always re-evaluating data, algorithms, questions to reach a metric. acceptable for the business (As long as your customer expects 100% accuracy).
+- **O processo não é tão iterativo e incremental quanto se pensa.** Por vezes você vai treinar, configurar, treinar novamente, avaliar resultado, adicionar dados, treinar uma vez mais, configurar, etc. Além disso, o processo de engenharia reversa para reavaliar os pontos de você errou é mais comum do que você imagina, várias vezes você precisa voltar onde errou, mas você não sabe ainda que ponto é esse.
 
-- **Human and exact sciences are closely related.** It is very common in an alignment meeting for a marketing specialist to ask about contexts, situations, dialogues and indicators for you to transform them into numbers, statistics, matrices and equations of linear algebra, something we're not really taught or used to. No DS company hires you to simply "find the value of x".
+- **Implementar algo do zero muitas vezes é melhor solução.** Ao contrário do que ocorre na engenharia de software, onde preferencialmente utilizamos a ferramenta/biblioteca que faça tudo do modo mais automatizado possível, implementar algorítimos e funções mais complexas quase sempre é melhor. O nível de controle que você terá sobre os seus experimentos será muito maior
+**Negócio, Negócio e Negócio.** Apesar de ser uma área tão bonita quanto o hype permite, DS/ML/DL são áreas de resolução de problemas. No final, o cliente pouco quer saber se você criou a arquitetura ou o pipeline utilizando os princípios descritos no mais avançado livro de engenharia de software. Eu não quero fomentar com esse ponto o débito técnico, mas fomentar uma cultura de MVP’s e feedback, pois quanto mais rápido você falhar, mais rápido você chegará a solução desejada.
 
-- **The process is not as iterative and incremental as you might think.** Sometimes you will train, configure, retrain, evaluate result, add data, retrain, configure, etc. Also, the reverse engineering process to re-evaluate where you went wrong is more common than you might think, several times you need to go back to where you went wrong, but you still don't know where that point is.
+- **Nem tudo é Machine Learning.** De que vale o melhor modelo se o seu modelo não recebe esses dados de forma eficiente? Diversas vezes será necessário voltar algumas casas e rever como uma tabela está armazenando determinada categoria de dado, ou se um índice foi criado corretamente. Esteja preparado para mudar a chave/paradigma/perspectiva, parar de pensar em negócio por alguns instantes, pensar de forma mais técnica e voltar novamente a pensar em negócio.
 
-- **Building something from scratch is often the best solution.** Unlike what happens in software engineering, where we prefer to use the tool/library that does everything in the most automated way possible, implementing more complex algorithms and functions is almost always best. The level of control you will have over your experiments will be much greater
+- **“Timming” é tudo.** Cavar certo no local e hora errados também é cavar errado (ao menos na minha opinião). A entrega de dados ou produtos de dados no momento certo é fator primordial tanto para o seu crescimento quando para a área de negócio. Dados e situações mudam constantemente e o tempo todo. Entender o momento que uma entrega vai agregar valor ao negócio é de fundamental importância, do contrário a possibilidade de agregar valor vai passar e com ela a oportunidade de um possível “insight” também vai.
 
-- **Business at all times.** Despite being as beautiful an area as the hype allows, DS/ML/DL are problem-solving areas. In the end, the customer doesn't care if you built the architecture or the pipeline using the principles described in the most advanced software engineering book. I don't want to encourage technical debt with this point, but to promote a culture of MVP's and feedback, because the faster you fail, the faster you will reach the desired solution.
+###  Considerações Finais
+Se você leu esse post até aqui, muito obrigado, espero que esse material tenha sido útil e faça sentido para você. É valido mencionar mais uma vez que o relato acima foi a minha experiência que pode fazer sentido para o leitor ou não.
 
-- **Machine Learning isn't everything.** What good is the best model if your model doesn't receive this data efficiently? Several times it will be necessary to go back a few places and review how a table is storing a certain category of data, or if an index was created correctly. Be prepared to quickly change the paradigm/perspective, stop thinking about business for a moment, think more technically and go back to thinking about business again.
+Finalmente, caso algum outro assunto relacionado ou não com o conteúdo desse post te interesse, ou tenha te deixado em dúvida, coloca aí nos comentários que ficarei muito feliz de trazer o conteúdo de forma mais clara em um novo post.
 
-- **Timming is everything.** Digging right at the wrong time and place is also digging wrong (at least in my opinion). The delivery of data or data products at the right time is a key factor for both your growth and the business area. Data and situations change constantly and all the time. Understanding the moment when a delivery will add value to the business is of fundamental importance, otherwise the possibility of adding value will pass and with it the opportunity for a possible insight will also pass.
-
-### Final thoughts
-
-If you've read this post this far, thank you very much, I hope this material has been useful and makes sense to you. It is worth mentioning once again that the above account was my experience that may or may not make sense to the reader.
-Finally, if any other subject related or not to the content of this post interests you, or has left you in doubt, put it in the comments and I will be very happy to bring the content more clearly in a new post.
-Remembering that any feedback, whether positive or negative, just contact me through my [twitter](https://twitter.com/estevestoni), [LinkedIn](https://www.linkedin.com/in/toniesteves/ ), [Github](https://github.com/toniesteves) or in the comments below. Thanks :)
+Lembrando que qualquer feedback, seja positivo ou negativo é basta entrar em contato através do meu [twitter](https://twitter.com/estevestoni), [LinkedIn](https://www.linkedin.com/in/toniesteves/ ), [Github](https://github.com/toniesteves) ou nos comentários aqui em baixo. Obrigado :)

@@ -1,37 +1,39 @@
 ---
 layout: post
-title: Optical Flow Tracking with OpenCV.
-description: In computer vision, the Lucas Kanade method is a widely used differential method for optical flow estimation, developed by Bruce D. Lucas and Takeo Kanade. The method assumes that the flux is essentially constant in a local neighborhood of the pixel in question and solves the basic optical flux equations for all pixels in that neighborhood, by the least squares criterion.
+title: Rastreamento de Fluxo Óptico com OpenCV
+description: Em visão computacional, o método Lucas Kanade é um método diferencial amplamente usado para estimativa de fluxo óptico, desenvolvido por Bruce D. Lucas e Takeo Kanade. O método assume que o fluxo é essencialmente constante em uma vizinhança local do pixel em questão e resolve as equações básicas de fluxo óptico para todos os pixels dessa vizinhança, pelo critério dos mínimos quadrados.
 date: 2020-02-27 15:01:35 +0300
 author: toni
 image: '/images/posts/20200227/cover.png'
 image_caption: 'Photo by [Oliver Sjöström](https://unsplash.com/photos/m-qps7eYZl4) on [Unsplash](https://unsplash.com/)'
-tags: [opencv, computer-vision, python]
+tags: [opencv, computer vision, python]
 featured:
 ---
 
 
-The technique known as Optical Flow allows certain points of a video frame to be located in a previous frame. This is the initial step, for example, to determine the displacement of a vehicle between two consecutive video frames.
+A técnica conhecida como Fluxo Óptico permite que determinados pontos de um frame de vídeo sejam localizados em um frame anterior. Isto é o passo inicial por exemplo, para se determinar o deslocamento de um veículo entre dois quadros consecutivos do vídeo.
 
-More objectively, optical flow is the apparent movement pattern of image objects between two consecutive frames caused by object or camera movement. It is a 2D vector field, where each vector is a displacement vector, showing the movement of points from the first frame to the second.
+De forma mais objetiva, o fluxo óptico é o padrão de movimento aparente dos objetos de imagem entre dois quadros consecutivos causados pelo movimento do objeto ou da câmera. É um campo vetorial 2D, em que cada vetor é um vetor de deslocamento, mostrando o movimento dos pontos do primeiro quadro para o segundo.
 
 ![Optical Flow]({{site.baseurl}}/images/posts/20200227/optical-flow.jpeg){:loading="lazy"}
 
-The image above shows a ball in motion, moving over 5 frames. The arrow shows your displacement vector along these frames. Optical stream has many applications in areas like Motion Structure, Video Compression, Video Stabilization and etc.
+A imagem acima apresenta uma bola em movimento, se deslocando ao longo de 5 frames. A seta mostra seu vetor de deslocamento ao longo desses frames. O fluxo óptico tem muitas aplicações em áreas como Estrutura do Movimento, Compressão de vídeo, Estabilização de vídeo e etc.
 
-The Gunnar-Farneback algorithm was developed to produce results from the dense optical flow technique (ie, in a dense grid of points). The first step is to approximate each neighborhood of both frames by quadratic polynomials. Subsequently, considering these quadratic polynomials, a new signal is constructed by a global displacement. Finally, this global shift is calculated by equationing the coefficients in the yields of the quadratic polynomials. You can check out a video lecture [here](https://www.youtube.com/watch?v=a-v5_8VGV0A&t=61m30s), which perfectly explains how the Farneback algorithm works.
+O algoritmo Gunnar-Farneback foi desenvolvido para produzir resultados da técnica de fluxo óptico denso (ou seja, em uma grade densa de pontos). O primeiro passo é aproximar cada vizinhança de ambos os quadros por polinômios quadráticos. Posteriormente, considerando esses polinômios quadráticos, um novo sinal é construído por um deslocamento global. Finalmente, esse deslocamento global é calculado pela equação dos coeficientes nos rendimentos dos polinômios quadráticos. Você pode conferir [aqui](https://www.youtube.com/watch?v=a-v5_8VGV0A&t=61m30s) uma palestra em vídeo, que explica perfeitamente como o algoritmo Farneback funciona.
+
 
 ### Let's Code!
 
-First let's import OpenCV and numpy
-
+Primeiramente vamos importar o OpenCV e o numpy
 
 {% highlight python %}
 import cv2
 import numpy as np
 {% endhighlight %}
 
-We then need to define the source of the video. So let's define a variable that receives a [`cv2.VideoCapture()`](https://docs.opencv.org/2.4/modules/highgui/doc/reading_and_writing_images_and_video.html#videocapture-videocapture), or simply pass the value 0 as a parameter to get information from your webcam. Next, we will read the first frame using the [`read()`](https://docs.opencv.org/2.4/modules/highgui/doc/reading_and_writing_images_and_video.html#videocapture-read) function, in addition to setting the color scheme to grayscale using the [`cv2.cvtColor()`](https://docs.opencv.org/2.4/modules/imgproc/doc/miscellaneous_transformations.html#cvtcolor) method.
+
+Precisamos então definir a fonte do video. Vamos definir então uma variável que recebe um [`cv2.VideoCapture()`](https://docs.opencv.org/2.4/modules/highgui/doc/reading_and_writing_images_and_video.html#videocapture-videocapture), ou simplesmente passe o valor 0 como parâmetro para obter informações da sua webcam. Em seguida, vamos ler o primeiro quadro utilizando utilizando a função [`read()`](https://docs.opencv.org/2.4/modules/highgui/doc/reading_and_writing_images_and_video.html#videocapture-read), além de definir o esquema de cores para a escala de cinza utilizando o método [`cv2.cvtColor()`](https://docs.opencv.org/2.4/modules/imgproc/doc/miscellaneous_transformations.html#cvtcolor).
+
 
 {% highlight python %}
 cap = cv2.VideoCapture(0)
@@ -39,7 +41,7 @@ _, frame = cap.read()
 old_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 {% endhighlight %}
 
-Well, initially we need to define a callback function that returns the coordinates of a specific point, mapping the vector space around it and thus starting the optical flow. In this way, we can link this function to the mouse click, so our function would look like this.
+Bom, inicialmente precisamos definir uma função de callback que retorne as cordenadas de um ponto especifico, mapeando o espaço vetorial ao seu redor e assim iniciarmos o fluxo óptico. Dessa forma, podemos linkar essa função ao clique do mouse, assim nossa função ficaria da seguinte forma.
 
 {% highlight python %}
 def select_point(event, x, y, flags, params):
@@ -51,7 +53,6 @@ def select_point(event, x, y, flags, params):
 
 {% endhighlight %}
 
-
 Observe que precisamos tornar esse ponto uma variável global, dada a necessidade de manipular esse ponto mais adiante no código
 
 Vamos iniciar nossa janela principal e informar a ela que existe um callback associado a um evento do mouse.
@@ -61,9 +62,9 @@ cv2.namedWindow("Frame")
 cv2.setMouseCallback("Frame", select_point)
 {% endhighlight %}
 
-*Note that it is through the name specified in the [`namedWindow()`](https://docs.opencv.org/2.4/modules/highgui/doc/user_interface.html?highlight=namedwindow) function that we will refer to the main window everywhere in the code.*
+*Observe que é através do nome especifcado na função [`namedWindow()`](https://docs.opencv.org/2.4/modules/highgui/doc/user_interface.html?highlight=namedwindow) que referenciaremos a janela principal em todos os locais do código.*
 
-In addition, we are going to add a control flag that will serve to start the optical flow from the click and point detection.
+Além disso, vamos adicionar uma flag de controle que servirá para iniciar o fluxo óptico a partir do clique e detecção do ponto.
 
 {% highlight python %}
 point_selected = False
@@ -71,7 +72,8 @@ point = ()
 old_points = np.array([[]])
 {% endhighlight %}
 
-Let's configure the video stream. For this we will read the video input frame by frame using loop. Since we want to process the entire video, we will read the frames until [`isOpened()`](https://docs.opencv.org/2.4/modules/highgui/doc/reading_and_writing_images_and_video.html#videocapture-isopened) returns true. Similar to the first frame, we will convert each frame to grayscale.
+Vamos configurar o fluxo de vídeo. Para isso vamos ler a entrada de vídeo quadro a quadro utilizando loop. Como queremos processar o vídeo inteiro, leremos os quadros até que [`isOpened()`](https://docs.opencv.org/2.4/modules/highgui/doc/reading_and_writing_images_and_video.html#videocapture-isopened) retorne verdadeiro. De forma similar ao primeiro quadro, converteremos cada quadro em escala de cinza.
+
 
 {% highlight python %}
 while cap.isOpened():
@@ -79,72 +81,72 @@ while cap.isOpened():
   curr_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 {% endhighlight %}
 
-In addition, we are going to update our control flag so that the location of the initial click is marked on the screen.
+Além disso, vamos atualizar nossa flag de controle para que seja demarcado na tela o local do clique inicial.
 
 {% highlight python %}
 if point_selected is True:
   cv2.circle(frame, point, 5, (0, 0, 255), 2)
 {% endhighlight %}
 
-Next, the optical flow will be calculated using [`calcOpticalFlowPyrLK()`](https://docs.opencv.org/2.4/modules/video/doc/motion_analysis_and_object_tracking.html), which references Pyramid Lucas Kanade. This function receives as parameters two consecutive frames, which we will define through prev_gray and gray_frame. After that, it will be necessary to define other optimization parameters required by the algorithm, which we will pass through a dictionary. Soon after detecting the new points, we will update their values inside the loop in order to update the optical flow
+A seguir, o fluxo óptico será calculado usando [`calcOpticalFlowPyrLK()`](https://docs.opencv.org/2.4/modules/video/doc/motion_analysis_and_object_tracking.html), que faz referência a Pyramid Lucas Kanade. Essa função recebe como parametros dois quadros consecultivos, que definiremos través de prev_gray e gray_frame. Depois disso, será necessário definir outros parâmetros de otimização obrigatórios ao algorítmo, que passaremos através de um dicionário. Logo em seguida ao detectarmos os novos pontos, vamos atualizar seus valores dentro do loop de forma a atualizar o fluxo óptico
 
 {% highlight python %}
 if point_selected is True:
            ...
-  new_points, status, error = cv2.calcOpticalFlowPyrLK(prev_gray, gray_frame, old_points, None, **lk_params)
-  prev_gray = gray_frame.copy()
-  old_points = new_points
+new_points, status, error = cv2.calcOpticalFlowPyrLK(prev_gray, gray_frame, old_points, None, **lk_params)
+prev_gray = gray_frame.copy()
+old_points = new_points
 {% endhighlight %}
 
-Our parameter dictionary looks like this:
+Nosso dicionário de parâmetros ficou da seguinte forma:
 
 {% highlight python %}
-lk_params = dict(winSize = (15, 15),
- maxLevel = 5,
- criteria = (cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 10, 0.03))
+lk_params = dict(winSize = (15, 15), maxLevel = 5, criteria = (cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 10, 0.03))
 {% endhighlight %}
 
 
-*In the dictionary of mandatory parameters of the algorithm, it is possible to randomly manipulate and choose different parameters and see how that will change the results.*
+*No dicionário dos parâmetros obrigatorios do algorítmo, é possível manipular aleatoriamente e escolher parâmetros diferentes e ver como isso mudará os resultados.*
 
-*winsize: Maps an area of 15x15 pixels around the defined point.*
+**winsize**: Mapeia uma área de 15x15 pixels ao redor do ponto definido.*
 
-*maxlevel: We define the algorithm level, because the smaller the window, the fewer pixels and the better the optical flow detection (Pyramid Analysis).*
+**maxlevel**: Definimos o nível do algoritmo, pois quanto menor a janela, menos pixeis e melhor a detecção do fluxo óptico [(Pyramid Analysis)](https://en.wikipedia.org/wiki/Pyramid_(image_processing)).*
 
-*criteria: Parameter that specifies the termination criteria and iterations of the iterative search algorithm (the more iterations, the more exhaustive the search by the points).*
+**criteria**: Parâmetro que específica os critérios de finalização e iterações do algoritmo de pesquisa iterativa (mais iterações, mais exaustiva é a pesquisa pelos pontos).*
 
-Finally, we perform some cleaning.
+Por fim, fazemos a limpeza.
 
 {% highlight python %}
 cap.release()
 cv2.destroyAllWindows()
 {% endhighlight %}
 
-### Result
+### Resultado
 
 ![Optical Flow Gif](https://miro.medium.com/max/640/1*nD1OGLH9ZwA_pfz4nVEV_A.gif){:loading="lazy"}
 
-### Simple Math Intuition
+O código está disponível no Github [aqui](https://github.com/toniesteves/optical-flow)
 
-Before detecting the object, the vector field around the defined point is mapped, and this happens with each new frame in which the object moves in the video. The Lucas Kanade method assumes that the displacement of the image content between two close instants (frames or frames) is small and approximately constant taking into account the pixels neighboring a point p.
+### Explicação
 
-Thus, optical flow, in a higher-level definition, is the movement of objects between consecutive frames of sequence, caused by the relative movement between the object and the camera. We can express the optical flow as follows:
+Antes de detectar o objeto, o campo vetorial ao redor do ponto definido é mapeado, e isso acontece a cada novo frame em que o objeto se desloca no vídeo. O método Lucas Kanade assume que o deslocamento do conteúdo da imagem entre dois instantes próximos (frames ou quadros) é pequeno e aproximadamente constante tomando em consideração os pixeis vizinhos a um ponto *p*.
+
+Assim, o fluxo óptico, em uma definição de mais alto nível, é o movimento de objetos entre quadros consecutivos de sequência, causados pelo movimento relativo entre o objeto e a câmera. Podemos expressar o fluxo óptico da seguinte forma:
 
 ![Optical Flow]({{site.baseurl}}/images/posts/20200227/optical_flow_math.png){:loading="lazy"}
 
-Between consecutive frames, we can express the image intensity $$(I)$$ as a function of point $$(x,y)$$ and time $$(t)$$. So if we extract the first image $$I(x,y,t)$$ and move its pixels represented by $$(dx, dy)$$ over time $$(t)$$, we will get a new image $$I(x+dx, y+dy)$$.
+Entre quadros consecutivos, podemos expressar a intensidade da imagem
+$$(I)$$ em função do ponto $$(x,y)$$ e do tempo $$(t)$$. Assim se extraírmos a primeira imagem $$I(x,y,t)$$ e movermos seus pixeis representados por $$(dx, dy)$$ sob o tempo $$(t)$$, obteremos uma nova imagem $$I(x+dx, y+dy)$$.
 
-Let's initially assume that the pixel intensities of an object are constant between consecutive frames.
-
+Vamos assumir inicialmente que as intensidades de pixel de um objeto são constantes entre quadros consecutivos.
 
 \begin{align}
   I(x, y, t) = I(x + \delta x, y + \delta y, t + \delta t)
 \end{align}
 
-### Conclusion
-I hope this material has been useful and makes sense to you, especially for beginners. In an elementary way, we present concepts related to optical flows. In addition, in the article references you can find a very useful material used to prepare this article that can help you expand your knowledge on the subject.
+### Conclusão
+Espero que esse material tenha sido útil e faça sentido pra você, principalmente aos iniciantes. De forma elementar apresentamos conceitos relacionados a fluxos ópticos. Além disso nas referências do artigo é possível encontrar um material muito útil utilizado para elaboração desse artigo que pode te ajudar a ampliar seus conhecimentos no tema.
 
-Remembering that any feedback, whether positive or negative, just get in touch through my twitter or linkedin or the comments below :)
+Lembrando que qualquer feedback , seja positivo ou negativo é só entrar em contato através do meu [twitter](https://twitter.com/toni_esteves) ou [linkedin](https://www.linkedin.com/in/toniesteves/) ou os comentários aqui em baixo :)
 
 ### References
 
