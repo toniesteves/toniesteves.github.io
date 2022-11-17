@@ -1,7 +1,7 @@
 ---
 layout: post
-title: A brief introduction to Shadow Mode in Machine Learning.
-description: A simple strategy to mitigate risks from models in production without impacting real users along the way.
+title: Uma breve introdução ao Shadow Mode em Machine Learning.
+description: Uma estratégia simples que pode mitigar riscos dos modelos em produção sem impactar negativamente usuários reais ao longo do caminho.
 date: 2021-07-13 15:01:35 +0300
 author: toni
 image: '/images/posts/20210713/cover.png'
@@ -10,125 +10,127 @@ tags: [machine learning, data science]
 featured: false
 ---
 
-AI-driven organizations are using data and machine learning to solve their toughest problems and are reaping huge benefits. But ML systems have the ability to create technical debt if not managed properly. Operationalizing and managing the lifecycle of ML models, data, and experiments is where things get tricky. In fact,[ over 87% of data science projects never make it to production](https://www.forbes.com/sites/forbestechcouncil/2019/04/03/why-machine-learning-models-crash-and-burn-in-production/?sh=776c3ec52f43).
+Organizações orientadas para IA estão usando dados e aprendizado de máquina para resolver seus problemas mais difíceis e estão colhendo enormes benefícios. Mas os sistemas de ML têm a capacidade de criar dívidas técnicas se não forem gerenciados adequadamente. Operacionalizar e gerenciar o ciclo de vida de modelos, dados e experimentos de ML é onde as coisas ficam complicadas. Na verdade, [mais de 87% dos projetos de ciência de dados nunca chegam à produção](https://www.forbes.com/sites/forbestechcouncil/2019/04/03/why-machine-learning-models-crash-and-burn-in-production/?sh=776c3ec52f43).
 
-The strategies you adopt when putting a software project into production have the potential to save you from costly and high-impact business mistakes. When we talk about machine learning systems, these precautions are even more important. Usual activities of a data scientist such as data wrangling, feature engineering, or debugging of model bugs in production can be very challenging, especially when production data inputs are difficult to replicate exactly.
+As estratégias que você adota ao colocar um projeto de software no ambiente de produção têm o potencial de salvá-lo de erros caros e que gerem alto impacto no negócio. Quando falamos de sistemas de aprendizado de maquina, esses cuidados são ainda mais importantes. Atividades usuais de um cientista de dados como efetuar o data wrangling, feature engineering ou remoção de bugs de modelo na produção pode ser muito desafiador, especialmente quando as entradas de dados de produção são difíceis de replicar exatamente.
 
-The "Shadow Mode", or in literal translation the Shadow Mode, is one of these deployment strategies and, in this article, I intend to briefly explain a little more about this approach, as well as its advantages, disadvantages and challenges.
+O "Shadow Mode", ou em tradução literal o Modo Sombra, é uma dessas estratégias de implantação e, neste artigo, pretendo explanar de forma resumida um pouco mais dessa abordagem, bem como suas vantagens, desvantagens e desafios.
 
-### Why should you care about machine learning model deployments?
+### Por que você deve se preocupar com as implantações de modelos de aprendizado de máquina?
 
-Imagine a data scientist who is working on a new fraud detection model that requires a dozen additional features that none of the bank's other credit risk models use, but this scientist is determined that the performance improvements guarantee inclusion. of these extra features.
+Imagine uma cientista de dados que está trabalhando em um novo modelo de de detecção de fraudes que requer uma dúzia de recursos adicionais que nenhum dos outros modelos de risco de crédito do banco utiliza, mas essa cientista está decidida que as melhorias no desempenho garantem a inclusão desses recursos extras.
 
-The current performance of the model is relatively good, but due to some business changes it needs to have part of its code rewritten, thus starting the feature engineering steps in the production model. The features are all captured in the configuration and all tests pass — assuming you implement tests in your model code. The model is released to customers, where it starts to identify fraudulent users.
+O desempenho atual do modelo é relativamente bom, mas devido a algumas mudanças de negocio precisa ter parte do seu código reescrito dando inicio assim as etapas de feature engineering no modelo de produção. Os recursos são todos capturados na configuração e todos os testes passam — supondo que você implemente testes no código do seu modelo. O modelo é lançado para os clientes, onde começa a identificar usuários fraudulentos.
 
-Somewhere between the data science team and the deployment, one of the features was created incorrectly. Maybe it was a configuration error, or maybe the pipeline code has an outlier, or it could just have been a miscommunication. Now, in another scenario for example, instead of using a key feature that distinguishes fraudsters from non-fraudsters, an older version of that feature that doesn't distinguish is used.
+Em algum lugar entre o time de ciência de dados e o deploy, uma das features foi criada incorretamente. Talvez tenha sido um erro de configuração, ou talvez o código do pipeline tenha um outlier, ou pode ter sido apenas uma falha na comunicação. Agora, em um outro cenários por exemplo, em vez de usar uma feature-chave que distingue os fraudadores dos não fraudadores, uma versão mais antiga dessa feature que não faz a distinção é usada.
 
-This leads the model to define that some customers of your business that should be identified as frauds are not being, which therefore means that fraudulent operations are taking place and your company is absorbing a financial loss (the specific data is not the crux of the matter, the issue is that there is a subtle error). But there is no immediate dramatic effect, so no alarms sound and a few months pass.
+Isso leva o modelo a definir que alguns clientes do seu negocio que deveriam ser identificados como fraudes não estão sendo, o que significa portanto que as operações fraudulentas estão ocorrendo e sua empresa absorvendo um prejuizo financeiro (os dados específicos não são o cerne da questão, a questão é que há um erro sutil). Mas não há nenhum efeito dramático imediato, então nenhum alarme soa e alguns meses se passam.
 
-One day, three months later, someone discovers the bug. At this point, thousands of transactions have been carried out and users who should be considered potential fraudsters are not, leading the company to absorb considerable losses.
+Um dia, três meses depois, alguém descobre o bug. A esta altura, milhares de transações foram efetuadas e usuários que deveriam ser considerados fraudadores em potencial não o são levando a empresa a absorver um prejuizo considerável.
 
-This is a story to illustrate a point. Many industries that use machine learning to make important predictions are at risk of similar disasters. Think machine learning models in healthcare, agriculture, shipping and logistics, legal services, the list is extensive. But this story could have a very different ending if alternative deployment strategies were in place, and these strategies are what we will consider in the next sections.
+Esta é uma história para ilustrar um ponto. Muitos setores que usam o aprendizado de máquina para fazer previsões importantes correm o risco de desastres semelhantes. Pense em modelos de aprendizado de máquina na saúde, agricultura, transporte marítimo e logística, serviços jurídicos, a lista é extensa. Mas essa história poderia ter um final muito diferente se estratégias alternativas de implantação estivessem em vigor, e essas estratégias são o que consideraremos nas próximas seções.
 
-### What is Shadow Mode?
+### O que é o Shadow Mode?
 
-"Shadow Mode" or "Dark Launch" — [the latter a nomenclature adopted by Google](https://cloud.google.com/blog/products/gcp/cre-life-lessons-what-is-a-dark-launch-and-what-does-it-do-for-me) — is a technique where production traffic and data are run through a newly deployed version of a machine learning model or service, without the service or model actually returning the answer or prediction to clients and/or other systems. Instead, the old version of the service or model continues to serve answers or predictions, and the results of the new version are merely captured and stored for analysis.
+"Shadow Mode" ou “Dark Launch” — [esta última uma nomeclatura adotada pelo Google](https://cloud.google.com/blog/products/gcp/cre-life-lessons-what-is-a-dark-launch-and-what-does-it-do-for-me) — é uma técnica em que o tráfego de produção e os dados são executados por meio de uma versão recém-implantada de um serviço ou modelo de aprendizado de máquina, sem que o serviço ou modelo realmente retorne de fato a resposta ou previsão aos clientes e/ou outros sistemas. Em vez disso, a versão antiga do serviço ou modelo continua a servir respostas ou previsões, e os resultados da nova versão são meramente capturados e armazenados para análise.
 
-That is, to launch a model in "Shadow Mode", you deploy the new model along with the old model, both active. The current model continues to handle all requests, but the shadow mode model also runs on some (or all) of the requests. This allows you to safely test the new model against real data, avoiding the risk of service interruptions.
+Ou seja, para lançar um modelo no “Shadow Mode”, você implanta o novo modelo junto com o modelo antigo, ambos ativos. O modelo atual continua a lidar com todas as solicitações, mas o modelo no modo sombra também é executado em algumas (ou todas) as solicitações. Isso permite que você teste com segurança o novo modelo em relação aos dados reais, evitando o risco de interrupções no serviço.
 
-Shadow mode should not be confused with [flagging/toggling](https://martinfowler.com/articles/feature-toggles.html) feature. Feature flags can be used to turn shadow mode on or off, but they are a separate type of technique and do not provide the central concurrent testing element for shadow mode. Broadly speaking, there are two main reasons to use shadow mode:
+O modo sombra não deve ser confundido com feature [flagging/toggling](https://martinfowler.com/articles/feature-toggles.html). Feature flaging pode ser utilizado para ativar ou desativar o modo de sombra, mas são um tipo separado de técnica e não oferecem o elemento de teste simultâneo central para o modo de sombra. Em termos gerais, existem dois motivos principais para usar o modo sombra:
 
-* **First**: Ensure your model is handling inputs properly.
+* **Primeiro**: Garantir que seu modelo está lidando com as entradas de maneira adequada.
 
-* **Second**: Ensure your service can handle the incoming load.
+* **Segundo**: Garantir que seu serviço pode lidar com a carga de entrada.
 
-*Feature Toggles (often called Feature Flags) is a powerful technique that allows teams to modify system behavior without changing code. We can keep this complexity in check by using smart toggle implementation practices and appropriate tools to manage our toggle configuration, but we should also aim to limit the number of switches in our system.*
+*Feature Toggles (frequentemente chamados de Feature Flags) é uma técnica poderosa, que permite que as equipes modifiquem o comportamento do sistema sem alterar o código. Podemos manter essa complexidade sob controle usando práticas de implementação de alternância inteligente e ferramentas apropriadas para gerenciar nossa configuração de alternância, mas também devemos ter como objetivo limitar o número de alternâncias em nosso sistema.*
 
-### When using Shadow Mode.
+### Quando utilizar o Shadow Mode.
 
-Shadow mode is a great way to test out some scenarios:
+O modo sombra é uma ótima maneira de testar alguns cenários:
 
-* **Engineering**: With a model in shadow mode, you can test that the pipeline is working and that the model is getting the inputs you expect and returning the results in the correct format. You can also check things like latency received by the model.
+* **Engenharia**: Com um modelo no modo sombra, você pode testar se o “pipeline” está funcionando e se o modelo está obtendo as entradas que espera e retornando os resultados no formato correto. Você também pode verificar coisas como latência recebida pelo modelo.
 
-* **Outputs**: It is possible to validate that the model's response data has the expected distribution (eg, your model is not reporting just a single value for all inputs).
+* **Saídas**: É possivel validar se os dados de reposta do modelo possuem a distribuição esperada (por exemplo, seu modelo não está relatando apenas um único valor para todas as entradas).
 
-* **Performance**: It is possible to validate that the model in shadow mode is producing results comparable to or better than the model currently in production.
+* **Desempenho**: É possivel validar se o modelo no modo sombra está produzindo resultados comparáveis ou melhores do que os do modelo ao atualmente em produção.
 
-*Another point worth noting is that shadow mode works well when the model output doesn't need a user action to validate it. We can cite models where you try to influence the user, for example a recommendation model where success means more sales converted. Models that require explicit user validation for validation are best tested using an[ A/B test](https://en.wikipedia.org/wiki/A/B_testing).*
+*Um outro ponto que vale a pena salientar é que o modo sombra funciona bem quando o resultado do modelo não precisa de uma ação do usuário para validá-lo. Podemos citar modelos em que você tenta influenciar o usuário, por exemplo um modelo de recomendação em que sucesso significa mais vendas convertidas. Modelos que ncessitam de uma validação explicita do usuário para validação são melhor testados usando um [ A/B test](https://en.wikipedia.org/wiki/A/B_testing).*
 
-> The main difference between an A/B test and shadow mode is that in an A/B test the traffic is split between the two models, while in shadow mode both models operate on the same events.
+> A principal diferença entre um teste A/B e o modo sombra é que em um teste A/B o tráfego é dividido entre os dois modelos, enquanto no modo sombra os dois modelos operam nos mesmos eventos.
 
-### How does deploying in shadow mode work.
-There are two general methods that are used to deploy a model in shadow mode. Both are API-relative for the active model: in front of the API or behind the API.
+### Como funciona o deploy no modo sombra.
 
-### In front of the API
-To put a model in shadow mode in front of the API, you must host two API endpoints: one for the active model and one for the shadow mode. The caller makes a call to the two models and may even disregard the shadow model's response, but must record it so that the results can be compared.
+Existem dois métodos gerais que são utilizados para efetuar a implantação de um modelo no modo sombra. Ambos são relativos à API para o modelo ativo: na frente da API ou atrás da API.
+
+### Na frente da API
+
+Para colocar um modelo no modo sombra na frente da API, deve-se hospedar dois endpoints da API: um para o modelo ativo e outro para o modo sombra. O chamador faz uma chamada para os dois modelos podendo até desconsiderar resposta do modelo sombra, mas deve registrá-la para que os resultados possam ser comparados.
 
 ![shadow-model-in-front]({{site.baseurl}}/images/posts/20210713/shadow-model-in-front.png){:loading="lazy"}
 
-This way of deployment is suitable for situations where the team consuming the model's predictions is averse to change or has very strict requirements for how the shadow model should work, because it gives them control.
+Essa forma de implantação é adequada para situações em que a equipe que consome as previsões do modelo é avessa a mudanças ou tem requisitos muito rígidos de como o modelo sombra deve funcionar, porque dá a eles o controle.
 
-#### The advantages of this method are:
+#### As vantagens deste método são:
 
-* **The caller has control.** They decide when to change the shadow model to live. They can instantly roll back if problems occur. They might even stop the experiment if it's harming your system.
+* **O chamador tem controle.** Eles decidem quando mudar o modelo de sombra para vivo. Eles podem reverter instantaneamente caso ocorram problemas. Eles podem até mesmo interromper o experimento se estiver prejudicando seu sistema.
 
-* **The call may be different.** If the shadow model requires different input (perhaps a new ID associated with the user), your API might differ from the production model.
+* **A chamada pode ser diferente.** Se o modelo de sombra exigir entradas diferentes (talvez um novo ID associado ao usuário), sua API pode ser diferente da do modelo de produção.
 
-#### The main disadvantages are:
+#### As principais desvantagens são:
 
-* **The change is closer to the customer.** The calling code is usually closer to the business area, so any bugs introduced during shadow model integration are likely to have more impact.
+* **A mudança está mais próxima do cliente.** O código de chamada geralmente está mais próximo da área de negócio, portanto, qualquer bug introduzido durante a integração do modelo sombra provavelmente terá mais impacto.
 
-* **Tighter coordination is needed.** The team that owns the model and the team that calls it will have to make changes to their code: the model team to generate an endpoint and the calling team to add the call to the second model, as well as a logging action of the predictions made .
+* **É necessária uma coordenação mais rígida.** A equipe que possui o modelo e a equipe que o chama terão que fazer alterações em seu código: a equipe do modelo para gerar um endpoint e a equipe de chamada para adicionar a chamada ao segundo modelo, bem como uma ação de registro das predições efetuadas.
 
 
-### Behind the API
+### Por trás da API
 
-To put a model in shadow mode behind the API, you change the code that responds to requests from that API by calling both the active model and the shadow model. The results of both models must be logged, but the result returned must be that of the active model only.
+Para colocar um modelo no modo sombra por trás da API, você altera o código que responde às solicitações dessa API ao chamar o modelo ativo e o modelo sombra. Os resultados de ambos os modelos devem ser registrados, mas o resultado retornado deve ser apenas o do modelo ativo.
 
 ![shadow-model-behind]({{site.baseurl}}/images/posts/20210713/shadow-model-behind.png){:loading="lazy"}
 
-This method is ideal when you want to move quickly (and break things) because you can change the shadow model without having to coordinate with the calling team. To the outside world, the API remains (in theory) unchanged and therefore hides the tests being done behind it.
+Este método é ideal quando você quer se mover rapidamente (e quebrar coisas), porque você pode alterar o modelo de sombra sem ter que coordenar com a equipe de chamada. Para o mundo externo, a API permanece (em tese) inalterada e, portanto, oculta os testes que estão sendo feitos por trás dela.
 
-#### The advantages of this method are:
+#### As vantagens deste método são:
 
-* **The model host has control.** You can change the shadow model, turn it on, off and switch to a new one whenever you want. You can register exactly what you are interested in registering.
+* **O host do modelo tem controle.** Você pode alterar o modelo de sombra, ligá-lo, desligá-lo e trocar por um novo quando quiser. Você pode registrar exatamente o que está interessado em registrar.
 
-* **Little coordination with other teams is required.** To the outside world; no one else needs to change your code.
+* **É necessária pouca coordenação com outras equipes.** Para o mundo externo; ninguém mais precisa alterar seu código.
 
-#### The main disadvantages are:
+#### As principais desvantagens são:
 
-* **The model in shadow mode must be compatible with the active model.** Since the outside world is not changing what passes to the API, your shadow model is restricted to the same inputs as the production model (although you can choose to use just a subset or get additional inputs through some other method).
+* **O modelo no modo sombra deve ser compatível com o modelo ativo.** Uma vez que o mundo externo não está mudando o que passa para a API, seu modelo de sombra é restrito às mesmas entradas que o modelo da produção (embora possa escolher usar apenas um subconjunto ou obter entradas adicionais por meio de algum outro método).
 
-* **You still need to change the calling code.** Eventually, when the shadow mode model is ready to replace the production model, you will need to change the API version and change the calling code to use this new version. That means there's a little extra work to do once you're satisfied with the test results.
+* **Você ainda precisa alterar o código de chamada.** Eventualmente, quando o modelo do modo sombra estiver pronto para substituir o modelo de produção, você precisará alterar a versão da API e alterar o código de chamada para usar esta nova versão. Isso significa que há um pequeno trabalho extra a ser feito quando você estiver satisfeito com os resultados do teste.
 
 
-### The main challenges are:
+### Os principais desafios são:
 
-* High cost due to additional features required to support new model version in shadow mode with current active model.
+* lto custo devido aos recursos adicionais necessários para suportar a nova versão do modelo no modo sombra com o modelo ativo atual.
 
-* Increased complexity to configure deployment strategies such as in-place upgrade.
+* Maior complexidade para configurar estratégias de implantação, como atualização no local.
 
-* Performance tests must be carefully designed and deployed.
+* Testes de desempenho devem ser projetados e implantados cuidadosamente.
 
-* Performance tests can include system performance (load testing, latency, and so on) and model performance (model metrics comparison).
+* Testes de desempenho podem incluir o desempenho do sistema (teste de carga, latência e assim por diante) e o desempenho do modelo (comparação de métricas do modelo).
 
-### What "Shadow Mode" definitely is not.
+### O que o "Shadow Mode" não é.
 
-* **An A/B test.** As previously mentioned in an A/B test, traffic is split between the two models, while in shadow mode both models operate on the same events.
+* **Um teste A/B.** Como já falado anteriormente em um teste A/B o tráfego é dividido entre os dois modelos, enquanto no modo sombra os dois modelos operam nos mesmos eventos.
 
-* **A complementary model.** The results returned by the model in shadow mode should not be combined with the results of the model currently in production. If the idea is to build an ensemble, this ensemble will compose a new model by itself, which in turn will be the model present in shadow mode.
+* **Um modelo complementar.** Os resultados retornados pelo modelo no modo sombra não devem ser combinados com os resultados do modelo atualmente em produção. Se a idéia é construir um [ensemble](https://en.wikipedia.org/wiki/Ensemble_learning), esse ensemble compor por si só um novo modelo, que por sua vez será o modelo presente no modo sombra.
 
-* **A model that makes business decisions directly.** The shadow mode model will not present results to the business area, nor will it expose customers to a new version of its service. Your results will be recorded and evaluated by the responsible team, but with the aim of optimizing and providing insights into the model that is currently in production.
+* **Um modelo que toma decisões de negocio de forma direta.** O modelo do modo sombra não apresentará resultados à área de negocio, tão pouco expõe aos clientes uma nova versão do seu serviço. Seus resultados serão registrados e avaliados pela equipe responsável, porém com o objetivo de otimizar e fornecer insights ao modelo que encontra-se atualmente em produção
 
-### Conclusion
+### Conclusão
 
-Deploy models in shadow mode is an easy way to test your model on live data. It is flexible and allows you to empower the right team to control the experiment. Also, the sooner you put your model into production to evaluate real-world data, the better feedback you get on that model's behavior.
+A implantação de um modelo no modo sombra é uma maneira fácil de testar seu modelo em dados ativos. É flexível e permite capacitar a equipe certa para controlar o experimento. Além disso, quanto antes você colocar seu modelo em produção para avaliar dados do mundo real, melhor feedback será captado do comportamento desse modelo.
 
-Finally, I hope this material has been useful and makes sense to you, especially for beginners. In addition, in the references section you can find very useful material used to prepare this article that can help you expand your knowledge on the subject.
+Finalmente, espero que esse material tenha sido útil e faça sentido pra você, principalmente aos iniciantes. Além disso na seção de referências é possível encontrar um material muito útil utilizado para elaboração desse artigo que pode te ajudar a ampliar seus conhecimentos no tema.
 
-Remembering that any feedback, whether positive or negative, just get in touch through my twitter, linkedin or in the comments below. Thanks :)
+Lembrando que qualquer feedback, seja positivo ou negativo é so entrar em contato através do meu [twiter](https://twitter.com/toni_esteves), [linkedin](https://www.linkedin.com/in/toniesteves/) ou nos comentário aqui em baixo. Obrigado :)
 
-### Referencies
+### Referências
 
 * [1] [Machine Learning Design Patterns](https://www.oreilly.com/library/view/machine-learning-design/9781098115777/)
 
