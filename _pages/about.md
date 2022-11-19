@@ -9,7 +9,7 @@ image: '/images/toni.jpg'
 
 *Hi! I'm Working in the tech industry since 2010 and I’ve been a developer for 10 years, during which time I have worked with several languages, such as Java, Ruby, and Python.*
 
-*I'm Ph.D student in mathematical optimizaation and I've got a master's degree in Deep Learning, Graduate Studies in Database Management and Agile Software Development with a Bachelor's Degree in Information Systems. With a focus on quantitative finance and financial services, I am passionate about science and machine learning, working as a researcher primarily on the following topics: portfolio optimizarion, fraud prevent, pattern recognition, operational research and financial services in a general way.*
+*I'm Ph.D student in mathematical optimization and I've got a master's degree in Deep Learning, Graduate Studies in Database Management and Agile Software Development with a Bachelor's Degree in Information Systems. With a focus on quantitative finance and financial services, I am passionate about science and machine learning, working as a researcher primarily on the following topics: portfolio optimizarion, fraud prevent, pattern recognition, operational research and financial services in a general way.*
 
 *I have solved problems in fields such as Clustering, Anomaly Detection, besides I love work with financial area too, solving problems like fraud detection, forecasts and all kind of solutions related to finance, building valuable ML products since their conception, through development and productization.*
 
