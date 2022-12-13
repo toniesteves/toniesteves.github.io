@@ -1,7 +1,7 @@
 ---
 layout: post
-title: What are Capsule Networks and why you should use it.
-description: A brief introduction to Capsule Networks, Dynamic Routing and why they stand out from conventional CNNs.
+title: O que são Capsule Networks e porquê utilizar.
+description: Uma introdução as Capsule Networks, Roteamento Dinâmico e porquê elas merecem destaque diante das convencionais CNNs.
 date: 2021-01-20 15:01:35 +0300
 author: toni
 image: '/images/posts/20210120/cover.png'
@@ -10,185 +10,190 @@ tags: [CNN, deep learning, neural-networks]
 featured: true
 ---
 
-In the field of deep learning, convolutional networks have been incredibly successful and are the main reason why deep learning is so common now. Although the results presented by these networks are incredibly good, this type of structure still has some disadvantages in its basic architecture, making them not work very well for some more specific tasks.
+No campo do aprendizado profundo, as redes convolucionais têm sido incrivelmente bem-sucedidas e são o principal motivo pelo qual o aprendizado profundo é tão comum agora. Apesar dos resultados apresentados por essas redes serem incrivelmente bons, esse tipo de estrutura ainda possui algumas devantagens em sua arquitetura básica, fazendo com que não funcionem muito bem para algumas tarefas mais específicas.
 
-CNN's detect features in images and learn to recognize objects with that information. Initial layers detect simple features like the edges of an image, and deeper layers can detect more complex features like eyes, nose, or an entire face in the case of a face. Then all these learned features are used to make a final prediction. Here are the flaws of this system — there is no **spatial** information that is used anywhere in a CNN and the clustering function that is used to connect layers is really very inefficient.
+CNN's detectam recursos em imagens e aprendem a reconhecer objetos com essas informações. As camadas iniciais detectam recursos simples como as bordas de uma imagem, e camadas mais profundas podem detectar recursos mais complexos, como olhos, nariz ou um rosto inteiro no caso de uma face. Em seguida, todos esses recursos aprendidos são utilizados para fazer uma previsão final. Aqui estão as falhas deste sistema — não existem informações espaciais que são usadas em qualquer lugar em uma CNN e a função de agrupamento que é usada para conectar camadas, é realmente muito ineficiente.
 
-In the most common convolutional network architectures, it is common to insert pooling layers, which operate independently, at each depth level of a convolutional network. The function of the ***Pooling*** layer is to progressively reduce the spatial size of the input representation, and thus reduce the number of parameters and network processing and, in this way, also control ***overfitting***.
+Nas arquiteturas de redes convolucionais mais comuns, é comum inserir camadas de Pooling, que operam de forma independente, em cada nível de profundidade de uma rede convolucional. A função da camada de Pooling é reduzir progressivamente o tamanho espacial da representação de entrada, e assim diminuir a quantidade de parâmetros e o processamento da rede e, dessa forma controlar também o overfitting.
 
-It turns out that in the pooling process, a lot of important information is lost because only the most active neurons are chosen to be moved to the next layer.
+Acontece que no processo de pooling, muitas informações importantes são perdidas porque apenas os neurônios mais ativos são escolhidos para serem movidos para a próxima camada.
 
-And what's the problem with this approach?
+E qual o poblema com essa abordagem?
 
-This operation is the reason why valuable spatial information is lost between layers and in the words of Geoffrey E. Hinton:
+Esta operação é a razão pela qual informações espaciais valiosas se perdem entre as camadas e nas palavras de **Geoffrey E. Hinton**:
 
 > "The pooling operation used in convolutional neural networks is a big mistake and the fact that it works so well is a disaster." — [Geoffrey E. Hinton](https://www.reddit.com/r/MachineLearning/comments/2lmo0l/ama_geoffrey_hinton/clyj4jv/)
 
 Thus, conventional CNNs have some limitations:
 
-* There is a considerable loss of precise spatial relationships in the pooling process, between higher-level features, such as a nose and a mouth, in the process performed by CNN's. Precise spatial relationships are necessary for identity recognition
-* CNN's are good at detecting features, but less effective at exploring spatial relationships between features (perspective, size, orientation). That is, CNNs fail to reach the understanding of geometric relationships for radically new points of view.
-* Vulnerability to GANS. Through the GANS we can only change a few critical pixels (or neurons), and the image would not change a human's perspective (the image would still look identical to the naked eye), but it could trick the CNN classifier into believing that the image is something completely different. Imagine how devastating it would be if an autonomous vehicle interpreted a stop sign as a speed limit sign?
+Assim as CNN's convencionais apresentam algumas limitações:
 
-*Any similarity is not purely coincidental, given that human vision ignores irrelevant details using a carefully determined sequence of fixation points to ensure that only a small fraction of the optical matrix is processed by our brain at the highest resolution.*
+* Existe uma perda consideravel de relações espaciais precisas no processo de pooling, entre as caracteristicas de nível superior, como um nariz e uma boca, no processo efetuado pelas CNN's. Relações espaciais precisas são necessárias para o reconhecimento de identidade
 
-To address this problem, [Hinton](https://arxiv.org/pdf/1710.09829.pdf) proposed that we use a process, loosely called "routing-by-agreement". This means that features identified in a lower-level layer (nose, eyes, mouth) will only be sent to a higher-level layer that matches its content. Finally, if the grouped features resemble that of an eye or a mouth, it will arrive at a “face” or if it contains fingers and a palm, it will be sent to a “hand”.
+* As CNN's são boas em detectar recursos, mas menos eficazes em explorar as relações espaciais entre recursos (perspectiva, tamanho, orientação). Ou seja, CNN’s não conseguem alcançar o entendimento de relações geométricas para pontos de vista radicalmente novos.
 
-This solution, which encodes spatial information in resources and at the same time uses a strategy called dynamic routing, was named ***Capsule Networks*** and was presented by Geoffrey Hinton at [NIPS 2017](https://nips.cc/Conferences/2017).
+* Vulnerabilidade a GANS. Através das GANS podemos alterar apenas alguns pixels (ou neurônios) críticos, e a imagem não mudaria a perspectiva de um humano (a imagem ainda pareceria idêntica a olho nu), mas poderia enganar o classificador da CNN para acreditar que a imagem é algo completamente diferente. Imagine como seria devastador se um veículo autônomo interpretasse um sinal de pare como um sinal de limite de velocidade?
+
+
+*Qualquer semelhança não é mera coincidência, dado que a visão humana ignora detalhes irrelevantes usando uma sequência cuidadosamente determinada de pontos de fixação para garantir que apenas uma pequena fração da matriz óptica seja processada pelo nosso cérebro na resolução mais alta.*
+
+Para resolver esse problema, [Hinton](https://arxiv.org/pdf/1710.09829.pdf) propôs que usássemos um processo, denominado em livre tradução, de “roteamento por acordo”. Isso significa que os recursos identificados em uma camada de nível inferior (nariz, olhos, boca) serão enviados apenas para uma camada de nível superior que corresponda ao seu conteúdo. Por fim, se as características agrupadas se assemelham a de um olho ou de uma boca, chegará a um “rosto” ou se contiver dedos e uma palma, será enviado a “mão”.
+
+Esta solução que codifica informações espaciais em recursos e que utiliza, ao mesmo tempo, uma estratégia chamada de roteamento dinâmico, recebeu o nome de ***Capsule Networks*** e foi apresentada por Geoffrey Hinton, no [NIPS 2017](https://nips.cc/Conferences/2017).
+
 
 ### Capsule Networks
 
-Capsule Networks provide a way to detect parts of objects in an image and represent spatial relationships between those parts. This means that capsule networks, in free translation, are able to recognize the same object, such as a face, in a variety of different poses and with the typical number of features (eyes, nose, mouth), even if they haven't seen this one. pose on the training data. Capsule networks have an architecture composed of parent and child nodes that in turn build a complete image of an object.
+Capsule Networks fornecem uma maneira de detectar partes de objetos em uma imagem e representar relacionamentos espaciais entre essas partes. Isso significa que as redes cápsula, em livre tradução, são capazes de reconhecer o mesmo objeto, como um rosto, em uma variedade de poses diferentes e com o número típico de características (olhos, nariz, boca), mesmo que não tenham visto essa pose nos dados de treinamento. As capsule networks possuem uma arquitetura composta de nós pais e filhos que por sua vez constroem uma imagem completa de um objeto.
 
 ![Capsule_Netorks]({{site.baseurl}}/images/posts/20210120/capsule-n.png){:loading="lazy"}
 
-### What are "Capsules"?
+### E o que são "Capsulas"?
 
-Capsules are a small cluster of neurons where each neuron in that cluster represents various properties of a specific part of the image. Some examples of properties include: position and orientation in an image, width and texture, color, and so on.
+Cápsulas são um pequeno agrupamento de neurônios em que cada neurônio desse agrupamento representa várias propriedades de uma parte específica da imagem. Alguns exemplos de propriedades incluem: posição e orientação em uma imagem, largura e textura, cor e etc.
 
 ![Capsules]({{site.baseurl}}/images/posts/20210120/capsules.gif){:loading="lazy"}
 
-As shown in the image above, each capsule produces a vector, u, with a magnitude and orientation.
+Como mostrado no imagem acima, cada cápsula produz um vetor, u, com uma magnitude e orientação.
 
-* ***Magnitude (m)*** = the probability that a part exists; a value between 0 and 1.
-* ***Orientation (theta)*** = the state of the part properties.
+* ***Magnitude (m)***  = a probabilidade de que uma parte exista; um valor entre 0 e 1.
+* ***Orientation (theta)*** = o estado das propriedades da peça.
 
-These output vectors allow us to perform what we have already called "routing-by-agreement", to build a parse tree that recognizes whole objects as composed of many smaller parts.
+Esses vetores de saída nos permitem executar o que já denominamos de roteamento por acordo, para construir uma árvore de análise que reconhece objetos inteiros como compostos de várias partes menores.
 
-***Do not worry! We will see shortly what "routing by agreement" means.***
 
-The vector *magnitude* is a value between 0 and 1 that indicates the probability that a specific part of a whole exists and has been detected in an image. This is a normalized function of the weighted inputs for a specific capsule; a nonlinear function called [squashing](https://www.sciencedirect.com/topics/computer-science/squashing-function).
+***Don't worry! Veremos logo a frente o que significa "roteamento por acordo".***
 
-The *orientation* of the vector, in turn, represents the state of the properties of a part of that whole; this orientation will change if one of the properties changes.
+A *magnitude* do vetor é um valor entre 0 e 1 que indica a probabilidade de que uma parte especifica de um todo existe e foi detectada em uma imagem. Esta é uma função normalizada das entradas ponderadas para uma cápsula específica; uma função não linear chamada de [squashing](https://www.sciencedirect.com/topics/computer-science/squashing-function).
+
+A *orientação* do vetor por sua vez, representa o estado das propriedades de uma parte desse todo; esta orientação mudará se uma das propriedades mudar.
 
 ---
 
-*A capsule is a group of neurons whose activity vector represents the instantiation parameters of a specific type of entity, such as an object or a part of the object. We use the activity vector length to represent the probability that the entity exists and its orientation to represent the instantiation parameters.* [[3]](https://arxiv.org/abs/1710.09829)
+*Uma cápsula é um grupo de neurônios cujo vetor de atividade representa os parâmetros de instanciação de um tipo específico de entidade, como um objeto ou uma parte do objeto. Usamos o comprimento do vetor de atividade para representar a probabilidade de que a entidade existe e sua orientação para representar os parâmetros de instanciação.* [[3]](https://arxiv.org/abs/1710.09829)
 
-*Magnitude* is a special property of each part that must remain very high even when an object is in a different orientation, as shown below.
+A *magnitude* é uma propriedade especial de cada parte que deve permanecer muito alta mesmo quando um objeto está em uma orientação diferente, como mostrado abaixo.
 
-Let's say a capsule detects a cat's face in an image and produces a vector with magnitude 0.9. This means that it detects a face with 90% confidence.
+Digamos que uma cápsula detecte a face de um gato em uma imagem e produza um vetor com magnitude de 0,9. Isso significa que ele detecta uma face com 90% de confiança.
 
 ![Capsule_Netorks_Cat]({{site.baseurl}}/images/posts/20210120/capsule-n-cat.png){:loading="lazy"}
 
-
-If we consider for a different image of this cat's face, one in which the cat is in profile for example, the orientation of the output vector of this capsule will change. The properties, position, orientation, and shape of the face part have changed in this new image, and the orientation of the output vector changes with each of these property changes. These changes are changes in neural activities within a capsule. The magnitude of the vector should remain very close to 0.9, as the capsule must still be certain that the face exists in the image.
+Se considerarmos para uma imagem diferente da face desse gato, uma na qual o gato encontra-se de perfil por exemplo, a orientação do vetor de saída desta cápsula mudará. As propriedades, posição, orientação e forma da parte da face foram alteradas nesta nova imagem, e a orientação do vetor de saída muda com cada uma dessas alterações de propriedade. Essas mudanças são mudanças nas atividades neurais dentro de uma cápsula. A magnitude do vetor deve permanecer muito próxima a 0.9, já que a cápsula ainda deve ter certeza de que o rosto existe na imagem.
 
 
 ![Capsule_Netorks_Cat_upsidown]({{site.baseurl}}/images/posts/20210120/capsule-n-cat-upsidown.png){:loading="lazy"}
 
 
-That is, when these relationships are tied to the internal representation of data, it becomes very easy for the model to understand that what it sees is just another view of something it has seen before.
+Ou seja, quando esses relacionamentos são agrupados à representação interna de dados, torna-se muito fácil para o modelo entender que o que ele vê é apenas outra visão de algo que ele já viu anteriormente.
 
-Consider the following image. You can easily recognize that this is the Statue of Liberty, although all the images show the same image from different angles.
+Considere a imagem abaixo por exemplo. Você pode reconhecer facilmente que esta é a Estátua da Liberdade, embora todas as imagens a mostrem de diferentes ângulos.
 
 ![Statue-of_Liberty]({{site.baseurl}}/images/posts/20210120/statue-liberty.jpeg){:loading="lazy"}
 
-*Your brain can easily recognize that this is the same object, even though all the pictures are taken from different angles. **CNNs do not have this feature**.*
+*Seu cérebro pode reconhecer facilmente que este é o mesmo objeto, embora todas as fotos sejam tiradas de ângulos diferentes. **CNNs não têm esse recurso**.*
 
-This is because the internal representation of the Statue of Liberty in your brain is not viewing angle dependent. You've probably never seen these exact pictures of him, but you can still immediately tell what it was.
+Isso ocorre porque a representação interna da Estátua da Liberdade em seu cérebro não depende do ângulo de visão. Você provavelmente nunca viu essas fotos exatas dele, mas ainda assim consegue perceber imediatamente o que era.
 
-> So why have a vector output instead of a single value? Why is guidance a useful value?
+> Então, por que ter uma saída vetorial em vez de um único valor? Por que a orientação é um valor útil?
+
+O fato de a saída de uma cápsula ser um vetor, com alguma orientação, torna possível usar um poderoso mecanismo de roteamento dinâmico para garantir que a saída de uma cápsula seja enviada para a cápsula-mãe apropriada na próxima camada de cápsulas.
+
+### Roteamento Dinâmico
+
+O roteamento dinâmico é um processo para encontrar as melhores conexões entre a saída de uma cápsula e as entradas da próxima camada de cápsulas. Ele permite que as cápsulas se comuniquem umas com as outras e determinem como os dados se movem através delas, de acordo com as mudanças em tempo real nas entradas e saídas da rede. Ou seja, não importa que tipo de imagem de entrada uma rede cápsula vê, o roteamento dinâmico garante que a saída de uma cápsula seja enviada para a cápsula pai apropriada na camada seguinte.
 
 
-### Dynamic Routing
+### Exemplo de roteamento: Maxpooling
 
-Dynamic routing is a process for finding the best connections between the output of one capsule and the inputs of the next layer of capsules. It allows capsules to communicate with each other and determine how data moves through them, based on real-time changes in network inputs and outputs. That is, no matter what kind of input image a capsule network sees, dynamic routing ensures that the output of a capsule is sent to the appropriate parent capsule in the next layer.
+Você já deve ter visto um exemplo de processo de roteamento simples em uma rede neural convolucional. A rede convolucional extrai features de uma imagem por meio de uma camada convolucional. Em uma arquitetura CNN típica, essas informações filtradas são então passadas para uma camada de maxpooling.
 
+* Se você quer relembrar qual a função da camada de **pooling**, pode visitar esse outro artigo [aqui](https://medium.com/toniesteves/agrupando-conceitos-e-classificando-imagens-com-deep-learning-5b2674f99539).*
 
-### Routing example: Maxpooling
-
-You may have seen an example of a simple routing process in a convolutional neural network. The convolutional network extracts features from an image through a convolutional layer. In a typical CNN architecture, this filtered information is then passed to a maxpooling layer.
-
-*If you would like to remember what the role of the **pooling layer** is, you can visit this other article [here](https://medium.com/toniesteves/agrupando-conceitos-e-classificando-imagens-com-deep-learning-5b2674f99539).*
-
-The **maxpooling** layer creates a route that ignores all resources except the most "active" or high-value ones in the previous convolutional layer.
+A camada **maxpooling** cria uma rota que ignora todos os recursos, exceto os àqueles mais “ativos” ou de alto valor na camada convolucional anterior.
 
 ![max-pooling]({{site.baseurl}}/images/posts/20210120/max-pooling.png){:loading="lazy"}
 
-This routing process performed by CNN's discards a lot of pixel information and produces very different results for images of the same object in different orientations.
+Esse processo de roteamento efetuado pelas CNN's, descarta muitas informações de pixel e produz resultados muito diferentes para imagens do mesmo objeto em orientações diferentes.
 
-*So how does dynamic routing work and how does it improve a simple routing process like maxpooling?*
+*Então, como funciona o roteamento dinâmico e como ele melhora um processo de roteamento simples como o maxpooling?*
 
-When a capsule network is initialized, the child capsules are not sure where their outputs should go, as they act as the input to the next layer of parent capsules. In fact, each pod starts with a list of possible parents, which are all parent pods in the next layer. This possibility is represented by a value called the ***coupling coefficient***, $$C$$, which is the probability that the output of a given capsule will go to a ***parent capsule*** in the next layer. A child node with two possible parents will start with equal coupling coefficients for both $$(0.5)$$.
+Quando uma rede cápsula é inicializada, as cápsulas filhas não têm certeza de para onde suas saídas devem ir, pois atuam como entrada para a próxima camada de cápsulas pais. Na verdade, cada cápsula começa com uma lista de possíveis pais, que são todas as cápsulas pais na próxima camada. Essa possibilidade é representada por um valor chamado **coeficiente de acoplamento**, $$C$$, que é a probabilidade de que a saída de uma determinada cápsula vá para uma **cápsula-mãe** na próxima camada. Um nó filho com dois pais possíveis começará com coeficientes de acoplamento iguais para ambos $$(0.5)$$.
 
 ![coupling-coefficient]({{site.baseurl}}/images/posts/20210120/coupling-coefficient.png){:loading="lazy"}
 
-### Routing by Agreement
+Os coeficientes de acoplamento em todos os pais possíveis podem ser representados como uma distribuição de probabilidade discreta. Por fim, em todas as conexões entre uma cápsula filha e todas as cápsulas pai possíveis, os coeficientes de acoplamento devem somar 1.
 
-Dynamic routing is an iterative process that updates these coupling coefficients. The upgrade process, performed during network training, is as follows for a single capsule:
+### Roteamento por Acordo
 
-* A child capsule represents a part of an entire object. Each child capsule produces some output vector $$u$$; its magnitude represents the existence of a part and its orientation represents the generalized posture of the part.
+O roteamento dinâmico é um processo iterativo que atualiza esses coeficientes de acoplamento. O processo de atualização, realizado durante o treinamento da rede, é o seguinte para uma única cápsula:
 
-* For each possible parent, a child capsule computes a prediction vector, $$\hat u$$ , which is a function of its output vector, $$u$$, times a weight matrix, $$W$$. You can think of $$W$$ as a linear transformation — a translation or rotation , for example, which relates the pose of a part to the pose of a larger part or the whole object (e.g. if a nose is pointing to the left, it is likely that the entire face of which it is a part is also pointing to the left). So $$\hat u$$ is a prediction about the pose of a larger part, represented by a parent capsule.
+* Uma cápsula filha representa uma parte de um objeto inteiro. Cada cápsula filha produz algum vetor de saída u; sua magnitude representa a existência de uma parte e sua orientação representa a postura generalizada da parte.
 
-* If the prediction vector has a large dot product with the output vector of the parent capsule, $$v$$, then these vectors are considered concordant and the coupling coefficient between that parent and the daughter capsule increases. Simultaneously, the coupling coefficient between that infant capsule and all other parents decreases.
+* Para cada pai possível, uma cápsula filha calcula um vetor de previsão,  $$\hat u$$, que é uma função de seu vetor de saída, $$u$$ vezes uma matriz de peso, $$W$$. Você pode pensar em $$W$$ como uma transformação linear — uma translação ou rotação , por exemplo, que relaciona a pose de uma parte com a pose de uma parte maior ou do objeto inteiro (por exemplo, se um nariz está apontando para a esquerda, é provável que todo o rosto do qual faz parte também esteja apontando para a esquerda). Então $$\hat u$$ é uma previsão sobre a pose de uma parte maior, representada por uma cápsula pai.
 
-* This dot product between the parent output vector, $$v$$, and a prediction vector, $$\hat u$$, is known as a capsule agreement measure.
+* Se o vetor de predição tem um produto escalar grande com o vetor de saída da cápsula pai, v, então esses vetores são considerados concordantes e o coeficiente de acoplamento entre aquele pai e a cápsula filha aumenta. Simultaneamente, o coeficiente de acoplamento entre aquela cápsula infantil e todos os outros pais diminui.
 
-This process is called "routing-by-agreement". If the orientation of the output vectors of the capsules in successive layers is aligned, they agree that they must be coupled and the connections between them are strengthened. The coupling coefficients are calculated by a [softmax](https://en.wikipedia.org/wiki/Softmax_function) function that operates on the agreements, a, between capsules and transforms them into probabilities such that the coefficients between a child and its possible parents add up to 1.
+* Este produto escalar entre o vetor de saída, $$v$$, e um vetor de previsão, $$\hat u$$, é conhecido como uma medida de "concordância da cápsulas".
 
+Esse processo é chamado de roteamento por acordo. Se a orientação dos vetores de saída das cápsulas em camadas sucessivas estiver alinhada, eles concordam que devem ser acoplados e as conexões entre eles são fortalecidas. Os coeficientes de acoplamento são calculados por uma função [softmax](https://en.wikipedia.org/wiki/Softmax_function) que opera sobre os acordos, a, entre cápsulas e os transforma em probabilidades tais que os coeficientes entre um filho e seus possíveis pais somam $$1$$.
 
 ![routing-by-agreement]({{site.baseurl}}/images/posts/20210120/routing-by-agreement.gif){:loading="lazy"}
 
-### Capsule Network architecture in MNIST
+### Arquitetura de uma Capsule Network no MNIST
 
-A Capsule Network can be divided into two main parts:
+Uma Rede Capsula pode ser dividida em duas partes principais:
 
-1. A convolutional encoder.
-2. A fully connected linear decoder.
+1. Um codificador convolucional.
+2. Um decodificador linear totalmente conectado.
 
 ![mnist-capsule-network]({{site.baseurl}}/images/posts/20210120/mnist-capsule-network.png){:loading="lazy"}
 
-### Encoder
+### Codificador
 
-The encoder takes the input image and learns how to represent it as a 16-dimensional vector that contains all the information needed to essentially render the image.
+O codificador recebe a imagem de entrada e aprende como representá-la como um vetor de 16 dimensões que contém todas as informações necessárias para essencialmente renderizar a imagem.
 
-* **Convolutional Layer** — detects features that are later parsed by capsules. As proposed in the article, it contains 256 grains of size 9x9x1.
+* **Camada Convolucional** — detecta recursos que são posteriormente analisados pelas cápsulas. Conforme proposto no artigo, contém 256 grãos de tamanho $$9 \times 9 \times 1$$.
 
-* **Primary (lower) capsule layer** — This layer is the lower level capsule layer I described earlier. It contains 32 different capsules and each capsule applies eighth $$9 \times 9 \times 256$$ convolutional kernels to the output of the previous convolutional layer and produces a 4D vector output.
+* **Camada da cápsula primária (inferior)** — Esta camada é a camada da cápsula de nível inferior que descrevi anteriormente. Contém 32 cápsulas diferentes e cada cápsula aplica oitavos kernels convolucionais $$9 \times 9 \times 256$$ à saída da camada convolucional anterior e produz uma saída vetorial de 4 dimensões.
 
-* **Digit Capsule Layer (Top)** — This layer is the top-level capsule layer that the primary caps would target (using dynamic routing). This layer produces 16D vectors that contain all the instantiation parameters needed to reconstruct the object.
-
+* **Camada de cápsula de dígito (superior)** — Esta camada é a camada de cápsula de nível superior para a qual as cápsulas primárias direcionariam (usando roteamento dinâmico). Esta camada produz vetores de 16 dimensões que contêm todos os parâmetros de instanciação necessários para reconstruir o objeto.
 
 ### Decoder
 
 ![decoder]({{site.baseurl}}/images/posts/20210120/decoder.png){:loading="lazy"}
 
-The decoder takes the 16D vector from the Digit Capsule and learns how to decode the instantiation parameters given in an image of the object it is detecting.
+O decodificador pega o vetor 16D da Digit Capsule e aprende como decodificar os parâmetros de instanciação dados em uma imagem do objeto que está detectando.
 
-The decoder is used with a [Euclidean distance](https://pt.wikipedia.org/wiki/Dist%C3%A2ncia_euclidiana) loss function to determine how similar the reconstructed feature is compared to the actual feature it is being trained on. This ensures that the pods only keep information that will benefit from recognizing digits within their vectors. The decoder is a really simple feed-forward neural network which is described below.
+O decodificador é usado com uma função de perda que utiliza a [distância euclidiana](https://pt.wikipedia.org/wiki/Dist%C3%A2ncia_euclidiana) para determinar o quão semelhante o recurso reconstruído é comparado ao recurso real do qual está sendo treinado. Isso garante que as cápsulas mantenham apenas informações que se beneficiarão no reconhecimento de dígitos dentro de seus vetores. O decodificador é uma rede neural de feed-forward realmente simples que é descrita abaixo.
 
-* **Layer 1**: Fully Connected (Dense)
-* **Layer 2**: Fully connected (Dense)
-* **Layer 3**: Fully Connected (Dense) — Final Result with 10 classes
+* **Camada 1**: Totalmente Conectada (Densa)
+* **Camada 2**: Totalmente conectada (Densa)
+* **Camada 3**: Totalmente Conectada (Densa) — Resultado Final com 10 classes
 
 
-### Conclusion
+### Conclusão
 
-*Capsule Networks* introduce a new concept in the field of computer vision, which can be used in deep learning to better model hierarchical relationships within the representation of internal knowledge of a neural network. The intuition behind them is very simple and elegant.
+*Capsule Networks* introduzem um novo conceito no campo da visão computacional, que pode ser utilizado no aprendizado profundo para melhor modelar relacionamentos hierárquicos dentro da representação de conhecimento interno de uma rede neural. A intuição por trás deles é muito simples e elegante.
 
-Hinton and his team proposed a way to train this network composed of capsules and successfully trained it on a simple dataset.
+Hinton e sua equipe propuseram uma forma de treinar essa rede composta de cápsulas e a treinaram com sucesso em um conjunto de dados simples.
 
-However, there are still challenges. Current implementations are much slower than other modern deep learning models. Also, we need to see if they work well on more difficult datasets and across different domains.
+No entanto, ainda existem desafios. As implementações atuais são muito mais lentas do que outros modelos modernos de aprendizado profundo. Além disso, precisamos ver se eles funcionam bem em conjuntos de dados mais difíceis e em diferentes domínios.
 
-I have got some repositories on Github that address the practical implementation of Capsules Network and I am making them available below with references to implementation of these networks:
+Selecionei alguns repositórios no Github que abordam a implementação prática das Capsules Network e estou deixando disponiveis abaixo com referências de implementação dessas redes:
 
-* [Repository 1](https://github.com/XifengGuo/CapsNet-Keras) (Keras Implementation)
-* [Repository 2](https://github.com/llSourcell/capsule_networks) (Tensorflow Implementation)
-* [Repository 3](https://github.com/higgsfield/Capsule-Network-Tutorial) (Pytorch Implementation)
+* [Repository 1](https://github.com/XifengGuo/CapsNet-Keras) (Implementação em Keras)
+* [Repository 2](https://github.com/llSourcell/capsule_networks) (Implementação em Tensorflow)
+* [Repository 3](https://github.com/higgsfield/Capsule-Network-Tutorial) (Implementação em Pytorch)
 
-In addition, Geoffrey Hinton's own presentation on Capsule Networks is available on youtube.
-
+Além disso tem disponível no youtube a apresentação do próprio Geoffrey Hinton sobre Capsule Networks.
 
   <!-- [![Geoffrey Hinton – Capsule Networks](https://img.youtube.com/vi/x5Vxk9twXlE/0.jpg)](https://www.youtube.com/watch?v=x5Vxk9twXlE) -->
 
 <p><iframe src="https://www.youtube.com/embed/x5Vxk9twXlE" loading="lazy" frameborder="0" allowfullscreen></iframe></p>
 
+Finalmente, espero que esse material tenha sido útil e faça sentido pra você, principalmente aos iniciantes. Além disso na seção de referências é possível encontrar um material muito útil utilizado para elaboração desse artigo que pode te ajudar a ampliar seus conhecimentos no tema.
 
-Finally, I hope this material has been useful and makes sense to you, especially for beginners. In addition, in the references section you can find a very useful material used to prepare this article that can help you expand your knowledge on the subject.
-
-Remembering that any feedback, whether positive or negative, just get in touch through my twitter, linkedin or in the comments below. Thanks :)
+Lembrando que qualquer feedback, seja positivo ou negativo é so entrar em contato através do meu [twitter](https://twitter.com/estevestoni), [LinkedIn](https://www.linkedin.com/in/toniesteves/ ), [Github](https://github.com/toniesteves) ou nos comentário aqui em baixo. Obrigado :)
 
 ### References
 
