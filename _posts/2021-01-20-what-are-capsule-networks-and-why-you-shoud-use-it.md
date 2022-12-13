@@ -24,8 +24,6 @@ Esta operação é a razão pela qual informações espaciais valiosas se perdem
 
 > "The pooling operation used in convolutional neural networks is a big mistake and the fact that it works so well is a disaster." — [Geoffrey E. Hinton](https://www.reddit.com/r/MachineLearning/comments/2lmo0l/ama_geoffrey_hinton/clyj4jv/)
 
-Thus, conventional CNNs have some limitations:
-
 Assim as CNN's convencionais apresentam algumas limitações:
 
 * Existe uma perda consideravel de relações espaciais precisas no processo de pooling, entre as caracteristicas de nível superior, como um nariz e uma boca, no processo efetuado pelas CNN's. Relações espaciais precisas são necessárias para o reconhecimento de identidade
@@ -39,7 +37,7 @@ Assim as CNN's convencionais apresentam algumas limitações:
 
 Para resolver esse problema, [Hinton](https://arxiv.org/pdf/1710.09829.pdf) propôs que usássemos um processo, denominado em livre tradução, de “roteamento por acordo”. Isso significa que os recursos identificados em uma camada de nível inferior (nariz, olhos, boca) serão enviados apenas para uma camada de nível superior que corresponda ao seu conteúdo. Por fim, se as características agrupadas se assemelham a de um olho ou de uma boca, chegará a um “rosto” ou se contiver dedos e uma palma, será enviado a “mão”.
 
-Esta solução que codifica informações espaciais em recursos e que utiliza, ao mesmo tempo, uma estratégia chamada de roteamento dinâmico, recebeu o nome de ***Capsule Networks*** e foi apresentada por Geoffrey Hinton, no [NIPS 2017](https://nips.cc/Conferences/2017).
+Esta solução que codifica informações espaciais em recursos e que utiliza, ao mesmo tempo, uma estratégia chamada de roteamento dinâmico, recebeu o nome de ***Capsule Networks***, e foi apresentada por Geoffrey Hinton, no [NIPS 2017](https://nips.cc/Conferences/2017).
 
 
 ### Capsule Networks
