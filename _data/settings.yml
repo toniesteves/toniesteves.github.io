@@ -2,7 +2,7 @@
 # Site Settings
 title: Toni Esteves
 logo: # You can add own logo. For example "/images/logo.png".
-description: I'm a deep learning researcher and data scientist focused on computer vision and pattern recognition. I'm really passionate about data, work with topics like pattern recognition, inferential and descriptive statistics, probability, deep learning.
+description: I'm a deep learning researcher and data scientist focused on financial services and pattern recognition. I'm really passionate about data, work with topics like pattern recognition, inferential and descriptive statistics, probability, deep learning.
   
 
 
@@ -10,7 +10,7 @@ description: I'm a deep learning researcher and data scientist focused on comput
 # Author Global Settings
 author:
   author__name: Toni Esteves
-  author__bio: Hi there! I'm a deep learning researcher and data scientist focused on computer vision and pattern recognition. I'm really passionate about data, work with topics like pattern recognition, inferential and descriptive statistics, probability, deep learning.
+  author__bio: Hi there! I'm a deep learning researcher and data scientist focused on financial services and pattern recognition. I'm really passionate about data, work with topics like pattern recognition, inferential and descriptive statistics, probability, deep learning.
   
   author__avatar: /images/toni.jpg
 
@@ -25,22 +25,22 @@ menu__settings:
       url: '/about/'
     - title: 'Pages'
       submenu:
-      - url: '/books/'
-        title: 'Books'
+      # - url: '/books/'
+      #   title: 'Books'
       - url: '/education/'
         title: 'Education'
-      - url: '/elements/'
-        title: 'Elements'
+      # - url: '/elements/'
+      #   title: 'Elements'
       - url: '/experience/'
         title: 'Experience'
-      - url: '/projects/'
-        title: 'Projects'
+      # - url: '/projects/'
+      #   title: 'Projects'
       - url: '/publications/'
         title: 'Publications'
-      - url: '/skills/'
-        title: 'Skills'
-      - url: '/wiki/'
-        title: 'Wiki'
+      # - url: '/skills/'
+      #   title: 'Skills'
+      # - url: '/wiki/'
+      #   title: 'Wiki'
     - title: 'Contact'
       url: '/contact/'
 
@@ -50,14 +50,14 @@ menu__settings:
 hero:
   # hero__title: Hi there! I’m Dann Kanigan, a Filmmaker and Content Creator based in Toronto, Ontario, Canada. 
   # hero__title: Hi there! I’m Toni Esteves a deep learning researcher and data scientist. This blog is about Deep Learnind and Data Science topics, and inspiring you to take one step forward.
-  hero__title: Hi there! I’m Toni Esteves a deep learning researcher and data scientist. This is my notepad for applied Data Science and Quant Research topics.
+  hero__title: Hi there! I'm Toni Esteves a deep learning researcher and data scientist. This is my blog for applied Data Science, Deep Learning and Algorithms.
 
 
 #-------------------------------
 # Blog Settings
 blog:
   blog__title: Blog & Resources
-  blog__description: Find out how relevant topics about Deep Learning, Machine Learning and Data Science!
+  blog__description: Find out relevant topics about Deep Learning and Data Science!
 
 
 #-------------------------------
@@ -73,7 +73,7 @@ mailchimp:
   enable: true
   mailchimp__identifier: frnla.us6.list-manage.com/subscribe/post?u=6314d69a3f315af7ce3fb00a0&amp;id=3038727cc3 # Add your MailChimp form identifier. For example - frnla.us6.list-manage.com/subscribe/post?u=6314d69a3f315af7ce3fb00a0&amp;id=3038727cc3
   mailchimp__title: Get interesting news
-  mailchimp__description: Subscribe to our newsletter and we’ll send you the emails of latest posts.
+  mailchimp__description: Subscribe to our newsletter and we'll send you the emails of latest posts.
   mailchimp__input__text: Your Email Address...
   mailchimp__button__text: Subscribe
   mailchimp__background__image: "/images/commom/mailchimp_background_image.jpg"
@@ -101,8 +101,8 @@ footer__menu__settings:
       title: 'Publications'
     - url: '/skills/'
       title: 'Skills'
-    - url: '/wiki/'
-      title: 'Wiki'
+    # - url: '/wiki/'
+    #   title: 'Wiki'
 
 # Social Links
 social:
