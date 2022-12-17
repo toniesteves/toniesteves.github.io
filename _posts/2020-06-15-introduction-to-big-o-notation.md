@@ -148,7 +148,7 @@ This notation has a constant time. The time is consistent for each run.
 
 *Example: Imagine that it takes you exactly 15 seconds to fill a cup of coffee and then that particular task is considered complete. It doesn't matter if you fill a cup, or a hundred cups, you fill each cup in a consistent period of time.*,
 
-So, as per our example above, we don't care about **O(1)**, **O(2)**, etc. We round to **O(1)**, meaning our operation is a flat line in terms of scalability. It will take the same amount of time.
+So, as per our example above, we don't care about **$$O(1)$$**, **$$O(2)$$**, etc. We round to **$$O(1)$$**, meaning our operation is a flat line in terms of scalability. It will take the same amount of time.
 
 ### $$O(n)$$
 
@@ -156,7 +156,7 @@ Now consider the following code snippet:
 
 <script src="https://gist.github.com/toniesteves/78f18cc88c1c8c4b0f7ad9ddc52ad368.js"></script>
 
-Our example loop is **O(n)** as it runs for all values in our input. Operations increase **linearly** with inputs over a single iteration for each item. The term (n) represents the number of entries. Thus, the algorithm runs in linear time.
+Our example loop is **$$O(n)$$** as it runs for all values in our input. Operations increase **linearly** with inputs over a single iteration for each item. The term (n) represents the number of entries. Thus, the algorithm runs in linear time.
 
 ### $$O(n^2)$$
 
@@ -229,15 +229,15 @@ Other common complexities
 
 **Cubic $$O(n^3)$$**: — This complexity occurs when we run 3 nested loops, every n times.
 
-**$$O(n!)$$ Factorial**: — When an algorithm calculates the entire permutation of a given matrix is O(n!). An example would be solving the [traveling salesman](https://en.wikipedia.org/wiki/Travelling_salesman_problem) problem through brute force research.
+**$$O(n!)$$ Factorial**: — When an algorithm calculates the entire permutation of a given matrix is $$O(n!)$$. An example would be solving the [traveling salesman](https://en.wikipedia.org/wiki/Travelling_salesman_problem) problem through brute force research.
 
-**Linearithmic $$O(n log n)$$**: — When an algorithm performs logarithmic operations n times, we say that it has a linearithmic or O(n log n) complexity. [Merge sort](https://en.wikipedia.org/wiki/Merge_sort) is a popular example of linearithmic complexity.
+**Linearithmic $$O(n log n)$$**: — When an algorithm performs logarithmic operations n times, we say that it has a linearithmic or $$O(n log n)$$ complexity. [Merge sort](https://en.wikipedia.org/wiki/Merge_sort) is a popular example of linearithmic complexity.
 
 ### Conclusion
 
 Once you know what's really behind it. Now let's look at some more general rules that you can apply when analyzing.
 
-* Remove the constants. As already stated at the beginning of this article, if we have an algorithm expressed in the form O(2n), it is possible to remove the constant 2 and consider the complexity as $$O(n)$$.
+* Remove the constants. As already stated at the beginning of this article, if we have an algorithm expressed in the form $$O(2n)$$, it is possible to remove the constant 2 and consider the complexity as $$O(n)$$.
 
 * Remove non-dominant terms. $$O(n^2+n)$$ becomes $$O(n^2)$$. Keep only the dominant term in Big O notation.
 
