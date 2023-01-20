@@ -69,9 +69,9 @@ Se a tabela de ação tem no máximo uma entrada para cada combinação de símb
 
 
 Uma máquina de Turing não determinística é um tipo teórico de computador no qual comandos específicos podem permitir uma série de ações, em vez de um comando específico que leva a apenas uma ação permitida no modelo determinístico de computação.
-Onde a programação determinística é uma condição simples de 'entrada $$X$$ leva à ação $$Y$$', uma configuração de máquina de Turing não determinística teoricamente permitiria que a entrada X levasse a uma variedade de ações Y(array)
+Onde a programação determinística é uma condição simples de 'entrada $$X$$ leva à ação $$Y$$', uma configuração de máquina de Turing não determinística teoricamente permitiria que a entrada $$X$$ levasse a uma variedade de ações Y(array)
 Máquinas de Turing não determinísticas podem realmente fornecer uma direção para o futuro da computação inteligente ou artificialmente inteligente. Ao desatar o trabalho computacional do paradigma determinístico, os computadores poderiam aprender a resolver problemas mais complicados e 'pensar' mais como humanos.
-Um tipo de máquina de Turing não-determinística é a máquina de Turing probabilística. Aqui, o conjunto de ações (Y) mencionado acima é determinado por meio de alguma distribuição de probabilidade. Outra maneira de dizer isso é que quando a máquina tem mais de uma escolha, ela vai para um modelo probabilístico, analisa esse modelo e faz uma escolha de acordo.
+Um tipo de máquina de Turing não-determinística é a máquina de Turing probabilística. Aqui, o conjunto de ações ($$Y$$) mencionado acima é determinado por meio de alguma distribuição de probabilidade. Outra maneira de dizer isso é que quando a máquina tem mais de uma escolha, ela vai para um modelo probabilístico, analisa esse modelo e faz uma escolha de acordo.
 Existem muitas outras maneiras de ordenar uma máquina de Turing não determinística, mas o princípio é que o computador precisa escolher entre um conjunto de opções disponíveis. Alguns modelos de Turing não determinísticos em uma configuração de aprendizado de máquina podem consistir no computador seguindo caminhos de lógica para um final aceito ou rejeitado e, em seguida, voltando e escolhendo uma ação de acordo.
 
 
