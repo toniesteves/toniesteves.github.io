@@ -25,13 +25,13 @@ Antes de apresentarmos os tipos de convoluções, é muito importante entender a
 
 Existem duas entradas para uma operação convolucional
 
-***i)*** Uma imagem de entrada de tamanho 3 x 3 x 3(**Altura** x **Largura** x **Canais**)
+***i)*** Uma imagem de entrada de tamanho $$3 \times 3 \times 3$$($$Altura \times Largura  \times Canais$$)
 
-***ii)*** Um conjunto de filtros **'k'** (também chamados de kernels ou extratores de características) cada um de tamanho (**f** x **f** x **Canais**), onde f é tipicamente 3 ou 5.
+***ii)*** Um conjunto de filtros **'k'** (também chamados de kernels ou extratores de características) cada um de tamanho ($$ f \times f \times Canais $$), onde $$f$$ é tipicamente 3 ou 5.
 
-A saída de uma operação convolucional também é uma imagem 3D (também chamada de imagem de saída ou mapa de características) de tamanho (**n_out** x **n_out** x **k**).
+A saída de uma operação convolucional também é uma imagem 3D (também chamada de imagem de saída ou mapa de características) de tamanho ($$ n_{out} \times n_{out} \times k$$).
 
-A relação entre **n_in** e **n_out** é a seguinte:
+A relação entre $$n_{in} e $$n_{out}$$ é a seguinte:
 
 \begin{align}
   n_{out} = \left[ \frac{n_{in} + 2_p - k}{s}  \right] +1
@@ -52,7 +52,7 @@ Logo, a operação de convolução pode ser visualizada abaixo:
 ![conv_operation]({{site.baseurl}}/images/posts/20220401/conv_op.gif){:loading="lazy"}
 
 
-Na animação acima, temos um volume de entrada de tamanho 7x7x3. Dois filtros cada um de tamanho 3x3x3. ***Padding***=0 e ***Stride***=2. Portanto, o volume de saída é 3x3x2.
+Na animação acima, temos um volume de entrada de tamanho $$7 \times 7 \times 3$$. Dois filtros cada um de tamanho $$3 \times 3 \times 3$$. ***Padding***=0 e ***Stride***=2. Portanto, o volume de saída é $$3 \times 3 \times 2$$.
 
 *Se você não estiver confortável com essa aritmética, talvez seja necessários revisar os conceitos de [Redes Convolucionais](https://cs231n.github.io/) antes de continuar.*
 
@@ -88,7 +88,7 @@ Convoluções transpostas — também chamadas **convoluções fracionadas** ou 
 
 > Algumas fontes usam o nome deconvolução, o que é inadequado porque não é uma deconvolução. No entando, as deconvoluções existem, mas não são comuns no campo do aprendizado profundo.
 
-*Uma deconvolução em verdade reverte o processo de uma convolução. Imagine inserir uma imagem em uma única camada convolucional. Agora pegue a saída, jogue-a em uma caixa preta e sairá sua imagem original novamente. Esta caixa preta faz uma deconvolução. É o inverso matemático do que uma camada convolucional faz.*
+Uma deconvolução em verdade reverte o processo de uma convolução. Imagine inserir uma imagem em uma única camada convolucional. Agora pegue a saída, jogue-a em uma caixa preta e sairá sua imagem original novamente. Esta caixa preta faz uma deconvolução. É o inverso matemático do que uma camada convolucional faz.
 
 A necessidade de convoluções transpostas geralmente surge do desejo de usar uma transformação indo na direção oposta de uma convolução normal, ou seja, de algo que tenha a forma de saída de alguma convolução para algo que tenha a forma de sua entrada mantendo uma padrão de conectividade compatível com a referida convolução.
 
@@ -103,7 +103,7 @@ Uma convolução transposta é um pouco semelhante porque produz a mesma resolu�
     </div>
 </div>
 
-Neste ponto, você deve estar bastante confuso, então vamos ver um exemplo concreto. Uma imagem de 5x5 é alimentada em uma camada convolucional. O passo é definido como 2, o preenchimento é desativado e o kernel é 3x3. Isso resulta em uma imagem 2x2.
+Neste ponto, você deve estar bastante confuso, então vamos ver um exemplo concreto. Uma imagem de $$5 \times 5$$ é alimentada em uma camada convolucional. O passo é definido como 2, o preenchimento é desativado e o kernel é $$3 \times 3$$. Isso resulta em uma imagem $$2 \times 2$$.
 
 <div class="gallery-box">
     <div class="gallery">
@@ -121,7 +121,7 @@ Se quiséssemos reverter esse processo, precisaríamos da operação matemática
 </div>
 
 ### Para que servem as Convoluções Transpostas?
-Convoluções Transpostas são cruciais para a segmentação semântica e geração de dados nas Redes Adversariais Generativas (GANs). Um dos exemplos mais diretos seria uma Rede Neural treinada para aumentar a resolução da imagem.
+Convoluções Transpostas são cruciais para a segmentação semântica e geração de dados nas Redes Adversariais Generativas (**GANs**). Um dos exemplos mais diretos seria uma Rede Neural treinada para aumentar a resolução da imagem.
 
 ### Convolução Transposta vs. Deconvolução
 Deconvolução é um termo que flutua ao lado de convoluções transpostas, e os dois são frequentemente confundidos. Muitas fontes usam os dois de forma intercambiável e, embora existam deconvoluções, elas não são muito populares no campo de aprendizado de máquina.
@@ -149,7 +149,7 @@ Logo, as convoluções dilatadas oferecem um campo de visão mais amplo com o me
 
 ### Convoluções Separáveis
 
-Em uma convolução separável, podemos dividir a operação do kernel em várias etapas. Vamos expressar uma convolução como $$y = conv(x, k)$$ onde y é a imagem de saída, x é a imagem de entrada e $$k$$ é o kernel. Em seguida, vamos supor que k pode ser calculado por: $$k = k1.dot(k2)$$. Isso a tornaria uma convolução separável porque em vez de fazer uma convolução 2D com k, poderíamos obter o mesmo resultado fazendo 2 convoluções 1D com k1 e k2.
+Em uma convolução separável, podemos dividir a operação do kernel em várias etapas. Vamos expressar uma convolução como $$y = conv(x, k)$$ onde $$y$$ é a imagem de saída, $$x$$ é a imagem de entrada e $$k$$ é o kernel. Em seguida, vamos supor que k pode ser calculado por: $$k = k1.dot(k2)$$. Isso a tornaria uma convolução separável porque em vez de fazer uma convolução 2D com k, poderíamos obter o mesmo resultado fazendo 2 convoluções 1D com k1 e k2.
 
 <div class="gallery-box">
     <div class="gallery">
@@ -159,7 +159,7 @@ Em uma convolução separável, podemos dividir a operação do kernel em vária
 
 *Por exemplo, o kernel Sobel, que é frequentemente usado no processamento de imagens. Você pode obter o mesmo kernel multiplicando o vetor $$[1, 0, -1]$$ e $$[1,2,1].T$$. Isso exigiria 6 em vez de 9 parâmetros ao fazer a mesma operação. O exemplo acima mostra o que é chamado de convolução espacial separável, que, até onde sei, não é usada em aprendizado profundo.*
 
-Desse modo, pode-se criar algo muito semelhante a uma convolução separável espacial empilhando uma camada de kernel 1xN e Nx1. Isso foi usado recentemente em uma arquitetura chamada EffNet mostrando resultados promissores [Freeman et al., 2018](https://arxiv.org/abs/1801.06434v1).
+Desse modo, pode-se criar algo muito semelhante a uma convolução separável espacial empilhando uma camada de kernel $$1 \times N$$ e $$N \times 1$$. Isso foi usado recentemente em uma arquitetura chamada EffNet mostrando resultados promissores [Freeman et al., 2018](https://arxiv.org/abs/1801.06434v1).
 
 No campo do aprendizado profundo, geralmente usamos algo chamado **convolução separável profunda**. Isso executará uma convolução espacial, mantendo os canais separados e, em seguida, seguirá com uma convolução em profundidade.
 
@@ -169,7 +169,7 @@ No campo do aprendizado profundo, geralmente usamos algo chamado **convolução 
     </div>
 </div>
 
-Nas convoluções convencionais, se o kernel é 3 x 3 então o número de parâmetros seria 9. Na convolução espacialmente separável dividimos o kernel em dois kernels de formas 3 x 1 e 1 x 3. A entrada é primeiro convolucionada com 3 x 1 kernel e então com 1 x 3, então o número de parâmetros seria 3 + 3 = 6. Portanto, uma menor operação de multiplicação de matrizes é necessária. Uma coisa importante a notar aqui é que nem todo kernel pode ser separado. Devido a essa desvantagem, esse método é menos usado em comparação com as convoluções separáveis em profundidade.
+Nas convoluções convencionais, se o kernel é $$3 \times 3$$ então o número de parâmetros seria 9. Na convolução espacialmente separável dividimos o kernel em dois kernels de formas $$3 \times 1$$ e $$1 \times 3$$. A entrada é primeiro convolucionada com $$3 \times 1$$ kernel e então com $$1 \times 3$$, então o número de parâmetros seria 3 + 3 = 6. Portanto, uma menor operação de multiplicação de matrizes é necessária. Uma coisa importante a notar aqui é que nem todo kernel pode ser separado. Devido a essa desvantagem, esse método é menos usado em comparação com as convoluções separáveis em profundidade.
 
 Convoluções separáveis são ótimas quando você está otimizando o modelo para tamanho menor ou velocidade mais alta, comprometendo menos a precisão. Não é aconselhável usá-lo quando você estiver otimizando o modelo para precisão. Muitos algoritmos de aprendizado profundo são construídos usando convoluções separáveis, um deles é o [algoritmo Xception](https://arxiv.org/abs/1610.02357), Convoluções separáveis ​​em profundidade também são usadas para dispositivos móveis devido ao uso eficiente de parâmetros.
 
