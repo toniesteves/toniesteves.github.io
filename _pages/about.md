@@ -7,11 +7,11 @@ image: '/images/toni.jpg'
 # image_caption: 'Photo by [Roman Shilin](https://unsplash.com/photos/Eg8_37ws7F0) on [Unsplash](https://unsplash.com/)'
 ---
 
-*Hi! I'm Working in the tech industry since 2010 and I’ve been a developer for 10 years, during which time I have worked with several languages, such as Java, Ruby, and Python.*
+*Hi! I'm Working in the tech industry since 2010 and I’ve been a developer for 10 years, most of time I worked as software engineer but in the last few years I've enjoying been woking as Data Scientist*
 
 *I'm Ph.D student in mathematical optimization and I've got a master's degree in Deep Learning, Graduate Studies in Database Management and Agile Software Development with a Bachelor's Degree in Information Systems. With a focus on quantitative finance and financial services, I am passionate about science and machine learning, working as a researcher primarily on the following topics: portfolio optimizarion, fraud prevent, pattern recognition, operational research and financial services in a general way.*
 
-*I have solved problems in fields such as Clustering, Anomaly Detection, besides I love work with financial area too, solving problems like fraud detection, forecasts and all kind of solutions related to finance, building valuable ML products since their conception, through development and productization.*
+*I have solved problems in fields such as Clustering, Anomaly Detection, and problems related financial area, solving problems like fraud detection, forecasts and all kind of solutions related to finance, building valuable ML products since their conception, through development and productization.*
 
 *I really consider myself to be a team-player. I like to work with other people and I find that it’s much easier to achieve something when everyone works together and communicates well.*
 

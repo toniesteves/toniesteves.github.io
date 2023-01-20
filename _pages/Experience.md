@@ -8,7 +8,7 @@ permalink: /experience/
 
 #### Hotmart Company
 * **Lead Data Scientist** - 
-    Jul 2020 - Oct 2021<br/> 
+    Jul 2020 - Present<br/> 
     Belo Horizonte, Minas Gerais, Brazil
 
     I have actively work with financial team, this time in a more strategical way. Besides, get involved with data scientist operational tasks, I actively work with financial products' idealization anti-fraud prevention strategies
