@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Coding the first Airflow DAG in 10 minutes.
-description: The first steps to coding your own data pipelines. 
+title: Criando a primeira DAG no Airflow em 10 minutos.
+description: Os primeiros passos para codificar seus próprios pipelines de dados.
 date: 2022-01-12 15:01:35 +0300
 author: toni
 image: '/images/posts/20220112/cover.jpeg'
