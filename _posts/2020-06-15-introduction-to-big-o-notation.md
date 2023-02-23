@@ -10,87 +10,60 @@ tags: [complexity, algorithms, data structures, big o notation, optimization]
 featured: true
 ---
 
-Big O notation is an important topic and its universal importance derives from the fact that it describes the efficiency of code written in any programming language. This topic has a lot of related subtopics, so this post will focus only in the basic concepts about how to recognize some nuances of ***Big O*** complexity, like ***O(n)***, ***O(2n)***, ***O(n²)***, ***O(log n)***, etc.
+A notação Big O é um tópico importante e sua importância universal origina-se do fato de descrever a eficiência do código escrito em qualquer linguagem de programação. Como esse é um tópico grande, este post abordará o básico sobre como reconhecer os diferentes tipos de complexidade do ***Big O***, como ***O(n)***, ***O(2n)***, ***O(n²)***, ***O(log n)***, etc.
 
- <!-- Como esse é um tópico grande, este post abordará o básico sobre como reconhecer os diferentes tipos de complexidade do ***Big O***, como ***O(n)***, ***O(2n)***, ***O(n²)***, ***O(log n)***, etc. -->
+### Complexidade de tempo e espaço 
 
-### Space and time complexity
-<!-- Complexidade de tempo e espaço -->
+A notação Big O pode ser utilizada para descrever a complexidade de uma seção de código em termos de tempo de execução e espaço. Assim, a complexidade do tempo do Big O descreve o tempo de execução no pior cenário.
 
-Big O notation can be used to describe the complexity of a section of code in terms of runtime and space. Thus, the Big O time complexity describes the worst-case execution time.
+Já a complexidade do espaço Big O, descreve quanta memória é necessária para executar uma seção de código no pior cenário. Por exemplo, um loop for que copia uma matriz precisará de muito mais memória para ser executado do que um loop que simplesmente modifica uma matriz existente.
 
-<!-- A notação Big O pode ser utilizada para descrever a complexidade de uma seção de código em termos de tempo de execução e espaço. Assim, a complexidade do tempo do Big O descreve o tempo de execução no pior cenário. -->
-
-<!-- Já a complexidade do espaço Big O, descreve quanta memória é necessária para executar uma seção de código no pior cenário. Por exemplo, um loop for que copia uma matriz precisará de muito mais memória para ser executado do que um loop que simplesmente modifica uma matriz existente. -->
-
-Big O space complexity describes how much memory is needed to run a section of code in the worst case scenario. For example, a for loop that copies an array will need much more memory to run than a for loop that simply modifies an existing array.
-
-
-Let's consider two functions to see how Big O describes runtimes.
+Vejamos duas funções para ver como o Big O descreve os tempos de execução.
 
 <script src="https://gist.github.com/toniesteves/84395d12fb43184d033e8567735571a5.js"></script>
 
-<!-- A função acima acessa e atribui apenas um valor em um local, o tempo de execução será o mesmo, se o comprimento da matriz for 10 ou 10 milhões. Se o tempo de execução for constante, independentemente da entrada, diz-se que a função possui uma ***complexidade de tempo de O(1)***. -->
+A função acima acessa e atribui apenas um valor em um local, o tempo de execução será o mesmo, se o comprimento da matriz for 10 ou 10 milhões. Se o tempo de execução for constante, independentemente da entrada, diz-se que a função possui uma ***complexidade de tempo de O(1)***.
 
-The above function accesses and assigns only one value in one place, the execution time will be the same whether the array length is 10 or 10 million. If the running time is constant, regardless of the input, the function is said to have a ***time complexity of O(1)***.
-
-<!-- Quanto ao espaço, como a matriz já existe na memória e a função está apenas atualizando os valores na matriz, a função não usa memória adicional, independentemente do tamanho da matriz. Isso significa que a função também tem uma ***complexidade espacial de O(1)***. -->
-
-As for space, as the array already exists in memory and the function is just updating the values in the array, the function doesn't use additional memory regardless of the array size. This means that the function also has a ***spatial complexity of O(1)***.
+Quanto ao espaço, como a matriz já existe na memória e a função está apenas atualizando os valores na matriz, a função não usa memória adicional, independentemente do tamanho da matriz. Isso significa que a função também tem uma ***complexidade espacial de O(1)***.
 
 <script src="https://gist.github.com/toniesteves/672c16ba2961f365193541b816c3b8d3.js"></script>
 
-<!-- No exemplo acima, o valor em cada índice da matriz está ficando dobrado. Ou seja, há um aumento ***linear*** de iterações no loop à medida que o comprimento da matriz aumenta, diz-se que esse código tem uma complexidade de tempo de execução de O(n). Além disso, agora estamos usando memória adicional e a quantidade de memória aumenta ***linearmente*** à medida que o comprimento da matriz aumenta. Isso significa que a função tem uma complexidade de espaço de ***O(n)***. -->
+Na função **`double_and_copy_list_values`**, o valor em cada índice da matriz está ficando dobrado. Ou seja, há um aumento ***linear*** de iterações no loop à medida que o comprimento da matriz aumenta, diz-se que esse código tem uma complexidade de tempo de execução de O(n). Além disso, agora estamos usando memória adicional e a quantidade de memória aumenta ***linearmente*** à medida que o comprimento da matriz aumenta. Isso significa que a função tem uma complexidade de espaço de ***O(n)***.
 
-In **`double_and_copy_list_values`** function, the value at each index of the array is getting doubled. That is, there is a ***linear*** increase in iterations in the loop as the length of the array increases, this code is said to have a runtime complexity of O(n). Also, we are now using additional memory and the amount of memory increases ***linearly*** as the length of the array increases. This means that the function has a space complexity of ***O(n)***.
+Dado esses dois exemplos, fica claro que o primeiro trecho de código, com uma complexidade de tempo de ***O(1)*** será executado mais rapidamente em quase todos os casos.
 
-<!-- Dado esses dois exemplos, fica claro que o primeiro trecho de código, com uma complexidade de tempo de ***O(1)*** será executado mais rapidamente em quase todos os casos. -->
+> *É possível encontrar uma entrada específica em que uma função O(n) performe mais rapidamente do que a função O(1) ?*
 
-Given these two examples, it is clear that the first code snippet, with a time complexity of ***O(1)*** will run faster in almost all cases.
+Claro, mas geralmente à medida que a complexidade de uma função aumenta, o tempo de execução do pior cenário também aumenta.
 
-> *Is it possible to find a specific input where an O(n) function performs faster than the O(1) function?*
+### A função de crescimento
 
-Sure, but generally as the complexity of a function increases, the worst-case execution time also increases.
+Uma pergunta que você pode estar se fazendo nesse momento é: Como é possível categorizar um algoritmo complexo usando uma notação tão simples como a Big O.
 
-### The growth function
+> A resposta é: "Utilizando a função de crescimento".
 
-A question you may be asking yourself right now is: How is it possible to categorize a complex algorithm using a notation as simple as the Big O.
+Todo algoritmo é codificado para resolver problemas. Em uma situação hipotética, digamos que exista um algoritmo utilizado para classificar uma matriz. quando fazemos análise de eficiência, precisamos saber quão bem esse algoritmo pode executar e para isso, é necessário conhecer 2 fatores:
 
-> The answer is: "The growth function".
+* O tamanho do problema: ou seja, o tamanho da matriz aqui.
+* O processo principal que influenciará o tempo do resultado: Aqui estão incluídos o número de comparações que precisaríamos fazer. Quanto mais comparações, mais lento será o algoritmo.
 
-Every algorithm is coded to solve problems. In a hypothetical situation, let's say there is an algorithm used to sort a matrix, when we perform an efficiency analysis we need to know how well this algorithm can perform and for that we need to know 2 points:
+Ou seja, a eficiência do algoritmo pode ser definida em termos do ***tamanho do problema*** e da ***etapa de processamento***. Uma função de crescimento mostra o relacionamento entre os dois fatores, trazendo à tona a complexidade de tempo e/ou espaço em relação ao tamanho do problema.
 
-* The size of the problem: i.e. the size of the array here.
-* The main process that will influence the result time: This includes the number of comparisons we would need to make. The more comparisons, the slower the algorithm.
-
-That is, the efficiency of the algorithm can be defined in terms of the ***size of the problem*** and the ***processing step***. A growth function shows the relationship between the two factors, bringing out the time and/or space complexity in relation to the size of the problem.
-
-<!-- Ou seja, a eficiência do algoritmo pode ser definida em termos do ***tamanho do problema*** e da ***etapa de processamento***. Uma função de crescimento mostra o relacionamento entre os dois fatores, trazendo à tona a complexidade de tempo e/ou espaço em relação ao tamanho do problema. -->
-
-<!-- Antes de iniciar a próxima seção, vamos assumir uma função de crescimento aleatoria, para um algoritmo qualquer de classificação seja expresso pela seguinte notação: -->
-Before starting the next section, let's assume a random growth function, for any sorting algorithm to be expressed by the following notation:
+Antes de iniciar a próxima seção, vamos assumir uma função de crescimento aleatoria, para um algoritmo qualquer de classificação seja expresso pela seguinte notação:
 
 \begin{align}
   f(n) = 2n^2 + 4n + 6
 \end{align}
 
-### The asymptotic complexity
+### A complexidade assintótica
 
-<!-- Não podemos medir todas as complexidades algoritimcas simplesmente relacionando tempo e espaço arbitráriamente, portanto, em vez de conhecer a eficiência exata, precisamos conhecer a **"complexidade assintótica"** definida pelo **termo dominante** de uma função de crescimento. -->
+Não podemos medir todas as complexidades algoritimcas simplesmente relacionando tempo e espaço arbitráriamente, portanto, em vez de conhecer a eficiência exata, precisamos conhecer a **"complexidade assintótica"** definida pelo **termo dominante** de uma função de crescimento.
 
-We cannot measure all algorithmic complexities simply by relating time and space arbitrarily, so instead of knowing the exact efficiency, we need to know the **"asymptotic complexity"** defined by the **dominant term** of a growth function.
+> Em complexidade assintótica, um termo dominante é um termo que aumenta mais rapidamente à medida que o tamanho do problema aumenta.
 
-<!-- > Em complexidade assintótica, um termo dominante é um termo que aumenta mais rapidamente à medida que o tamanho do problema aumenta. -->
+Segundo [Cormen](https://www.amazon.com.br/Introduction-Algorithms-Thomas-H-Cormen/dp/0262033844), Quando observamos tamanhos de entrada grandes o suficiente para tornar relevante apenas a ordem de crescimento do tempo de execução, estamos estudando a eficiência assintótica dos algoritmos. Ou seja, estamos preocupados com a forma como o tempo de execução de um algoritmo aumenta com o tamanho da entrada no limite, à medida que o tamanho da entrada aumenta sem limite. Normalmente, um algoritmo assintoticamente mais eficiente será a melhor opção para todas as entradas, exceto as muito pequenas.
 
-> In asymptotic complexity, a dominant term is a term that increases more rapidly as the size of the problem increases.
-
-<!-- Segundo [Cormen](https://www.amazon.com.br/Introduction-Algorithms-Thomas-H-Cormen/dp/0262033844), Quando observamos tamanhos de entrada grandes o suficiente para tornar relevante apenas a ordem de crescimento do tempo de execução, estamos estudando a eficiência assintótica dos algoritmos. Ou seja, estamos preocupados com a forma como o tempo de execução de um algoritmo aumenta com o tamanho da entrada no limite, à medida que o tamanho da entrada aumenta sem limite. Normalmente, um algoritmo assintoticamente mais eficiente será a melhor opção para todas as entradas, exceto as muito pequenas. -->
-
-According to [Cormen](https://www.amazon.com.br/Introduction-Algorithms-Thomas-H-Cormen/dp/0262033844), When we observe input sizes large enough to make only the order of growth of time relevant of execution, we are studying the asymptotic efficiency of the algorithms. That is, we are concerned with how the running time of an algorithm increases with the size of the input at the limit, as the size of the input increases without limit. Typically, an asymptotically more efficient algorithm will be the best choice for all but very small inputs.
-
-<!-- Para a função de crescimento que definimos anteriormente, vamos desenhar uma tabela: -->
-
-Let's consider the following table, for the growth function we defined earlier:
+Para a função de crescimento que definimos anteriormente, vamos desenhar uma tabela:
 
 | **$$n$$** | **$$2n^2$$** | **$$4n$$** | **$$6$$** | **$$f(n)$$** |
 |:-------:|:----------:|:--------:|:-------:|:----------:|
@@ -104,172 +77,168 @@ Let's consider the following table, for the growth function we defined earlier:
 |    40   |    3200    |    160   |    6    |    3366    |
 
 
-<!-- Considerando nossa função aleatória $$f(n)=2n²+4n+6$$, é possível observar que, à medida que n cresce, o termo $$2n^2$$ domina o resultado da função, que é $$f(n)$$. Portanto, neste caso, $$2n^2$$ é o nosso termo dominante. -->
+Considerando nossa função aleatória $$f(n)=2n²+4n+6$$, é possível observar que, à medida que n cresce, o termo $$2n^2$$ domina o resultado da função, que é $$f(n)$$. Portanto, neste caso, $$2n^2$$ é o nosso termo dominante.
 
-If we take our random function $$f(n)=2n²+4n+6$$, it is possible to observe that, as n grows, the term $$2n^2$$ dominates the result of the function, which is $$f (n)$$. So in this case, $$2n^2$$ is our dominant term.
-
-<!-- Apenas um disclaimer antes de prosseguir: dizer que um termo é dominante à medida que $$n$$ cresce, não significa que ele seja maior que os outros termos para todos os valores de $$n$$. Você pode ver quando $$n = 1$$, os termos $$4n$$ e a constante $$(6)$$ são maiores que $$2n^n$$. Baseando-se nas considerações acima, podemos, de forma grosseira, definir a seguinte equação: -->
-
-Just a disclaimer before we moving on: saying that a term is dominant as $$n$$ grows does not mean that it is larger than the other terms for all values of $$n$$. You can see when $$n = 1$$, the terms $$4n$$ and the constant $$(6)$$ are greater than $$2n^n$$. Based on the above considerations, we can roughly define the following equation:
+Apenas um disclaimer antes de prosseguir: dizer que um termo é dominante à medida que $$n$$ cresce, não significa que ele seja maior que os outros termos para todos os valores de $$n$$. Você pode ver quando $$n = 1$$, os termos $$4n$$ e a constante $$(6)$$ são maiores que $$2n^n$$. Baseando-se nas considerações acima, podemos, de forma grosseira, definir a seguinte equação:
 
 > Big O =  Asymptotic Complexity = Dominant Term
 
-<!-- Podemos dizer que a complexidade assintótica da fórmula acima é $$O(2n^2)$$ ? -->
+Podemos dizer que a complexidade assintótica da fórmula acima é $$O(2n^2)$$ ?
 
-Can we say that the asymptotic complexity of the above formula is $$O(2n^2)$$ ?
+De fato, sim, mas a complexidade assintótica também é chamada de **"ordem do algoritmo"**. A palavra **"ordem"** aqui significa **"aproximadamente"** e todas as funções de uma mesma ordem são equivalentes. Além disso, como só temos interesse no **termo dominante**, isso significa que podemos ignorar outros termos e constantes. Então a constante $$2$$ aqui pode ser eliminada, a função acima, por exemplo, pertence à ordem $$n^2$$. Então, finalmente conseguimos ver algo familiar: $$O(n^2)$$
 
-<!-- De fato, sim, mas a complexidade assintótica também é chamada de **"ordem do algoritmo"**. A palavra **"ordem"** aqui significa **"aproximadamente"** e todas as funções de uma mesma ordem são equivalentes. Além disso, como só temos interesse no **termo dominante**, isso significa que podemos ignorar outros termos e constantes. Então a constante $$2$$ aqui pode ser eliminada, a função acima, por exemplo, pertence à ordem $$n^2$$. Então, finalmente conseguimos ver algo familiar: $$O(n^2)$$ -->
+Depois de entender alguns dos conceitos que sustentam a notação Big O, vamos ver alguns exemplos e regras que você pode aplicar ao analisar as notações.
 
-Indeed, yes, but asymptotic complexity is also called **"algorithm order"**. The word **"order"** here means **"approximately"** and all functions of the same order are equivalent. Also, since we are only interested in the **dominant term**, this means that we can ignore other terms and constants. So the constant $$2$$ here can be eliminated, the above function, for example, belongs to the order $$n^2$$. So we finally get to see something familiar: $$O(n^2)$$
+### Notação Big O
 
-<!-- Depois de entender alguns dos conceitos que sustentam a notação Big O, vamos ver alguns exemplos e regras que você pode aplicar ao analisar as notações. -->
+Como já dito, a notação Big O é uma maneira de medir a eficiência de algoritmos com base no tempo e no espaço. Para medir a complexidade do tempo, o tamanho da entrada é comparado ao tempo necessário para a execução do algoritmo. O melhor tipo de algoritmo, por exemplo, é aquele que sempre leva a mesma quantidade de tempo para executar, independente do tamanho da entrada. Para medir a complexidade do espaço, ele compara o tamanho da entrada com a quantidade de memória que um algoritmo usa.
+Cada algoritmo recebe uma complexidade de tempo, do pior ao melhor caso, sendo a complexidade geral do tempo o caso esperado.
 
-After understanding some of the concepts that underpin the Big O notation, let's look at some examples and rules you can apply when analyzing the notations.
+> Conhecer as complexidades do tempo nos permite criar algoritmos melhores.
 
-### Big O notation
-
-As already stated, the Big O notation is a way of measuring the efficiency of algorithms based on time and space. To measure time complexity, the size of the input is compared to the time required for the algorithm to run. The best type of algorithm, for example, is one that always takes the same amount of time to run, regardless of the size of the input. To measure space complexity, it compares the size of the input to the amount of memory an algorithm uses. Each algorithm is assigned a time complexity, from worst to best case, with the overall time complexity being the expected case.
-
-> Knowing the complexities of time allows us to create better algorithms.
-
-Let's consider a for loop. You can run it on an array of 10 items and it will run quickly, but if the same iteration is run on an array of 10,000 items, the execution time will be much slower.
+Vamos considerar uma instrução `for`. É possível executá-lo em uma matriz de 10 itens e ele será executado rapidamente, mas caso a mesma iteração seja executada em uma matriz de 10.000 itens, o tempo de execução será muito mais lento.
 
 <script src="https://gist.github.com/toniesteves/cf3bac803eeda233aa726e2aca3d994d.js"></script>
 
-Therefore, Big O annotation allows determining how long an algorithm will take to run. This allows us to understand how a piece of code will scale in addition to measuring algorithmic efficiency.
+Logo, anotação Big O permite determinar quanto tempo um algoritmo levará para ser executado. Isso nos permite entender como um pedaço de código será dimensionado além de medir a eficiência algorítmica.
 
 ### $$O(1)$$
 
-Consider the code snippet below:
+Considere o trecho de código abaixo:
 
 <script src="https://gist.github.com/toniesteves/73e7964dc1c4395fcbf4c38411c9d1a6.js"></script>
 
-This notation has a constant time. The time is consistent for each run.
+Essa notação, possui um tempo constante. O tempo é consistente para cada execução.
 
-*Example: Imagine that it takes you exactly 15 seconds to fill a cup of coffee and then that particular task is considered complete. It doesn't matter if you fill a cup, or a hundred cups, you fill each cup in a consistent period of time.*,
+*Exemplo: Imagine que você leva exatamente 15 segundos para encher uma xícara de café e, em seguida, essa tarefa específica é considerada concluída. Não importa se você enche uma xícara, ou cem xícaras, você enche cada xícara em um período consistente de tempo.*,
 
-So, as per our example above, we don't care about **$$O(1)$$**, **$$O(2)$$**, etc. We round to **$$O(1)$$**, meaning our operation is a flat line in terms of scalability. It will take the same amount of time.
+Portanto, conforme nosso exemplo acima, não nos preocupamos com **$$O(1)$$**, **$$O(2)$$**, etc. Arredondamos para **$$O(1)$$**, ou seja, nossa operação é uma linha plana em termos de escalabilidade. Levará a mesma quantidade de tempo.
 
 ### $$O(n)$$
 
-Now consider the following code snippet:
+Agora considere o seguinte código:
 
 <script src="https://gist.github.com/toniesteves/78f18cc88c1c8c4b0f7ad9ddc52ad368.js"></script>
 
-Our example loop is **$$O(n)$$** as it runs for all values in our input. Operations increase **linearly** with inputs over a single iteration for each item. The term (n) represents the number of entries. Thus, the algorithm runs in linear time.
+Nosso exemplo de loop é **$$O(n)$$**, pois é executado para todos os valores em nossa entrada. As operações aumentam de maneira **linear** de acordo com as entradas ao longo de uma única iteração para cada item. O termo (n) representa o número de entradas. Assim, o algoritmo é executado em tempo linear.
 
 ### $$O(n^2)$$
 
-Let's say we wanted to register a series of pairs from an array of items. We can do like this:
+Digamos que desejássemos registrar uma série de pares a partir de uma matriz de itens. Podemos fazer assim:
 
 <script src="https://gist.github.com/toniesteves/acfb13cbb95415e25d4dc9b6ba653188.js"></script>
 
-A general rule of thumb is that if you encounter nested loops, use multiplication to calculate the notation. So in our example above, we're doing $$O(n*n)$$ which becomes $$O(n^2)$$. This is known as **quadratic** time, which means that every time the number of elements increases, we increase the operations quadratically. Code that runs in O(n²) should be avoided, as the number of operations increases significantly as you introduce more elements. This notation is also known as **polynomial-time** notation.
+Uma regra geral é que, se você encontrar loops aninhados, use a multiplicação para calcular a notação. Portanto, em nosso exemplo acima, estamos fazendo O(n*n) que se torna O(n²). Isso é conhecido como **tempo quadrático**, o que significa que toda vez que o número de elementos aumenta, aumentamos as operações quadraticamente. Deve-se evitar o código que é executado em O(n²), pois o número de operações aumenta significativamente quando você introduz mais elementos. Essa notação também é conhecida como notação de **tempo polinomial**.
 
-*Polynomial time is a polynomial function of the input. A polynomial function looks like $$n^2$$ or $$n^3$$ and so on.*
+*Tempo polinomial é uma função polinomial da entrada. Uma função polinomial parece $$n^2$$ ou $$n^3$$³ e assim por diante.*
 
-[Bubblesort](https://pt.wikipedia.org/wiki/Bubble_sort#:~:text=O%20bubble%20sort%2C%20ou%20ordena%C3%A7%C3%A3o,o%20maior%20elemento%20da%20sequ%C3%AAncia.) is a good example of an $$O(n^2)$$ algorithm. The sort algorithm takes the first number and replaces it with the adjacent number if they are in the wrong order. It does this for each number, until all the numbers are in the correct order — and therefore sorted.
+[Bubblesort](https://pt.wikipedia.org/wiki/Bubble_sort#:~:text=O%20bubble%20sort%2C%20ou%20ordena%C3%A7%C3%A3o,o%20maior%20elemento%20da%20sequ%C3%AAncia.)  é um bom exemplo de algoritmo $$O(n^2)$$. O algoritmo de ordenação pega o primeiro número e o troca pelo número adjacente, se eles estiverem na ordem errada. Faz isso para cada número, até que todos os números estejam na ordem correta — e, portanto, classificados.
 
 ### $$O log(n)$$
 
-A logarithmic algorithm halves a list every time it runs. Let's look at binary search. Given the ordered list below
+Um algoritmo logarítmico reduz pela metade uma lista toda vez que é executado. Vamos olhar para a pesquisa binária. Dada a lista ordenada abaixo:
 
 <script src="https://gist.github.com/toniesteves/0a0eda6792feb7b8de52d2e374bd28c7.js"></script>
 
-In general, the algorithm follows these steps:
+Em linhas gerais o algoritmo segue os seguintes passos:
 
-* Go to the middle of the list.
-* Check that this element is the answer.
-* Otherwise, check if this element is more than the item we want to find.
-* If it is, ignore the right side (all numbers above the midpoint) of the list and choose a new midpoint.
-* Start again, locating the midpoint in the new list.
+* Vá para o meio da lista.
+* Verifique se esse elemento é a resposta.
+* Caso contrário, verifique se esse elemento é mais do que o item que queremos encontrar.
+* Se estiver, ignore o lado direito (todos os números acima do ponto médio) da lista e escolha um novo ponto médio.
+* Comece novamente, localizando o ponto médio na nova lista.
 
-The algorithm halves the input every time it iterates. So it's logarithmic. Other examples of **logarithmic** algorithms include:
+O algoritmo reduz pela metade a entrada toda vez que itera. Portanto, é logarítmico. Outros exemplos de algoritmos **logarítmicos** incluem:
 
-* [Fibonacci Sequence](https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/)
-* [Perform a search in binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree)
-* [AVL tree search](https://www.cs.auckland.ac.nz/software/AlgAnim/AVL.html)
+* [Sequência de Fibonacci](https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/)
+* [Pesquisa em uma árvore de pesquisa binária](https://en.wikipedia.org/wiki/Binary_search_tree)
+* [Pesquisa em árvores AVL](https://www.cs.auckland.ac.nz/software/AlgAnim/AVL.html)
 
 ### $$O(2^n)$$
 
-The exponential time is $$2^n$$, where 2 depends on the permutations involved.
+O tempo exponencial é  $$2^n$$, em que 2 depende das permutações envolvidas.
 
-This algorithm is the slowest. So, let's say we have a password composed only of numbers (10 numbers, from 0 to 9). we want to crack a password that has a length of $$n$$. With a [brute force algorithm](https://en.wikipedia.org/wiki/Brute-force_search) on all combinations, we will have $$10^n$$ possible combinations.
+Esse algoritmo é o mais lento de todos. Assim, digamos que tenhamos uma senha composta apenas por números (10 números, de 0 a 9). queremos quebrar uma senha que tenha um comprimento de n. Com um algorítmo de [força bruta](https://en.wikipedia.org/wiki/Brute-force_search) em todas as combinações, teremos $$10^n$$ combinações possíveis.
 
-An example of **exponential** time is finding all [subsets of a set](https://skerritt.blog/a-primer-on-set-theory/).
+Um exemplo de tempo **exponencial** é encontrar todos os [subconjuntos de um conjunto](https://skerritt.blog/a-primer-on-set-theory/).
 
 <script src="https://gist.github.com/toniesteves/2c134f64854df41826d1be0120f2ea1f.js"></script>
 
-Exponential notation grows depending on the size of the input. Exponential algorithms are the most expensive, but like polynomial algorithms, you can use one trick or another. Let's say we have to calculate $$10^4$$. You would need to do the following:
+A notação exponencial cresce dependendo do tamanho da entrada. Os algoritmos exponenciais são os mais custosos, mas, como os algoritmos polinomiais, é possível utilizar um truque ou outro. Digamos que temos que calcular 10 ⁴. Seria necessário fazer o seguinte:
 
 \begin{align}
   10 ∗ 10 ∗ 10 ∗ 10 = 10^2 * 10^2
 \end{align}
 
-So we would have to calculate 10 squared twice!
+Assim, teríamos que calcular $$10^2$$ duas vezes!
 
-*What if we store that value somewhere and use it later so we don't have to recalculate?*
+*E se armazenarmos esse valor em algum lugar e o usarmos mais tarde, para não precisarmos recalcular?*
 
-This is the principle of dynamic programming. When faced with an exponential algorithm, [dynamic programming](https://skerritt.blog/dynamic-programming/) can often be used to speed it up.
+Este é o princípio da programação dinâmica. Quando nos deparamos com um algoritmo exponencial, a [programação dinâmica](https://skerritt.blog/dynamic-programming/) geralmente pode ser usada para acelerá-lo.
 
-### Classification
+### Classificação
 
-Now we know how to parse, we should know which is the fastest. We can sort them from fastest to slowest in the following order:
-
+Agora que entedemos como analisar, conseguimos definir qual o algoritmo mais rápido. Podemos classifica-los do mais rápido ao mais lento na seguinte ordem:
 
 \begin{align}
   O(1) < O(log n) < O(\sqrt{n}) < O(n) < O(n log n) < O(n^2) < O(n^3) < O(2^n) < O(n!)
 \end{align}
 
-Here's our Big O notation chart, where the numbers are reduced so that we can see all the different lines and can understand the huge differences between these complexities.
+Aqui está nosso gráfico de notação Big O, onde os números são reduzidos para que possamos ver todas as linhas diferentes e possa entender as enormes diferenças entre essas complexidades.
 
 ![Big_O_notation]({{site.baseurl}}/images/posts/20200615/big_o_notation.png){:loading="lazy"}
 
-Other common complexities
+Outras complexidades comuns
 
-**Cubic $$O(n^3)$$**: — This complexity occurs when we run 3 nested loops, every n times.
+**Cúbica $$O(n^3)$$**: — Essa complexidade ocorre quando executamos 3 loops aninhados, cada $$n$$ vezes.
 
-**$$O(n!)$$ Factorial**: — When an algorithm calculates the entire permutation of a given matrix is $$O(n!)$$. An example would be solving the [traveling salesman](https://en.wikipedia.org/wiki/Travelling_salesman_problem) problem through brute force research.
+**$$O(n!)$$ Fatorial **: — 
 
-**Linearithmic $$O(n log n)$$**: — When an algorithm performs logarithmic operations n times, we say that it has a linearithmic or $$O(n log n)$$ complexity. [Merge sort](https://en.wikipedia.org/wiki/Merge_sort) is a popular example of linearithmic complexity.
+Quando um algoritmo calcula toda a permutação de uma determinada matriz é $$O(n!)$$. Um exemplo seria resolver o problema do [Caxeiro Viajante](https://en.wikipedia.org/wiki/Travelling_salesman_problem) por meio da pesquisa de força bruta.
 
-### Conclusion
+**Linearitmica $$O(n log n)$$**: — Quando um algoritmo executa operações logarítmicas $$n$$ vezes, dizemos que ele tem uma complexidade linearitmica ou $$O(n log n)$$. [Merge sort](https://en.wikipedia.org/wiki/Merge_sort) é um exemplo popular de complexidade linearitmica.
 
-Once you know what's really behind it. Now let's look at some more general rules that you can apply when analyzing.
+### Conclusão
 
-* Remove the constants. As already stated at the beginning of this article, if we have an algorithm expressed in the form $$O(2n)$$, it is possible to remove the constant 2 and consider the complexity as $$O(n)$$.
+Depois de saber o que realmente está por trás. Agora vamos ver algumas regras mais gerais que você pode aplicar ao analisar.
 
-* Remove non-dominant terms. $$O(n^2+n)$$ becomes $$O(n^2)$$. Keep only the dominant term in Big O notation.
 
-* Assignment statements and if statements that are executed only once, regardless of the size of the problem, are $$O(1)$$.
+* Remova as constantes. Como já dito no começo desse artigo, se tivermos um algoritmo expresso na forma $$O(2n)$$, é possível remover a constante 2 e considerar a complexidade como $$O(n)$$.
 
-* A simple for loop from 0 to n (no inner loops) is usually $$O(n)$$ (linear complexity);
+* Remova os termos não dominantes. $$O(n^2+n)$$ torna-se $$O(n^2)$$. Mantenha apenas o termo dominante na notação Big O.
 
-* A nested loop of the same type (or delimited by the first parameter of the loop) gives $$O(n^2)$$ (quadratic complexity);
+* Instruções de atribuição e se instruções que são executadas apenas uma vez, independentemente do tamanho do problema, são  $$O(1)$$.
 
-* A loop in which the control parameter is divided by two at each step (and which ends when it reaches 1), gives $$O(log n)$$ (logarithmic complexity);
+* Um simples loop for de 0 a n (sem loops internos) normalmente é $$O(n)$$ (complexidade linear);
 
-* A "while" loop can vary depending on the actual number of iterations it will run.
+* Um loop aninhado do mesmo tipo (ou delimitado pelo primeiro parâmetro do loop) fornece $$O(n^2)$$ (complexidade quadrática);
 
-* A loop with a non-O(1) execution inside simply multiplies the complexity of the loop body by the number of times the loop will be executed.
+* Um loop no qual o parâmetro de controle é dividido por dois em cada etapa (e que termina quando atinge 1), fornece $$O(log n)$$ (complexidade logarítmica);
 
-A note here is that, some code snippets may include initializations and some of them may be complex enough to take into account the efficiency of an algorithm.
+* Um loop com instrução `while` pode variar depende do número real de iterações que ele executará.
 
-That's it?
+* Um loop com uma execução não-O(1) dentro, simplesmente multiplica a complexidade do corpo do loop, pelo número de vezes que o loop será executado.
 
-Yea! The hardest part is figuring out how complex our algorithm is initially. Simplifying is the easy part! Remember the golden rule of Big O notation:
 
-> "What's the worst case scenario here?"
+Uma observação aqui é que, algumas trechos de código podem incluir inicializações e alguns deles podem ser complexos o suficiente para levar em consideração a eficiência de um algoritmo.
 
-I left all the code used in this post available [here](https://www.kaggle.com/code/toniesteves/big-o-notation), in case you want to go deeper.
+É isso?
+
+Sim! A parte mais difícil é descobrir qual é a complexidade do nosso algoritmo incialmente. Simplificar é a parte mais fácil! Lembre-se da regra de ouro da notação Big O:
+
+> "Qual é o pior cenário aqui?"
+
+
+Deixei todo o código utilizado nesse post disponível [aqui](https://www.kaggle.com/code/toniesteves/big-o-notation), caso você queira se aprofundar.
 
 ***
 
-Finally, I hope this material has been useful and makes sense to you, especially for beginners. In addition, in the article references you can find a very useful material used to prepare this article that can help you expand your knowledge on the subject.
+Finalmente, espero que esse material tenha sido útil e faça sentido pra você, principalmente aos iniciantes. Além disso nas referências do artigo é possível encontrar um material muito útil utilizado para elaboração desse artigo que pode te ajudar a ampliar seus conhecimentos no tema.
 
-Remembering that any feedback, whether positive or negative, just get in touch through my [twitter](https://twitter.com/estevestoni), [linkedin](https://www.linkedin.com/in/toniesteves/) or in the comments below. Thanks :)
+Lembrando que qualquer feedback, seja positivo ou negativo é so entrar em contato através do meu [twitter](https://twitter.com/estevestoni), [linkedin](https://www.linkedin.com/in/toniesteves/) ou nos comentário aqui em baixo. Obrigado :)
 
-### References
+
+### Referências
 
 * [1] [Introduction to Algorithms By Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein]( https://books.google.com.br/books?id=aefUBQAAQBAJ&printsec=frontcover&hl=pt-BR&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false)
 
