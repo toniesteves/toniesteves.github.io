@@ -2,30 +2,70 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Toni Esteves">
+  <meta name="robots" content="index, follow">
+  <meta name="description"
+    content="I’m a deep learning researcher and data scientist focused on computer vision and pattern recognition. I’m really passionate about data, work on the following topics: pattern recognition, inferential and descriptive statistics, probability, deep learning.">
+  <meta name="keywords"
+    content="COMPUTER VISION, MACHINE LEARNING, DEEP LEARNING, DATA SCIENCE, COMPUTER SCIENCE, BRASIL">
+
 
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.data.settings.title }}{% endif %}</title>
-  <meta name='description' content='{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.data.settings.description }}{% endif %}'>
+  <meta name='description'
+    content='{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.data.settings.description }}{% endif %}'>
 
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.data.settings.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.data.settings.title | escape }}" href="{{ " /feed.xml"
+    | relative_url }}">
+
+  <meta property="og:image" content="https://i.ibb.co/WDNJkDZ/profile.png">
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="200" />
+  <meta property="og:image:height" content="200" />
+  <meta property="og:updated_time" content="1440432930" />
+
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{% if page.url == "/" %}{{ site.data.settings.title }}{% else %}{{ page.title }} – {{ site.data.settings.title }}{% endif %}">
-  <meta name="twitter:description" content="{% if page.url == "/" %}{{ site.data.settings.description | strip_html | xml_escape }}{% elsif page.description %}{{ page.description | strip_html | xml_escape }}{% else %}{{ page.excerpt | strip_html | xml_escape }}{% endif %}">
-  <meta name="twitter:image:src" content="{{ page.image | absolute_url }}">
+  <meta name="twitter:title" content="{% if page.url == " /" %}{{ site.data.settings.title }}{% else %}{{ page.title }}
+    – {{ site.data.settings.title }}{% endif %}">
+  <meta name="twitter:description" content="{% if page.url == " /" %}{{ site.data.settings.description | strip_html |
+    xml_escape }}{% elsif page.description %}{{ page.description | strip_html | xml_escape }}{% else %}{{ page.excerpt |
+    strip_html | xml_escape }}{% endif %}">
+  <!-- <meta name="twitter:image:src" content="{{ page.image | absolute_url }}"> -->
+  <meta name="twitter:image:src" content="https://cdn-images-1.medium.com/max/1200/1*x5gdUaJiIHwho3iN6BY43A.png">
+
 
   <!-- Facebook OpenGraph -->
-  <meta property="og:title" content="{% if page.url == "/" %}{{ site.data.settings.title }}{% else %}{{ page.title }} – {{ site.data.settings.title }}{% endif %}">
-  <meta property="og:description" content="{% if page.url == "/" %}{{ site.data.settings.description | strip_html | xml_escape }}{% elsif page.description %}{{ page.description | strip_html | xml_escape }}{% else %}{{ page.excerpt | strip_html | xml_escape }}{% endif %}">
-  <meta property="og:image" content="{{ page.image | absolute_url }}">
+  <meta property="og:title" content="{% if page.url == " /" %}{{ site.data.settings.title }}{% else %}{{ page.title }} –
+    {{ site.data.settings.title }}{% endif %}">
+  <meta property="og:description" content="{% if page.url == " /" %}{{ site.data.settings.description | strip_html |
+    xml_escape }}{% elsif page.description %}{{ page.description | strip_html | xml_escape }}{% else %}{{ page.excerpt |
+    strip_html | xml_escape }}{% endif %}">
+  <!-- <meta property="og:image" content="{{ page.image | absolute_url }}"> -->
+  <meta property="og:image" content="https://cdn-images-1.medium.com/max/1200/1*x5gdUaJiIHwho3iN6BY43A.png">
+
+  <meta property="og:type" content="medium-com:collection">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="medium-com:creator" content="https://toniesteves.com">
+  <meta name="twitter:creator" content="@estevestoni">
+  <meta name="twitter:site" content="@estevestoni">
+  <meta property="og:site_name" content="Toni Esteves">
+  <meta name="twitter:app:url:iphone" content="https://toniesteves.com">
+  <meta property="al:ios:url" content="https://toniesteves.com">
+  <meta property="al:android:url" content="https://toniesteves.com">
+  <meta property="al:web:url" content="https://toniesteves.com">
+  <meta name="parsely-link" content="https://toniesteves.com">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
 
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" as="style">
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap"
+    as="style">
 
-  <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap"
+    rel="stylesheet">
 
   <!-- Ionicons -->
   <link rel="preload" href="https://unpkg.com/ionicons@4.5.0/dist/css/ionicons.min.css" as="style">
@@ -33,10 +73,22 @@
   <link href="https://unpkg.com/ionicons@4.5.0/dist/css/ionicons.min.css" rel="stylesheet">
 
   <style>
-  {% capture include_to_scssify %}
-    {% include main.scss %}
-  {% endcapture %}
-  {{ include_to_scssify | scssify }}
+    {
+      % capture include_to_scssify %
+    }
+
+      {
+      % include main.scss %
+    }
+
+      {
+      % endcapture %
+    }
+
+      {
+        {
+        include_to_scssify | scssify
+      }
+    }
   </style>
 </head>
-
