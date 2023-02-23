@@ -2,7 +2,7 @@
 # Site Settings
 title: Toni Esteves
 logo: # You can add own logo. For example "/images/logo.png".
-description: I'm a deep learning researcher and data scientist focused on financial services and pattern recognition. I'm really passionate about data, work with topics like pattern recognition, inferential and descriptive statistics, probability, deep learning.
+description: I'm a computer scientist and quantitative researcher focused on financial services and pattern recognition. I'm really passionate about data, work with topics like pattern recognition, inferential and descriptive statistics, probability, deep learning.
   
 
 
@@ -10,7 +10,7 @@ description: I'm a deep learning researcher and data scientist focused on financ
 # Author Global Settings
 author:
   author__name: Toni Esteves
-  author__bio: Hi there! I'm a deep learning researcher and data scientist focused on financial services and pattern recognition. I'm really passionate about data, work with topics like pattern recognition, inferential and descriptive statistics, probability, deep learning.
+  author__bio: Hi there! I'm a computer scientist and quantitative researcher focused on financial services and pattern recognition. I'm really passionate about data, work with topics like pattern recognition, inferential and descriptive statistics, probability, deep learning.
   
   author__avatar: /images/toni.jpg
 
@@ -50,7 +50,7 @@ menu__settings:
 hero:
   # hero__title: Hi there! I’m Dann Kanigan, a Filmmaker and Content Creator based in Toronto, Ontario, Canada. 
   # hero__title: Hi there! I’m Toni Esteves a deep learning researcher and data scientist. This blog is about Deep Learnind and Data Science topics, and inspiring you to take one step forward.
-  hero__title: Hi there! I'm Toni Esteves a deep learning researcher and data scientist. This is my blog for applied Data Science, Computer Science and Algorithms.
+  hero__title: Hi there! I'm Toni Esteves a computer scientist and quantitative researcher. This is my blog for applied Data Science, Computer Science and Algorithms.
 
 
 #-------------------------------
