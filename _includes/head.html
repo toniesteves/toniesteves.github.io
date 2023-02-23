@@ -5,9 +5,28 @@
 
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.data.settings.title }}{% endif %}</title>
   <meta name='description' content='{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.data.settings.description }}{% endif %}'>
+  
+  <meta name="author" content="Toni Esteves">
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="I’m a deep learning researcher and data scientist focused on computer vision and pattern recognition. I’m really passionate about data, work on the following topics: pattern recognition, inferential and descriptive statistics, probability, deep learning.">
+  <meta name="keywords" content="COMPUTER VISION, MACHINE LEARNING, DEEP LEARNING, DATA SCIENCE, COMPUTER SCIENCE, BRASIL">
+  
+  <meta property="og:type" content="medium-com:collection">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="medium-com:creator" content="https://toniesteves.com">
+  <meta name="twitter:creator" content="@estevestoni">
+  <meta name="twitter:site" content="@estevestoni">
+  <meta property="og:site_name" content="Toni Esteves">
+  <meta name="twitter:app:url:iphone" content="https://toniesteves.com">
+  <meta property="al:ios:url" content="https://toniesteves.com">
+  <meta property="al:android:url" content="https://toniesteves.com">
+  <meta property="al:web:url" content="https://toniesteves.com">
+  <meta name="parsely-link" content="https://toniesteves.com">
 
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.data.settings.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+  
+
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -39,4 +58,3 @@
   {{ include_to_scssify | scssify }}
   </style>
 </head>
-
