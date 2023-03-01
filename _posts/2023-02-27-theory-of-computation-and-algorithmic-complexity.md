@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Teoria da Computação e Decidibilidade
-description: Turing foi altamente influente no desenvolvimento da moderna ciência da computação teórica, proporcionando uma formalização dos conceitos de algoritmo e computação com a máquina de Turing.
+description: Turing foi altamente influente no desenvolvimento da ciência da computação teórica, proporcionando uma formalização dos conceitos de algoritmos e computação com a máquina de Turing.
 date: 2023-02-23 15:01:35 +0300
 author: toni
 image: '/images/posts/20230227/cover.jpg'
@@ -17,60 +17,69 @@ O termo “computável” foi proposto por Alan Turing para designar a totalidad
 
 ## Fundamentação da Matemática e Paradoxos
 
-Ao final do século XIX os matemáticos se depararam com situações que apontavam a necessidade de uma fundamentação mais cuidadosa da Matemática. Uma destas questões diz respeito ao conceito de séries numéricas, e pode ser ilustrada pelo paradoxo de Zenon:
+Ao final do século XIX os matemáticos se depararam com situações que apontavam a necessidade de uma fundamentação mais cuidadosa da Matemática. Uma destas questões diz respeito ao conceito de séries numéricas, e pode ser ilustrada pelo **paradoxo de Zenon**:
 
 *Aquiles e a Tartaruga decidem apostar uma corrida de 100 metros. Aquiles corre 10 vezes mais rápido do que a tartaruga, e por isto, a tartaruga inicia com 80 metros de vantagem. Aquiles percorre rapidamente a distância inicial que o separa da tartaruga, mas ao alcançar os 80 metros iniciais, a tartaruga já se encontrará 8 metros à frente. Ao alcançar mais 8 metros à frente, a tartaruga já terá avançado mais 0,8 metros, e assim, Aquiles nunca alcançará a tartaruga*.
 
-Esse paradoxo tenta provar a impossibilidade do movimento se assumimos que tempo e espaço são infinitamente subdivisíveis [[4]](https://www.amazon.com.br/Computabilidade-fun%C3%A7%C3%B5es-comput%C3%A1veis-fundamentos-matem%C3%A1tica/dp/8571398976). Porém, não podemos esquecer que esse argumento é um argumento abstrato e puramente lógico, logo, sua conclusãoa acaba sendo absurda
+Esse paradoxo tenta provar a impossibilidade do movimento se assumimos que tempo e espaço são infinitamente subdivisíveis [[4]](https://www.amazon.com.br/Computabilidade-fun%C3%A7%C3%B5es-comput%C3%A1veis-fundamentos-matem%C3%A1tica/dp/8571398976). Porém, não podemos esquecer que esse argumento é um argumento abstrato e puramente lógico, logo, sua conclusãoa acaba sendo absurda. A solução clássica para esse paradoxo envolve a utilização do conceito de limite e convergência de séries numéricas: ***os intervalos formam uma progressão geométrica e sua soma converge para um valor finito***. 
 
-O fato é que raciocinando desta forma, os matemáticos do século XIX supunham que a soma de infinitos intervalos é infinita. No entanto a experimentação mostrava que Aquiles alcançaria a tartaruga em pouco tempo. O confronto da observação dos fatos com a explicação matemática demonstrava que o aparato matemático da época era insuficiente para formalizar alguns fenômenos. A solução clássica para esse paradoxo envolve a utilização do conceito de limite e convergência de séries numéricas:***os intervalos formam uma progressão geométrica e sua soma converge para um valor finito***.
+O fato é que ao seguir a linha de raciocionio proposta pelo paradoxo, os matemáticos do século XIX supunham que a soma de infinitos intervalos seria também infinita. No entanto a experimentação mostrava que Aquiles alcançaria a tartaruga em pouco tempo. O confronto da observação dos fatos com a explicação matemática demonstrava que o aparato matemático da época era insuficiente para formalizar alguns fenômenos. 
 
-As inquietações dos matemáticos com relação a conceitos não completamente compreendidos e formalizados levaram a grandes avanços neste período. A empolgação com os avanços matemáticos, e particularmente experiências bem sucedidas de explicar conceitos matemáticos através de outros conceitos mais simples conduziram alguns matemáticos a uma abordagem, que, mais tarde ficou conhecida como Abordagem Formalista. Em linhas gerais, os formalistas concebiam a matemática como sistema puramente formal, consistindo na manipulação de símbolos desprovidos de significado ou interpretação[[3]](https://www.bcc.unifal-mg.edu.br/~humberto/disciplinas/2011_1_paa/aulas/complementar_aula01.pdf). 
+As inquietações dos matemáticos com relação a conceitos não completamente compreendidos levaram a grandes avanços neste período. O entusiasmo com os avanços matemáticos, e particularmente experiências bem sucedidas de explicar conceitos matemáticos através de outros conceitos mais simples conduziram alguns matemáticos a uma abordagem, que, mais tarde ficou conhecida como **Abordagem Formalista**. Em linhas gerais, os formalistas concebiam a matemática como sistema puramente formal, consistindo na manipulação de símbolos desprovidos de significado ou interpretação [[3]](https://www.bcc.unifal-mg.edu.br/~humberto/disciplinas/2011_1_paa/aulas/complementar_aula01.pdf). 
 
-Empenhados em explicar a matemática através de símbolos, regras precisas, e mecanismos finitários, os formalistas se depararam com a descoberta de paradoxos que demonstravam o perigo da matemática "ingênua", baseada unicamente na intuição. Um destes paradoxos é o paradoxo de **Bertrand Russell** em 1901, que demonstrou a existência de contradição no interior da teoria (ingênua) dos conjuntos. Apresentamos, a seguir, em sua versão informal:
+Empenhados em explicar a matemática através de símbolos, regras precisas, e [mecanismos finitários](https://pt.wikipedia.org/wiki/L%C3%B3gica_infinit%C3%A1ria), os formalistas se depararam com a descoberta de paradoxos que demonstravam o perigo da matemática "ingênua", baseada exclusivamente na intuição. Um destes paradoxos é o [paradoxo de **Bertrand Russell**](https://pt.wikipedia.org/wiki/Paradoxo_de_Russell) descoberto 1901, e que demonstrou a existência de aspectos contraditórios no interior da teoria (ingênua) dos conjuntos. Apresentamos, a seguir, em sua versão informal:
 
-*O barbeiro de Sevilha faz a barba de todas as (e somente das) pessoas em Sevilha que não fazem a barba a si próprias. Pergunta-se: o barbeiro de Sevilha barbeia-se a si próprio?*
+*O barbeiro de Sevilha faz a barba de todas as (e somente das) pessoas em Sevilha que não fazem a barba a si próprias.*
 
-O paradoxo do barbeiro, semelhante na formulação ao de Russell, foi utilizado por Kurt Gödel para provar o seu teorema da incompletude. Alan Turing provou a indecidibilidade do problema da parada usando o mesmo paradoxo.
+***Pergunta-se***: *O barbeiro de Sevilha barbeia-se a si próprio?*
+
+O paradoxo do barbeiro, semelhante na formulação ao de Russell, foi utilizado por **Kurt Gödel** para provar o seu teorema da incompletude. Alan Turing provou a indecidibilidade do problema da parada usando o mesmo paradoxo.
 
 ## Os Problemas de Hilbert
 
-A presença de problemas supostamente verdadeiros ou supostamente falsos permeando todo aparato matemático representava uma ameaça ao rigor matemático que se buscava na época. Matemáticos e filosofos se sentiam incomodados devido a existência de problemas cuja falsidade ou veracidade, até então, não haviam sido provadas.
+A presença de problemas supostamente verdadeiros ou supostamente falsos permeando todo aparato matemático representava uma ameaça ao rigor matemático que se buscava na época. Matemáticos e filosofos se sentiam incomodados devido a existência de problemas cuja falsidade ou veracidade, até então, não haviam sido provadas [[3]](https://www.bcc.unifal-mg.edu.br/~humberto/disciplinas/2011_1_paa/aulas/complementar_aula01.pdf).
 
-Assim, Em 1900, o matemático alemão David Hilbert apresentou uma palestra no  Segundo Congresso Internacional de Matemática em Paris. Na sua apresentação ele identificou 23 problemas matemáticos e colocou-os como um desafio para o seculo seguinte. Este episódio é peça relevante na busca pela fundamentação da matemática.
+Assim, Em 1900, o matemático alemão **David Hilbert** apresentou uma palestra no  Segundo Congresso Internacional de Matemática em Paris. Na sua apresentação ele identificou 23 problemas matemáticos e colocou-os como um desafio para o seculo seguinte -- Este episódio é peça relevante na busca pela fundamentação da matemática.
 
-Dentre os problemas de Hilbert dois meracem destaque:
+Dentre os problemas de Hilbert dois merecem destaque:
 
 ### Segundo Problema de Hilbert - A não contradição dos axiomas da Aritmética
 
-Na matemática, o segundo problema de Hilbert foi proposto por David Hilbert em 1900, sendo esse um dos seus 23 problemas. Esse problema consiste em provar que a aritmética é consistente - livre de qualquer contradição interna.
+O segundo problema proposto por David Hilbert em 1900, consiste em provar que a aritmética é consistente -- livre de qualquer contradição interna.
 
-Hilbert contrapunha à matemática ideal o conjunto de números naturais e suas manipulações finitárias, ao qual denominava matemática real, e acreditava na matemática como um sistema formal, sustentado por uma pequena quantidade de axiomas, e completo: qualquer proposição expressa naquele sistema poderia ser provada no próprio sistema[[3]](https://www.bcc.unifal-mg.edu.br/~humberto/disciplinas/2011_1_paa/aulas/complementar_aula01.pdf).
+Hilbert contrapunha à matemática ideal, o conjunto de números naturais e suas manipulações finitárias, ao qual denominava matemática real, e acreditava na matemática como um sistema formal, sustentado por uma pequena quantidade de axiomas, ou seja: Qualquer proposição expressa naquele sistema poderia ser provada no próprio sistema [[3]](https://www.bcc.unifal-mg.edu.br/~humberto/disciplinas/2011_1_paa/aulas/complementar_aula01.pdf).
 
-Já em 1928 o Programa de Hilbert propunha a formalização da matemática visando garantir rigidez e solidez a toda construção matemática. Em termos gerais, a proposta era reduzir toda matemática a manipulações reais e responder afirmativamente às seguintes questões. A matemática é completa? É
-consistente? É decidível? E de 1900 a 1929, grande parte da comunidade matemática mundial acreditou na existência de uma matemática segura, finitária, provadamente correta e livre de imprecisões.
+Já em 1928 o [**Programa de Hilbert**](https://pt.wikipedia.org/wiki/Programa_de_Hilbert) propunha a formalização da matemática visando garantir rigidez e solidez a toda construção matemática. Em termos gerais, a proposta era reduzir toda matemática a manipulações reais e responder afirmativamente às seguintes questões: ***Seria a matemática é completa, consistente e decidível?*** 
+
+E de 1900 a 1929, grande parte da comunidade matemática mundial acreditou na existência de uma matemática segura, finitária, provadamente correta e livre de imprecisões.
 
 ### Décimo Problema de Hilbert - A decisão sobre a resolubilidade de uma equação diofantina
 
-O décimo problema de Hilbert era conceber um algoritmo que testasse se um polinômio tinha uma raiz inteira. Ele não usou o termo *algoritmo*, mas sim "um processo com o qual a raiz inteira de um polinômio possa ser determinada por um número finito de operações". Porém naquela época a inexistencia de um algoritmo para tal tarefa tornava a mesma algoritmicamente insolúvel. Para os matemáticos daquela época chegarem a essa conclusão, com seu conceito ituitivo de algoritmo, teria sido virtualmente impossível. A intuição de algoritmo pode ate ter sido adequada para prover algoritmos para certas tarefas, mas era inútil para mostrar que nenhum algoritmo existe para uma tarefa específica. Provar que um algoritmo não existe requer posse de uma definição clara de algoritmo.
+O décimo problema de Hilbert era conceber um algoritmo que testasse se um polinômio tinha uma raiz inteira. Ele não usou o termo *algoritmo*, mas sim "***um processo com o qual a raiz inteira de um polinômio possa ser determinada por um número finito de operações***". Porém naquela época a inexistencia de um algoritmo para tal tarefa tornava a mesma algoritmicamente insolúvel. Para os matemáticos daquela época chegarem a essa conclusão, com seu conceito intuitivo de algoritmo, teria sido virtualmente impossível. A intuição de algoritmo em si pode ate ter sido adequada para prover algoritmos para certas tarefas, mas era inútil para mostrar que nenhum algoritmo existe para uma tarefa específica. Provar que um algoritmo não existe requer posse de uma definição clara do que vem a ser um algoritmo em si.
 
-A definição veio nos de 1936 de Alonzo Church e Alan Turing. Church utlizou um sistema notacional denominado $$\lambda$$-cálculo para definir algoritmos. Turing o fez com suas "máquinas". Essas definições foram demonstradas equivalentes e essa conexão entre a **noção informal** de algoritmo e a **definição precisa** veio a ser chamada de **tese de Chrurch-Turing**
+A definição veio nos anos de 1936 através de **Alonzo Church** e **Alan Turing**. Church utlizou um sistema notacional denominado $$\lambda$$-cálculo para definir algoritmos. Turing o fez com suas "máquinas". Essas definições foram demonstradas equivalentes e essa conexão entre a **noção informal** de algoritmo e a **definição precisa** veio a ser chamada de **Tese de Chrurch-Turing**
 
 ## Teoremas da incompletude de Gödel
 
-Em 1930, **Kurt Gödel** e **Gerhard Gentzen** provaram resultados que voltaram a chamar atenção para o segundo problema de Hilbert. Alguns autores acreditam que esses resultados resolveram o problema, enquanto outros acreditam que ele ainda está em aberto. Os teoremas, provados por Kurt Gödel em 1931, são importantes tanto para a lógica matemática quanto para a filosofia da matemática. Os dois resultados são amplamente, mas não universalmente, interpretados como indicações de que o programa de Hilbert para encontrar um conjunto completo e consistente de axiomas para toda a matemática é impossível, dando uma resposta negativa para o segundo problema de Hilbert.
+Em 1930, **Kurt Gödel** e **Gerhard Gentzen** provaram resultados que voltaram a chamar atenção para o segundo problema de Hilbert. 
 
-O primeiro teorema da incompletude afirma que nenhum sistema consistente de axiomas, cujos teoremas podem ser listados por um "procedimento efetivo" -- por exemplo um programa de computador que pode ser qualquer tipo de algoritmo -- é capaz de provar todas as verdades sobre as relações dos números naturais (aritmética). Para qualquer um desses sistemas, sempre haverá afirmações sobre os números naturais que são verdadeiras, mas que não podem ser provadas dentro do sistema. O segundo teorema da incompletude, uma extensão do primeiro, mostra que tal sistema não pode demonstrar sua própria consistência.
+O primeiro teorema da incompletude afirma que ***nenhum sistema consistente de axiomas, cujos teoremas podem ser listados por um "procedimento efetivo"*** -- por exemplo, um programa de computador que pode ser qualquer tipo de algoritmo -- é capaz de provar todas as verdades sobre as relações dos números naturais (aritmética). Para qualquer um desses sistemas, sempre haverá afirmações sobre os números naturais que são verdadeiras, mas que não podem ser provadas dentro do sistema. O segundo teorema da incompletude, uma extensão do primeiro, mostra que ***tal sistema não pode demonstrar sua própria consistência***.
 
-*  **Teorema 1**: "Qualquer teoria axiomática recursivamente enumerável e capaz de expressar algumas verdades básicas de aritmética não pode ser, ao mesmo tempo, completa e consistente. Ou seja, sempre há em uma teoria consistente proposições verdadeiras que não podem ser demonstradas nem negadas."
+*  **Teorema 1**: "*Qualquer teoria axiomática recursivamente enumerável e capaz de expressar algumas verdades básicas de aritmética não pode ser, ao mesmo tempo, completa e consistente. Ou seja, sempre há em uma teoria consistente proposições verdadeiras que não podem ser demonstradas nem negadas.*"
 
-* **Teorema 2** : "Uma teoria, recursivamente enumerável e capaz de expressar verdades básicas da aritmética e alguns enunciados da teoria da prova, pode provar sua própria consistência se, e somente se, for inconsistente."
+* **Teorema 2** : "*Uma teoria, recursivamente enumerável e capaz de expressar verdades básicas da aritmética e alguns enunciados da teoria da prova, pode provar sua própria consistência se, e somente se, for inconsistente.*"
+
+Alguns autores acreditam que esses resultados resolveram o problema, enquanto outros acreditam que ele ainda está em aberto. Os teoremas, provados por Kurt Gödel em 1931, são importantes tanto para a lógica matemática quanto para a filosofia da matemática. Os dois resultados são amplamente, mas não universalmente, interpretados como indicações de que o Programa de Hilbert para encontrar um conjunto completo e consistente de axiomas para toda a matemática é impossível, dando assim, uma resposta negativa para o segundo problema de Hilbert.
 
 ## Máquinas de Turing 
 
-A Máquina de Turing é um **arcabouço teórico** conhecido como máquina universal, concebido pelo matemático britânico Alan Turing (1912-1954). Num sentido preciso, é um **modelo abstrato de um computador**, que se restringe apenas aos aspectos lógicos do seu funcionamento (memória, estados e transições), e não a sua implementação física. Turing provou que para qualquer sistema formal existe uma máquina de Turing que pode ser programada para imitá‐lo. Era este sistema formal genérico, com a habilidade de imitar qualquer outro sistema formal, o que Turing procurava essencialmente. Tais sistemas chamam‐se Máquinas de Turing Universais. O lógico matemático Alonzo Church chegou a definir: *"Qualquer processo aceito por nós homens como um algoritmo é precisamente o que uma máquina de Turing pode fazer"*.
+A Máquina de Turing é um **arcabouço teórico** conhecido como máquina universal, concebido pelo matemático britânico Alan Turing (1912-1954). A teoria foi publicada pela primeira vez em 1936, num artigo intitulado "***On Computable Numbers, with an Application on the Entscheidungsproblem***" [[5]](https://londmathsoc.onlinelibrary.wiley.com/doi/abs/10.1112/plms/s2-42.1.230), em resposta ao tratamento do problema da decisão, formulado por Hilbert. Em um sentido preciso, a máquina de Turing é um **modelo abstrato de um computador**, que se restringe apenas aos aspectos lógicos do seu funcionamento (memória, estados e transições), e não a sua implementação física em si. 
 
-Sendo assim, uma máquina de Turing consiste em:
+Turing provou que para qualquer sistema formal existe uma máquina de Turing que pode ser programada para imitá‐lo. Era este sistema formal genérico, com a habilidade de imitar qualquer outro sistema formal, o que Turing procurava essencialmente. Tais sistemas chamam‐se **Máquinas de Turing Universais**. O lógico matemático Alonzo Church chegou a definir: 
+
+***"Qualquer processo aceito por nós homens como um algoritmo é precisamente o que uma máquina de Turing pode fazer"***.
+
+Sendo assim, em descrição informal, uma máquina de Turing consiste em:
 
 * Uma fita, dividida em células, uma adjacente à outra. Cada célula contém um símbolo de algum alfabeto finito. O alfabeto contém um símbolo especial branco (aqui escrito como ¬) e um ou mais símbolos adicionais. Assume-se que a fita é arbitrariamente extensível para a esquerda e para a direita, isto é, a máquina de Turing possui tanta fita quanto é necessário para a computação. Assume-se também que células que ainda não foram escritas estão preenchidas com o símbolo branco.
 
@@ -100,28 +109,32 @@ Definições na literatura às vezes diferem um pouco, para tornar argumentos ou
 
 Como já dito anteriormente, a proposta de Hilbert era reduzir toda matemática a manipulações reais e responder afirmativamente às seguintes questões. A matemática é completa? É consistente? É decidível?
 
-A tese de Church-Turing, quando particularizada para problemas de decisão, poderia ser assim enunciada: **se um problema de decisãoo tem solução, então existe uma MT que o soluciona**. Dessa forma, para mostrar que um problema de decisão não tem solução, basta mostrar que não existe $$MT$$ que o soluciona. Por outro lado, dada a equivalência dos diversos formalismos, um problema de decisão não tem solução se não for possível expressar uma solução em qualquer um dos mesmos. Assim, por exemplo, se não existir um algoritmo que seja uma solução para um problema de decisão, então esse problema de decisão é insolúvel.
+A tese de Church-Turing, quando particularizada para problemas de decisão, poderia ser assim enunciada: ***Se um problema de decisão tem solução, então existe uma MT que o soluciona***. Dessa forma, para mostrar que um problema de decisão **NÃO** tem solução, é intuitivo provar que não existe $$MT$$ que o soluciona. Assim, por exemplo, se não existir um algoritmo que seja uma solução para um problema de decisão, então esse problema de decisão é insolúvel.
 
-Compreender se a matemática é decidivel ficou conhecido como "O Problema de Decisão de Hilbert" (**Hilbert's Entscheidungsproblem**): encontrar um mecanismo genérico que, ao considerar um enunciado qualquer formulado em [Lógica de Primeira Ordem](https://pt.wikipedia.org/wiki/L%C3%B3gica_de_primeira_ordem), fosse capaz de verificar sua validade ou não. Tanto Church quanto Turing demonstraram que, em seus respectivos modelos de computação, que o *Entscheidungsproblem* é indecidível, ou seja: **não existe uma máquina de Turing ou uma função no cálculo lambda capaz de determinar se uma proposição arbitrária em lógica de primeira ordem é verdadeira**
+Compreender se a matemática é decidivel ficou conhecido como ***O Problema de Decisão de Hilbert -- Hilbert's Entscheidungsproblem***: Encontrar um mecanismo genérico que, ao considerar um enunciado qualquer formulado em [Lógica de Primeira Ordem](https://pt.wikipedia.org/wiki/L%C3%B3gica_de_primeira_ordem), fosse capaz de verificar sua validade ou não. 
 
-Diversos outros problemas foram demonstrados indecidíveis nesses modelos de computação. Um exemplo clássico é o problema da parada, que consiste
-em determinar se a execução de uma dada máquina de Turing termina em um número finito de passos para uma dada entrada ou, analogamente, se uma
-dada fórmula em cálculo lambda possui uma forma normal. A importância de Tese de Church-Turing reside no fato de que, se a máquina de Turing
-representa adequadamente o que é efetivamente calculável, os limites que a máquina de Turing é capaz de alcançar representam limites teóricos de computabilidade dos quais, em tese, não poderíamos escapar.
+Tanto Church quanto Turing demonstraram que, em seus respectivos modelos de computação, que o ***Entscheidungsproblem*** é indecidível, ou seja, **não existe uma máquina de Turing ou uma função no cálculo lambda capaz de determinar se uma proposição arbitrária em lógica de primeira ordem é verdadeira**
 
-Entender quando um problema é algoritmicamente insolúvel é útil pois torna o cientista da computação apto a simplificar ou alterar o problema antes que possa encontrar uma solução algoritmica. Como qualquer ferramenta os computadores tem capacidades e limitações que devem ser reocnhecidas caso deseje-se fazer pleno uso dos seus poderes computacionais.
+Diversos outros problemas foram demonstrados indecidíveis nesses modelos de computação. Um exemplo clássico é o **problema da parada**, que abordaremos logo mais a seguir. Assim, entender quando um problema é algoritmicamente insolúvel é útil pois torna o cientista da computação apto a simplificar ou alterar o problema antes que possa encontrar uma solução algoritmica. Ademais, como qualquer ferramenta os computadores tem capacidades e limitações que devem ser reocnhecidas caso deseje-se fazer pleno uso dos seus poderes computacionais.
+
+A importância da Tese de Church-Turing reside no fato de que, se a máquina de Turing representa adequadamente o que é efetivamente calculável, ou seja, os limites que a máquina de Turing é capaz de alcançar representam limites teóricos de computabilidade dos quais, em tese, não poderíamos escapar.
 
 
 ## O Problema da Parada (Halting Problem)
 
-Uma característica importante de qualquer um dos formalismos citados é o que se denomina auto-referência. Por exemplo, é possível ter **MTs** que manipulam **MTs**: para isso, basta codificar (ou representar) a **MT** a ser manipulada, usando-se um alfabeto apropriado, antes de supri-la como entrada. Essa característica propicia a possibilidade de se construir uma máquina universal, ou seja, uma **MT** (ou programa em uma linguagem
-de programação) que seja capaz de simular uma **MT** (programa) qualquer suprida como argumento. A possibilidade de auto-referência é uma caracterísstica fundamental que levou à descoberta de funções não computáveis, a mais famosa delas é o **Halting Problem** ou **Problema da Parada**
+Antes de adentrarmos no problema problema da parada de fato, cabe salientar que uma característica importante de qualquer um dos formalismos citados é o que se denomina auto-referência. Por exemplo, é possível ter **MTs** que manipulam **MTs**. 
 
-Na teoria da computabilidade, o problema da parada constitui um dos teoremas mais importantes filosoficamente da teoria da computação: existe um problema especifico que é algoritmicamente insolúvel. O experimento mental do problema da parada é um problema de decisão que pode ser declarado **informalmente** da seguinte forma:
+Para isso, basta codificar (ou representar) a **MT** a ser manipulada, usando-se um alfabeto apropriado, antes de supri-la como entrada. Essa característica permite que seja possível construir uma máquina universal, ou seja, uma **MT** (ou programa em uma linguagem de programação) que seja capaz de simular uma **MT** (programa) qualquer suprida como argumento. 
+
+A possibilidade de auto-referência é uma caracterísstica fundamental que levou à descoberta de funções não computáveis, a mais famosa delas é o **Halting Problem** ou **Problema da Parada**
+
+---
+
+Na teoria da computabilidade, o problema da parada constitui um dos teoremas mais importantes filosoficamente da teoria da computação: **existe um problema especifico que é algoritmicamente insolúvel**. O experimento mental do problema da parada é um problema de decisão que pode ser declarado **informalmente** da seguinte forma:
 
 ***"Dadas uma descrição de um programa e uma entrada finita, decida se o programa termina de rodar ou rodará indefinidamente."***
 
-Ou seja, dadas uma $$MT$$ arbitrária $$M$$ e uma cadeia arbitrária $$w$$, determinar se a computação de $$M$$ com a entrada $$w$$ para
+Ou seja, dadas uma $$MT$$ arbitrária $$M$$ e uma cadeia arbitrária $$w$$, determinar se a computação de $$M$$ com a entrada $$w$$ termina de rodar.
 
 Formalmente o problema é dado por:
 
@@ -131,17 +144,17 @@ Formalmente o problema é dado por:
 
 Para mostrar que $$MT$$ é turing-decidivel, precisamos construir uma $$MT$$ que quando recebe um $$[M,w]$$ qualquer, decide se  $$[M,w] \in A_{MT}$$ ou $$[M,w] \notin A_{MT}$$.
 
-Note que temos uma máquina $$M$$ que recebe um cadeia $$w$$. Se a máquina $$M$$ aceita a cadeia $$w$$, a cadeia [pertence àquela linguagem](https://pt.wikipedia.org/wiki/Aut%C3%B4mato_finito_determin%C3%ADstico) e $$M$$ aceita $$w$$, caso contrário, ela não pertence a cadeia dada e $$M$$ não aceita $$w$$. Aceitar $$w$$ aqui implica que $$M$$ entrou em estado de ***aceitação***, já não aceitar, implica que $$M$$ **não** entrou em estado de ***aceitação***, que por sua vez significa que $$M$$ ou entrou em estado de ***rejeição*** ou ***não entrar em nenhum estado de parada***. Logo dizemos que $$M$$, ao não aceitar uma cadeia pode tanto entrar em ***estado de rejeição*** quanto em ***loop***.
+Note que temos uma máquina $$M$$ que recebe um cadeia $$w$$. Se a máquina $$M$$ aceita a cadeia $$w$$, a cadeia [pertence àquela linguagem](https://pt.wikipedia.org/wiki/Aut%C3%B4mato_finito_determin%C3%ADstico) e $$M$$ aceita $$w$$, caso contrário, ela não pertence a cadeia dada e $$M$$ não aceita $$w$$. Aceitar $$w$$ aqui implica que $$M$$ entrou em estado de ***aceitação***, já não aceitar, implica que $$M$$ **não** entrou em estado de ***aceitação***, que por sua vez significa que $$M$$ ou entrou em estado de ***rejeição*** ou ***não entrou em nenhum estado de parada***. Logo dizemos que $$M$$, ao não aceitar uma cadeia, pode tanto entrar em ***estado de rejeição*** quanto em ***loop***.
 
 Assim, precisamos agora de uma nova máquina $$MT$$ se a máquina anterior $$M$$ para ou não ao receber uma cadeia. Então considere:
 
 $$U = $$ "Sobre a entrada $$[M,w]$$, onde $$M$$ é uma **MT** e $$w$$ uma cadeia":
 1. Simule $$M$$ sobre $$w$$
-2. Se $$M$$ entra no estado de aceitação, *aceite*; Se $$M$$ entra no estado de rejeição, *rejeite*
+2. Se $$M$$ entra no estado de aceitação, *aceite*; Se $$M$$ entra no estado de rejeição, *rejeite*.
 
-$$U$$ é uma máquina universal -- Dado que $$U$$ é uma Máquina de Turing que simula máquinas de Turing.
+Como explicitado anteriormente no conceito de auto-referência, $$U$$ é uma máquina universal -- Dado que $$U$$ é uma Máquina de Turing que simula máquinas de Turing.
 
-Como vimos anteriormente,a possibiliade de $$M$$ não rejeitar a cadeia $$w$$ ou nunca entrar em um estado de parada faz com que $$U$$ também nunca entre em um estado de aceitação ou rejeiçao. Logo, caso seja passada uma cadeia que pertence a linguagem $$U$$ entrará em *aceitação*, caso seja passada uma cadeia que não pertence àquela linguagem não é possível estimar uma saida predeterminada. Assim, $$U$$ não decide uma linguagem mas a reconhece ($$U$$ é Turing-reconhecivel).
+Como vimos anteriormente, a possibiliade de $$M$$ não rejeitar a cadeia $$w$$ ou nunca entrar em um estado de parada faz com que $$U$$ também nunca entre em um estado de aceitação ou rejeiçao. Logo, caso seja passada uma cadeia que pertence a linguagem, $$U$$ entrará em *aceitação*, caso seja passada uma cadeia que não pertence àquela linguagem, não é possível estimar uma saida predeterminada. Assim, $$U$$ não decide uma linguagem mas a reconhece. Dizemos então que $$U$$ é **Turing-reconhecivel**.
 
 > Seria $$U$$ Turing-decidível ?
 
@@ -157,26 +170,29 @@ Seja $$H$$ um decisor para $$A_{MT}$$, temos:
 
 ![H Turing-decisor]({{site.baseurl}}/images/posts/20230227/H_turing_machine.png){:loading="lazy"}
 
-Agora sobre a máquina $$H$$, construiremos uma nova máquina a qual chamaremos de $$D$$. Então considere:
+Agora sobre a máquina $$H$$, construiremos uma nova máquina a qual chamaremos de $$D$$. 
+
+Então considere:
 
 $$D = $$ "Sobre a entrada $$[M]$$":
-1. Execute $$H$$ sobre $$[M,[M]]$$
-2. Se $$H$$ aceita, *rejeite*; Se $$H$$ rejeita, *aceite*
+
+1. Execute $$H$$ sobre $$[M,[M]]$$.
+2. Se $$H$$ aceita, *rejeite*; Se $$H$$ rejeita, *aceite*.
 
 ![D Turing-decisor]({{site.baseurl}}/images/posts/20230227/D_turing_machine.png){:loading="lazy"}
 
-Trata-se de rocar um programa consigo próprio como entrada, algo que de fato ocorre com frequencia no mundo da programação.
+Trata-se de executar um programa consigo próprio como entrada, algo que de fato ocorre com frequência no mundo da programação.
 
-Por exemplo:
+*Por exemplo*:
 
-**Um compilador é um programa que traduz outros programas. Um compilador para a liguangem C pode também ser escrito em C, portanto rodar esse programa sobre si próprio. Ou ainda podemos levar em consideração a existência de interpretadores em python para para algoritmos escritos em python**
+***Um compilador é um programa que traduz outros programas. Um compilador para a liguangem C pode também ser escrito em C, portanto rodar esse programa sobre si próprio. Ou ainda podemos levar em consideração a existência de interpretadores em python para para algoritmos escritos em python***
 
 
 Então resumindo o que temos até agora:
 
-Temos uma decisor $$H$$ que recebe uma máquina $$M$$ e uma cadeia $$w$$. $$H$$ decide essa linguagem entrando em estado de *aceitação* quando $$M$$ aceita $$w$$, e entra em estado de *rejeição* quando $$M$$ não aceita $$w$$.
+Temos uma decisor $$H$$ que recebe uma máquina $$M$$ e uma cadeia $$w$$. $$H$$ decide essa linguagem entrando em estado de *aceitação* quando $$M$$ aceita $$w$$, e $$H$$ entra em estado de *rejeição* quando $$M$$ não aceita $$w$$.
 
-$$D$$ por sua vez, recebe uma única máquina $$H$$ e entra em estado de *aceitação* quando $$M$$ não aceita a própria representação $$[M]$$, entra em estado de *rejeição* quando  $$M$$ aceita a própria representação $$[M]$$
+Por sua vez, $$D$$ recebe uma única máquina $$H$$, e entra em estado de *aceitação* quando $$M$$ não aceita a própria representação $$[M]$$. Quando $$M$$ aceita a própria representação $$[M]$$, $$D$$ então entra em estado de *rejeição*. Considerando a tabela abaixo:
 
 |                 | **$$[M_{1}]$$** | **$$[M_{2}]$$** | **$$[M_{3}]$$** | **$$[M_{4}]$$** |       ...
 |:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|
@@ -186,17 +202,19 @@ $$D$$ por sua vez, recebe uma única máquina $$H$$ e entra em estado de *aceita
 | **$$[M_{4}]$$** |    $$aceite$$   |    $$aceite$$   |<span style="color:red">$$rejeite$$</span>|<span style="color:red">$$rejeite$$</span>|       ...       |
 |      ...        |       ...       |       ...       |       ...       |       ...       |       ...       | 
 
-Considerando a tabela acima observe que quando passamos a represetação de $$[M_{1}]$$ para a máquina $$M_{1}$$. Já no caso de passarmos a representação $$[M_{2}]$$ para a máquina $$M_{1}$$ ela entra no estado de *rejeição*. Ou seja, ao passarmos para o decisor $$H$$ na maquina $$M_{1}$$ a representação de $$[M_{1}]$$, o decisor entrará em estado de *aceitação* -- $$H([M_{1},[M_{1}]])$$. Isso porque, como vimos na tabela acioma $$M_{1}$$ aceita a representação $$[M_{1}]$$. O mesmo não acontece caso passemos a representação de $$[M_{2}]$$ para $$M_{1}$$ -- $$H([M_{1},[M_{2}]])$$, o que faz com que o decisor $$H$$ entre em estado de *rejeição*.
+ Observe que quando passamos a representação de $$[M_{1}]$$ para a máquina $$M_{1}$$, ela entra em estado de *aceitação*. Já no caso de passarmos a representação $$[M_{2}]$$ para a máquina $$M_{1}$$ ela entra no estado de *rejeição*. Ou seja, ao passarmos para o decisor $$H$$ na maquina $$M_{1}$$ a representação de $$[M_{1}]$$, o decisor entrará em estado de *aceitação* -- $$H([M_{1},[M_{1}]])$$. 
+ 
+ Isso ocorre porque, como vimos na tabela acima, $$M_{1}$$ aceita a representação $$[M_{1}]$$. O mesmo não acontece caso passemos a representação de $$[M_{2}]$$ para $$M_{1}$$ -- $$H([M_{1},[M_{2}]])$$, o que faz com que o decisor $$H$$ entre em estado de *rejeição*.
 
 Podemos utilizar o raciocínio equivalente para o decisor $$D$$. Porém, nesse caso, ao passarmos a representação $$[M_{1}]$$ para $$M_{1}$$ ela é aceita, e por definição, vimos que em $$D$$, caso uma máquina aceite sua própria definição ela entrará em estado de *rejeição* -- $$D([M_{1}])$$. Caso façamos o mesmo procedimento mas desta vez considerando a representação $$[M_{3}]$$, ou seja, $$M_{3}$$ recebendo a sua própria representação $$[M_{3}]$$ -- $$D([M_{3}])$$ -- a mesma não é aceita e assim $$D$$ entra em estado de *aceitação*.
 
-> Mas o que acontece quando rodamos $$D$$ com sua própria representaçao $$[D]$$ ?
+> O que acontece então quando rodamos $$D$$ com sua própria representaçao $$[D]$$ ?
 
-Subistituindo no formalismo temos a seguinte definição:
+Substituindo no formalismo temos a seguinte definição:
 
 ![D Turing-paradox]({{site.baseurl}}/images/posts/20230227/D_Turing-paradox.png){:loading="lazy"}
 
-$$D$$ vai **aceitar** sua própria descrição $$[D]$$ quando **não aceita** sua própria descrição. E vai **rejeitar** sua própria descrição, quando **aceitar** sua própria descrição. Como $$D$$ também é a representação de uma máquina podemos ver isso na tabela abaixo:
+$$D$$ vai **aceitar** sua própria descrição $$[D]$$ quando **não aceita** sua própria descrição. E vai **rejeitar** sua própria descrição, quando **aceitar** sua própria descrição. Como $$D$$ também é a representação de uma máquina podemos representa-la na tabela abaixo:
 
 
 |                 | **$$[M_{1}]$$** | **$$[M_{2}]$$** | **$$[M_{3}]$$** | **$$[M_{4}]$$** |       ...       |       **$$[D]$$**
@@ -209,7 +227,7 @@ $$D$$ vai **aceitar** sua própria descrição $$[D]$$ quando **não aceita** su
 |      ...        |       ...       |       ...       |       ...       |       ...       |       ...       |      ???
 
 
-$$D$$, por assim dizer, acaba fazendo exatamenteo contrário do que fazem as máquinas $$M_{n}$$ ao receber suas próprias representações. Ou seja, independentemente do que $$D$$ faz, ela é forçada a fazer o oposto, o que obviamente é um **paradoxo**. Consequentemente nem $$D$$ nem $$H$$ podem existir, e assim dizemos que não existe uma máquina de Turing que decida a linguangem $$A_{MT}$$. Logo, podemos concluir que:
+Observe que $$D$$ acaba fazendo exatamente o contrário do que fazem as máquinas $$M_{1}$$, $$M_{2}$$ e $$M_{3}$$ ao receber suas próprias representações. Ou seja, independentemente do que $$D$$ faz, ela é forçada a fazer exatamente o oposto, o que obviamente é um **paradoxo**. Consequentemente nem $$D$$ nem $$H$$ podem existir, e assim dizemos que não existe uma máquina de Turing que decida a linguangem $$A_{MT}$$. Logo, podemos concluir que:
 
 \begin{align}
   \text{Teorema}: \ A_{MT} \ \text{é indecidível}.
@@ -219,12 +237,14 @@ $$D$$, por assim dizer, acaba fazendo exatamenteo contrário do que fazem as má
 
 Alan Turing provou em 1936 que um algoritmo genérico para resolver o problema da parada para todos pares programa-entrada possíveis não pode existir. Assim, dizemos que o problema da parada é **indecidível** nas Máquinas de Turing.
 
-A importância histórica do problema da parada reside no fato de que foi um dos primeiros problemas a ser provado indecidível. (A prova de Turing foi lançada em maio de 1936, enquanto a prova de **Alonzo Church** da indecidibilidade de um problema no cálculo lambda já havia sido lançada em abril de 1936). Subsequentemente, muitos outros problemas foram descritos; o método típico de provar que um problema é indecidível é a técnica de redução. Para isso, o cientista da computação mostra que se uma solução para o novo problema foi encontrada, ela poderia ser usada para decidir um problema indecidível (transformando instâncias do problema indecidível em instâncias do novo problema). 
+A importância histórica do problema da parada reside no fato de que foi um dos primeiros problemas a ser provado indecidível. (A prova de Turing foi lançada em maio de 1936, enquanto a prova de **Alonzo Church** da indecidibilidade de um problema no cálculo lambda já havia sido lançada em abril de 1936). 
+
+<!-- Subsequentemente, muitos outros problemas foram descritos; o método típico de provar que um problema é indecidível é a técnica de redução. Para isso, o cientista da computação mostra que se uma solução para o novo problema foi encontrada, ela poderia ser usada para decidir um problema indecidível (transformando instâncias do problema indecidível em instâncias do novo problema).  -->
 
 <!-- Como sabemos de antemão que nenhum método pode decidir o problema antigo, então nenhum método pode decidir o problema novo também.
 Uma consequência da indecidibilidade do problema da parada é que **NÃO** pode existir um algoritmo genérico que decida se um dado enunciado sobre os números naturais é verdadeiro ou falso. A razão para isso é que a proposição que afirma que um certo algoritmo vai parar dado uma certa entrada pode ser convertido em um enunciado equivalente sobre os números naturais. Se nós tivéssemos um algoritmo que pudesse resolver todo enunciado sobre os números naturais, ele certamente poderia resolver tal enunciado; mas isso determinaria se o problema original para o que é impossível, já que o problema da parada é indecidível. -->
 
-Outra consequência da indecidibilidade do problema da parada é o [**Teorema de Rice**](https://pt.wikipedia.org/wiki/Teorema_de_Rice) que enuncia que **a verdade de qualquer enunciado não-trivial sobre a função definida por um algoritmo é indecidível**. Então, por exemplo, o problema da parada "esse algoritmo parará para a entrada 0" já é indecidível. Perceba que esse teorema considera a função definida pelo algoritmo e não o algoritmo propriamente dito. É, por exemplo, possível decidir se um algoritmo vai parar dentro de 100 passos, mas isso não é um enunciado sobre a função, definida pelo algoritmo.
+<!-- Outra consequência da indecidibilidade do problema da parada é o [**Teorema de Rice**](https://pt.wikipedia.org/wiki/Teorema_de_Rice) que enuncia que ***a verdade de qualquer enunciado não-trivial sobre a função definida por um algoritmo é indecidível***. Então, por exemplo, o problema da parada "esse algoritmo parará para a entrada 0" já é indecidível. Perceba que esse teorema considera a função definida pelo algoritmo e não o algoritmo propriamente dito. É, por exemplo, possível decidir se um algoritmo vai parar dentro de 100 passos, mas isso não é um enunciado sobre a função, definida pelo algoritmo. -->
 
 <!-- [Gregory Chaitin](https://pt.wikipedia.org/wiki/Gregory_Chaitin) definiu uma probabilidade de parada, representada pelo símbolo Ω, um tipo de número real que informalmente representa a probabilidade que um programa produzido aleatoriamente pare. Esses números têm o mesmo grau de insolubilidade da Teoria da Computação e da Complexidade Computacional que o problema da parada. É um número normal e um número transcendente que pode ser definido, mas não completamente computado. Isso significa que pode ser provado que não existe algoritmo que produza dígitos de Ω, embora seja possível calcular seus primeiros dígitos nos casos simples. -->
 
@@ -234,7 +254,7 @@ Devido ao fato de que a resposta negativa ao problema da parada demonstra que ex
 
 Ainda não se pode afirmar se é possível ou não existir um processo físico determinístico que a longo prazo possa contornar uma simulação por máquina de Turing, desta forma, também é relevante saber se este processo hipotético pode ter utilidade na forma de uma máquina calculadora (um hipercomputador) que poderia resolver o problema da parada para uma máquina de Turing, assim como outras coisas. Também se pergunta se qualquer um destes processos físicos desconhecidos estão envolvidos no funcionamento do cérebro humano e se humanos podem resolver o problema da parada [[3]](https://pt.wikipedia.org/wiki/Problema_da_parada#cite_note-1).
 
-A introdução de Turing do modelo de máquina que posteriormente ficou conhecido como Máquinas de Turing, introduzido no artigo, provou-se um modelo muito conveniente para a Teoria da Computação.
+<!-- A introdução de Turing do modelo de máquina que posteriormente ficou conhecido como Máquinas de Turing, introduzido no artigo, provou-se um modelo muito conveniente para a Teoria da Computação. -->
 
 
 ## O Método da Diagonalização
@@ -259,7 +279,7 @@ Assim, uma correspondência é simpelemente uma maneira de emparelhar os element
 
 Podemos entender essa definição através do seguinte exemplo:
 
-Seja  $$N$$ o conjunto dos números naturais $${1,2,3,...}$$ e suponha que $$\varepsilon$$ seja o conjunto dos números naturais pares $${2,4,6,...}$$. Usandoa definição de Cntor de tamanho podemos ver que $$N$$ e $$\varepsilon$$ têm o mesmo tamanho. A correspondência $$f$$ mapeando $$N$$ para $$\varepsilon$$ é simplesmente $$f(n)=2n$$. Podemos visualizar $$f$$ mais facilmente com a ajuda de uma tabela:
+Seja  $$N$$ o conjunto dos números naturais $${1,2,3,...}$$ e suponha que $$\varepsilon$$ seja o conjunto dos números naturais pares $${2,4,6,...}$$ Usando a definição de Cantor de tamanho podemos ver que $$N$$ e $$\varepsilon$$ têm o mesmo tamanho. A correspondência $$f$$ mapeando $$N$$ para $$\varepsilon$$ é simplesmente $$f(n)=2n$$. Podemos visualizar $$f$$ mais facilmente com a ajuda de uma tabela:
 
 
 | **$$n$$** | **$$f(n)$$** 
@@ -337,17 +357,14 @@ Para uma definição precisa do que significa resolver um problema usando uma de
 
 
 
-
-
-
-
-
 ### Referências
 
-* [1] [Introdução á teoria da computação ](https://www.amazon.com.br/Introdu%C3%A7%C3%A3o-teoria-computa%C3%A7%C3%A3o-Michael-Sipser/dp/8522104999)
+* [1] [Introdução á teoria da computação.](https://www.amazon.com.br/Introdu%C3%A7%C3%A3o-teoria-computa%C3%A7%C3%A3o-Michael-Sipser/dp/8522104999)
 
-* [2] [Computabilidade: Um pouco de História um pouco de Matemática](https://www.bcc.unifal-mg.edu.br/~humberto/disciplinas/2011_1_paa/aulas/complementar_aula01.pdf)
+* [2] [Computabilidade: Um pouco de História um pouco de Matemática.](https://www.bcc.unifal-mg.edu.br/~humberto/disciplinas/2011_1_paa/aulas/complementar_aula01.pdf)
 
 * [3] [Problema da parada](https://pt.wikipedia.org/wiki/Problema_da_parada#cite_note-1)
 
-* [4] [Computabilidade, funções computáveis, lógica e os fundamentos da matemática ](https://www.amazon.com.br/Computabilidade-fun%C3%A7%C3%B5es-comput%C3%A1veis-fundamentos-matem%C3%A1tica/dp/8571398976)
+* [4] [Computabilidade, funções computáveis, lógica e os fundamentos da matemática.](https://www.amazon.com.br/Computabilidade-fun%C3%A7%C3%B5es-comput%C3%A1veis-fundamentos-matem%C3%A1tica/dp/8571398976)
+
+* [5] [On Computable Numbers, with an Application to the Entscheidungsproblem.](https://londmathsoc.onlinelibrary.wiley.com/doi/abs/10.1112/plms/s2-42.1.230)
