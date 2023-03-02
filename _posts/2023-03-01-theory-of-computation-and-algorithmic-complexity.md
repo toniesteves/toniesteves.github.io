@@ -2,9 +2,9 @@
 layout: post
 title: Teoria da Computação e Decidibilidade
 description: Turing foi altamente influente no desenvolvimento da moderna ciência da computação teórica, proporcionando uma formalização dos conceitos de algoritmo e computação com a máquina de Turing.
-date: 2023-02-23 15:01:35 +0300
+date: 2023-03-01 15:01:35 +0300
 author: toni
-image: '/images/posts/20230227/cover.jpg'
+image: '/images/posts/20230301/cover.jpg'
 image_caption: 'Photo by [Dan Cristian Pădureț](https://unsplash.com/photos/xJLN32FO7AY) on [Unsplash](https://unsplash.com/)'
 tags: [complexity, theory of computation, optimization]
 featured: true
@@ -68,7 +68,7 @@ O primeiro teorema da incompletude afirma que nenhum sistema consistente de axio
 
 ## Máquinas de Turing 
 
-A Máquina de Turing é um **arcabouço teórico** conhecido como máquina universal, concebido pelo matemático britânico Alan Turing (1912-1954). Num sentido preciso, é um **modelo abstrato de um computador**, que se restringe apenas aos aspectos lógicos do seu funcionamento (memória, estados e transições), e não a sua implementação física. Turing provou que para qualquer sistema formal existe uma máquina de Turing que pode ser programada para imitá‐lo. Era este sistema formal genérico, com a habilidade de imitar qualquer outro sistema formal, o que Turing procurava essencialmente. Tais sistemas chamam‐se Máquinas de Turing Universais. O lógico matemático Alonzo Church chegou a definir: *"Qualquer processo aceito por nós homens como um algoritmo é precisamente o que uma máquina de Turing pode fazer"*.
+A Máquina de Turing é um **arcabouço teórico** concebido pelo matemático britânico Alan Turing (1912-1954).Em um sentido preciso, é um **modelo abstrato de um computador**, que se restringe apenas aos aspectos lógicos do seu funcionamento (memória, estados e transições), e não a sua implementação física. Turing provou que para qualquer sistema formal existe uma máquina de Turing que pode ser programada para imitá‐lo. Era este sistema formal genérico, com a habilidade de imitar qualquer outro sistema formal, o que Turing procurava essencialmente. Tais sistemas chamam‐se Máquinas de Turing Universais. O lógico matemático Alonzo Church chegou a definir: *"Qualquer processo aceito por nós homens como um algoritmo é precisamente o que uma máquina de Turing pode fazer"*.
 
 Sendo assim, uma máquina de Turing consiste em:
 
@@ -297,7 +297,7 @@ Máquinas de Turing poderiam de fato ser equivalentes a uma máquina que tenha u
 Uma perspectiva em que máquinas de Turing são consideradas abstrações mais elementares para programas é o fato que muitos programas reais, tais como sistemas operacionais e processadores de texto, são escritos para receber entradas irrestritas através da execução, e, portanto, não param. Máquinas de Turing não modelam bem tal "computação contínua" (mas ainda podem modelar porções dela, tais como procedimentos individuais).
 
 
-Outra limitação de máquinas de Turing é que elas não modelam a organização estrita de um problema específico. Por exemplo, computadores modernos são, na verdade, instâncias de uma forma mais específica de máquina de computação, conhecido como máquina de acesso aleatório. A principal diferença entre esta máquina e a máquina de Turing é que esta utiliza uma fita infinita, enquanto a máquina de acesso aleatório utiliza uma sequência indexada numericamente (tipicamente um campo inteiro). O resultado desta distinção é que há otimizações computacionais que podem ser executadas baseadas nos índices em memória, o que não é possível numa máquina de Turing geral. Assim, quando máquinas de Turing são utilizadas como base para tempo de execuções restritos, um "falso limite inferior" pode ser provado em determinados tempos de execução de algoritmos (graças à premissa falsa de simplificação da máquina de Turing). Um exemplo disto é uma "ordenação por contagem", o que aparentemente viola o limite inferior (n log n) em algoritmos de ordenação.
+Outra limitação de máquinas de Turing é que elas não modelam a organização estrita de um problema específico. Por exemplo, computadores modernos são, na verdade, instâncias de uma forma mais específica de máquina de computação, conhecido como máquina de acesso aleatório. A principal diferença entre esta máquina e a máquina de Turing é que esta utiliza uma fita infinita, enquanto a máquina de acesso aleatório utiliza uma sequência indexada numericamente (tipicamente um campo inteiro). O resultado desta distinção é que há otimizações computacionais que podem ser executadas baseadas nos índices em memória, o que não é possível em uma máquina de Turing geral. Assim, quando máquinas de Turing são utilizadas como base para tempo de execuções restritos, um "falso limite inferior" pode ser provado em determinados tempos de execução de algoritmos (graças à premissa falsa de simplificação da máquina de Turing). Um exemplo disto é uma "ordenação por contagem", o que aparentemente viola o limite inferior (n log n) em algoritmos de ordenação.
 
 
 ## Máquinas de Turing determinísticas e não-determinísticas
@@ -334,12 +334,6 @@ Na análise de algoritmos, na maioria das vezes usa-se o estudo da [complexidade
 ## Medidas de complexidade e Máquinas de Turing
 
 Para uma definição precisa do que significa resolver um problema usando uma determinada quantidade de tempo e espaço, é utilizado um modelo computacional como a máquina de Turing determinística . O tempo requerido por uma máquina de Turing determinística $$M$$ na entrada $$x$$ é o número total de transições de estado, ou etapas, que a máquina faz antes de parar e emitir a resposta ("sim" ou "não"). Diz-se que uma máquina de Turing $$M$$ opera dentro do tempo $$f(n)$$ se o tempo requerido por $$M$$ em cada entrada de comprimento n for no máximo $$f(n)$$. Um problema de decisão A pode ser resolvido a tempo $$f(n)$$ se existe uma máquina de Turing operando no tempo $$f(n)$$ que resolve o problema. Como a teoria da complexidade está interessada em classificar problemas com base em sua dificuldade, define-se conjuntos de problemas com base em alguns critérios. Por exemplo, o conjunto de problemas solucionáveis ​​no tempo $$f(n)$$ em uma máquina de Turing determinística é então denotado por $$DTIME (f(n))$$.
-
-
-
-
-
-
 
 
 ### Referências
