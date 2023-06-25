@@ -155,7 +155,7 @@ Por contradição, podemos supor que $$A_{MT}$$ é Turing-decidível.
 
 Seja $$H$$ um decisor para $$A_{MT}$$, temos:
 
-![H Turing-decisor]({{site.baseurl}}/images/posts/20230227/H_turing_machine.png){:loading="lazy"}
+![H Turing-decisor]({{site.baseurl}}/images/posts/20230301/H_turing_machine.png){:loading="lazy"}
 
 Agora sobre a máquina $$H$$, construiremos uma nova máquina a qual chamaremos de $$D$$. Então considere:
 
@@ -163,9 +163,9 @@ $$D = $$ "Sobre a entrada $$[M]$$":
 1. Execute $$H$$ sobre $$[M,[M]]$$
 2. Se $$H$$ aceita, *rejeite*; Se $$H$$ rejeita, *aceite*
 
-![D Turing-decisor]({{site.baseurl}}/images/posts/20230227/D_turing_machine.png){:loading="lazy"}
+![D Turing-decisor]({{site.baseurl}}/images/posts/20230301/D_turing_machine.png){:loading="lazy"}
 
-Trata-se de rocar um programa consigo próprio como entrada, algo que de fato ocorre com frequencia no mundo da programação.
+Trata-se de executar um programa utilizando o  próprio programa chamador como entrada, algo que de fato ocorre com frequencia no mundo da programação.
 
 Por exemplo:
 
@@ -194,7 +194,7 @@ Podemos utilizar o raciocínio equivalente para o decisor $$D$$. Porém, nesse c
 
 Subistituindo no formalismo temos a seguinte definição:
 
-![D Turing-paradox]({{site.baseurl}}/images/posts/20230227/D_Turing-paradox.png){:loading="lazy"}
+![D Turing-paradox]({{site.baseurl}}/images/posts/20230301/D_Turing-paradox.png){:loading="lazy"}
 
 $$D$$ vai **aceitar** sua própria descrição $$[D]$$ quando **não aceita** sua própria descrição. E vai **rejeitar** sua própria descrição, quando **aceitar** sua própria descrição. Como $$D$$ também é a representação de uma máquina podemos ver isso na tabela abaixo:
 
