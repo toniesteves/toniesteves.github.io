@@ -68,12 +68,11 @@ tag:
   enable: true
   tag__title: Recommended
   tag__name: optimization
-
 #-------------------------------
 # Newsletter Settings
 mailchimp:
   enable: true
-  mailchimp__identifier: c6cb96b934 # Add your MailChimp form identifier. For example - frnla.us6.list-manage.com/subscribe/post?u=6314d69a3f315af7ce3fb00a0&amp;id=3038727cc3
+  mailchimp__identifier: toniesteves.us13.list-manage.com/subscribe?u=c4d60a0e302daf78f6eeff54b&id=f6526c58bf # Add your MailChimp form identifier. For example - frnla.us6.list-manage.com/subscribe/post?u=6314d69a3f315af7ce3fb00a0&amp;id=3038727cc3
   mailchimp__title: Get latest posts
   mailchimp__description: Subscribe to my newsletter to get an email whenever I publish new posts.
   mailchimp__input__text: Your Email Address...
