@@ -1,13 +1,13 @@
 ---
 layout: page
 title: About
-description: Hey! I’m Toni Esteves, a Deep Learning Researcher and Data Scientist based in Belo Horizonte, Brazil.
+description: Hey! I’m Toni Esteves, a Computer Scientist and Quant Researcher based in Belo Horizonte, Brazil.
 permalink: /about/
 image: '/images/toni.jpg'
 # image_caption: 'Photo by [Roman Shilin](https://unsplash.com/photos/Eg8_37ws7F0) on [Unsplash](https://unsplash.com/)'
 ---
 
-*Hi! I'm Working in the tech industry since 2010 and I’ve been a developer for 10 years, most of time I worked as software engineer but in the last few years I've enjoying been woking as Data Scientist*
+*Hi! I'm Working in the tech industry since 2010 and I’ve been a Computer Scientist, most of time I worked as software engineer but in the last few years I've enjoying been woking as Quantitative Researcher*
 
 *I'm Ph.D student in mathematical optimization and I've got a master's degree in Deep Learning, Graduate Studies in Database Management and Agile Software Development with a Bachelor's Degree in Information Systems. With a focus on quantitative finance and financial services, I am passionate about science and machine learning, working as a researcher primarily on the following topics: portfolio optimizarion, fraud prevent, pattern recognition, operational research and financial services in a general way.*
 
