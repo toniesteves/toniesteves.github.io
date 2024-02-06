@@ -127,7 +127,7 @@ contact:
 # Comment Section (Disqus)
 disqus:
   enable: true
-  disqus__identifier: anvod-studio-test # Add your shortname for Disqus Comment. For example anvod-studio-test
+  disqus__identifier: https-toniesteves-com # Add your shortname for Disqus Comment. For example anvod-studio-test
 
 
 #-------------------------------
