@@ -262,7 +262,7 @@ The optimization process typically involves several key steps:
 3. Assessing the model through ex-post analysis and providing possible feedback to one of the previous phases.
 4. Implementing the portfolio.
 
-![Portfolio Optmization Process]({{site.baseurl}}/images/posts/20240219/portfolio-optimization-process.png){:loading="lazy"}
+![Portfolio Optmization Process]({{site.baseurl}}/images/posts/20240221/portfolio-optimization-process.png){:loading="lazy"}
 
 Measuring the past performance of a portfolio against a benchmark is relatively straightforward using its rate of return, including potential dividends. However, ensuring the future performance of a portfolio is a more challenging task. The expected return of a portfolio over a certain period should not be a single measure for an asset or portfolio. The rate of return of an asset over a certain period can be modeled as a random variable, and consequently, the rate of return of a specific portfolio is also a random variable.
 
