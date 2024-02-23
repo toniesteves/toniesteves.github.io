@@ -7,19 +7,36 @@ image: '/images/toni.jpg'
 # image_caption: 'Photo by [Roman Shilin](https://unsplash.com/photos/Eg8_37ws7F0) on [Unsplash](https://unsplash.com/)'
 ---
 
-*Hi! I'm Working in the tech industry since 2010 and I’ve been a Computer Scientist, most of time I worked as software engineer but in the last few years I've enjoying been woking as Quantitative Researcher*
+<!-- *Hi! I have been working in the tech industry since 2010 and I’ve been a Computer Scientist, most of the time I worked as a software engineer but in the last few years I’ve enjoyed working as a Quantitative Researcher*
 
-*I'm Ph.D student in mathematical optimization and I've got a master's degree in Deep Learning, Graduate Studies in Database Management and Agile Software Development with a Bachelor's Degree in Information Systems. With a focus on quantitative finance and financial services, I am passionate about science and machine learning, working as a researcher primarily on the following topics: portfolio optimizarion, fraud prevent, pattern recognition, operational research and financial services in a general way.*
+*I’m a Ph.D. student in mathematical optimization and I’ve got a master’s degree in Deep Learning, Graduate Studies in Database Management, and Agile Software Development with a Bachelor’s Degree in Information Systems. With a focus on quantitative finance and financial services, I am passionate about science and machine learning, working as a researcher primarily on the following topics: portfolio optimization, fraud prevention, pattern recognition, operational research, and financial services in a general way.*
 
-*I have solved problems in fields such as Clustering, Anomaly Detection, and problems related financial area, solving problems like fraud detection, forecasts and all kind of solutions related to finance, building valuable ML products since their conception, through development and productization.*
+*I have solved problems in fields such as Clustering, Anomaly Detection, problems related to financial areas, problems like fraud detection, forecasts, and all kinds of solutions related to finance, building valuable ML products since their conception, through development and productization.*
 
-*I really consider myself to be a team-player. I like to work with other people and I find that it’s much easier to achieve something when everyone works together and communicates well.*
+*I really consider myself to be a team player. I like to work with other people and I find that it’s much easier to achieve something when everyone works together and communicates well.*
 
-*I'm really ambitious. I have always set myself goals and it motivates me to work hard. I have achieved my goals so far with my training, education and work experience and now I am looking for ways to improve myself and grow.*
+*I’m really ambitious. I have always set myself goals and it motivates me to work hard. I have achieved my goals so far with my training, education, and work experience and now I am looking for ways to improve myself and grow.*
 
-*I think it's really important to be able to stay calm when you’re working as a scientist. It can get really stressful, but one of my greatest qualities is that I can keep my cool and I don’t allow the pressure to get to me, which helps me achieve all my goals and remain focused.*
+*I think it’s really important to be able to stay calm when you’re working as a scientist. It can get really stressful, but one of my greatest qualities is that I can keep my cool and not allow the pressure to get to me, which helps me achieve all my goals and remain focused.*
 
-*Nice to meet you!*
+*Nice to meet you!* -->
+
+
+*Greetings,*
+
+*I possess extensive experience within the technology sector dating back to 2010, predominantly serving as a Computer Scientist. While my background predominantly revolves around software engineering, I have recently found fulfilment as a Quantitative Researcher.*
+
+*Currently pursuing a Ph.D. in mathematical optimization, I hold a master’s degree in Deep Learning, with prior postgraduate studies encompassing Database Management and Agile Software Development. My academic journey culminated in a Bachelor’s Degree in Information Systems. My professional focus lies within quantitative finance and financial services, with a fervent interest in science and machine learning. Within my research capacity, I concentrate on portfolio optimization, fraud prevention, pattern recognition, operational research, and broader financial services domains.*
+
+*My expertise spans diverse problem domains including Clustering, Anomaly Detection, and various financial intricacies such as fraud detection and forecasting. Throughout my career, I have consistently contributed to the development and productization of valuable machine learning solutions from inception to deployment.*
+
+*Collaboration is integral to my approach, as I thrive in team environments where effective communication fosters collective achievement.
+*
+*Driven by ambition, I continuously set and achieve goals, leveraging my educational background and professional experience. I am now seeking avenues for further personal and professional growth.*
+
+*Maintaining composure amid the rigors of scientific inquiry is paramount. My ability to remain calm under pressure has been instrumental in attaining my objectives and sustaining focus.*
+
+*It's a pleasure to make your acquaintance.*
 
 <!-- Leverage agile frameworks to provide a robust Hugo Sousa synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
 
