@@ -6,7 +6,7 @@ date: 2024-02-21 03:01:35 +0300
 author: toni
 image: '/images/posts/20240221/cover.jpg'
 image_caption: 'Photo by [Vlad Hilitanu](https://unsplash.com/photos/xJLN32FO7AY) on [Unsplash](https://unsplash.com/)'
-tags: [quntitative, statistics, math, finance]
+tags: [quantitative, statistics, math, finance]
 featured: true
 ---
 

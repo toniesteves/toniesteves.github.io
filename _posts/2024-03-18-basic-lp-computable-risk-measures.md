@@ -6,7 +6,7 @@ date: 2024-03-18 01:01:35 +0300
 author: toni
 image: '/images/posts/20240318/cover.jpg'
 image_caption: 'Photo by [m.](https://unsplash.com/pt-br/@m_____me) on [Unsplash](https://unsplash.com/)'
-tags: [quntitative, algebra, math, finance]
+tags: [quantitative, algebra, math, finance]
 featured: true
 ---
 
