@@ -16,5 +16,3 @@ gem "webrick"
 gem 'rake-jekyll'
 gem 'colorator', '~> 1.1'
 
-gem 'debug', '1.7.0', platforms: %i[mri mingw x64_mingw]
-
