@@ -22,7 +22,24 @@ image: '/images/toni.jpg'
 *Nice to meet you!* -->
 
 
-*Greetings,*
+*Hi,*
+
+*Since childhood, I’ve always been fascinated by puzzles—not the colorful, jigsaw kind, but the ones that challenge logic and demand creativity to solve. Today, as a Ph.D. candidate in Computer Science, I’ve turned that passion into a professional journey dedicated to unraveling complex problems through data—always with a clear purpose: to meaningfully impact people and businesses.*
+
+*My path began in academia, where I immersed myself in Deep Learning and pattern recognition during my master's degree. It was there that I truly understood the power of data—not just for prediction, but for transforming realities. At the Computer Vision Lab, I developed pipelines to extract meaning from images, but what motivated me most was seeing how detected anomalies could, for example, improve medical diagnoses or optimize industrial processes.*
+
+<!-- *I carried this vision of impactful data into the corporate world through data science. Leading a team and building an anti-fraud product wasn’t just about precise algorithms—it was about protecting entrepreneurs and users who relied on the platform while also driving business impact beyond model performance. The result? An 86% increase in resolved fraud cases. Behind those numbers are real people who could run their businesses with greater security.* -->
+
+*Today, my work in mathematical optimization goes beyond formulas. It’s about helping institutions make the best decisions that balance risk, cost, and return—which, at the end of the day, means safeguarding the assets of families and investors. When I model a portfolio, I think about how every optimized percentage can translate into educational opportunities or someone’s retirement.*
+
+*My technical expertise—Python, C/C++, Java, algorithmic complexity, or solvers like Gurobi—are just tools. What defines me is the ability to translate real-world problems into mathematical language and then into clear solutions for stakeholders. Whether explaining a complex model to a CEO or collaborating with cross-functional teams, I believe data science only makes sense when communicated with clarity and empathy.*
+
+*My mission is to use optimization and machine learning not as ends in themselves, but as tools to build fairer, more efficient, and transparent systems—whether in academia or industry.*
+
+*Because in the end, data is about people and institutions. And it’s for them that I solve problems.*
+
+
+<!-- *Greetings,*
 
 *I possess extensive experience within the technology sector dating back to 2010, predominantly serving as a Computer Scientist. While my background predominantly revolves around software engineering, I have recently found fulfilment as a Quantitative Researcher.*
 
@@ -36,7 +53,7 @@ image: '/images/toni.jpg'
 
 *Maintaining composure amid the rigors of scientific inquiry is paramount. My ability to remain calm under pressure has been instrumental in attaining my objectives and sustaining focus.*
 
-*It's a pleasure to make your acquaintance.*
+*It's a pleasure to make your acquaintance.* -->
 
 <!-- Leverage agile frameworks to provide a robust Hugo Sousa synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
 
