@@ -25,6 +25,11 @@ This post is designed to:
 
 &nbsp;&nbsp;&nbsp;&nbsp;While machine learning excels at predictions, many business problems demand **actionable decisions**, where optimization shines. Knowing when (and how) to merge these disciplines can transform good solutions into game-changing ones. Let’s explore how to bridge the gap between **predictive power** and **optimal decision-making**.
 
+Combining machine learning and mathematical optimization offers enormous potential, but it requires caution. While ML is effective at capturing complex patterns from data, it rarely answers the central decision-making question: what to do with those predictions? That's where optimization comes in, turning forecasts into actionable decisions within real-world operational constraints. On the other hand, optimization models rely on well-defined parameters and structures,  often difficult to obtain and model in dynamic environments. ML can address this limitation by providing estimates, distributions, or even entire functions as inputs to prescriptive models.
+
+However, integrating these approaches is not trivial. Inaccurate predictive models can compromise the entire decision chain. Optimized solutions based on biased forecasts risk being unfeasible in practice. That's why the quality of integration between predictions and decisions matters more than the standalone performance of each model.
+Truly leveraging this combination requires more than just applying tools. It demands a deep understanding of the problem, clarity about each method's role, and discipline to jointly validate results. When well-executed, this integration turns data into a sustainable competitive advantage.
+
 ### Understanding the Strengths and Limitations of Each Approach
 
 &nbsp;&nbsp;&nbsp;&nbsp;Machine learning and mathematical optimization each excel in different scenarios, but they also come with inherent constraints. ML models can struggle with concept drift when data distributions shift significantly, requiring costly retraining. Optimization models demand precise problem formulation and struggle with unstructured inputs that ML handles effortlessly. Additionally, large-scale optimization problems often require expensive commercial solvers.
